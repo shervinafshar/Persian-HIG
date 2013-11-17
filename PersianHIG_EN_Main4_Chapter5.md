@@ -1,102 +1,343 @@
 \
 \
 
-Chapter 1The Visual Elements in the GUI {.western dir="LTR"}
----------------------------------------
+Chapter 1Summary of User Interface Widgets {.western dir="LTR"}
+------------------------------------------
 
-This chapter discusses the visual elements in the GUI and guidelines concerning them for a Persian GUI application. The visual elements include all the images, icons, symbols, text, lines and boxes and the layout and composition of these elements to make the visual appearance of the GUI.
+### 1.1.Introduction {.western dir="LTR"}
 
-Printed output plays an important role in many software applications and many visual elements in the GUI are modeled after printed page, some parts of the GUI deal with the printed page or visualize it. For this reason, we will first discuss the paper documents and their specifics in Iran/Persian locale.
+If you have jumped here straight from the table of the contents to get to the actual meat of this document, you are in the wrong place. The key information provided in this document is located in the chapters 2 through 4. This chapter is a small reference catalog of the key user interface widgets and their behavior in Persian/Iran locale. To understand this chapter, you should first read the previous chapters.
 
-\
-\
+We have listed the main GUI widgets common in GUI toolkits without distinguishing their implementation in different GUI toolkits such as KDE and GNOME. Only notable differences among the implementation are mentioned.
 
-### 1.1.Paper Documents {.western dir="LTR"}
-
-Printed output is varied. It could be a single sheet of paper, a continuous roll of paper, thick double sided book with hundreds of pages, a large multi-sheet CAD drawing or a giant color poster. In this discussion we will focus on sheet by sheet print of normal size, whose usage is the most common.
-
-Multi-page documents have different types: It could be unbound sheet-by-sheet document or a bound booklet. They may be single sided or double sided. In the case of a booklet, it could be bound from the side or from the top.
-
-On the other hand the document may be Persian, Latin or bi-lingual Persian/Latin. For example, an international contract could have the Persian and English translations side by side either on adjacent columns or opposing pages. A bi-lingual journal may have a Persian half and a Latin half.
-
-If a printed document is intended to be bound from the side, the proper side for binding depends on the direction of the primary language of the document. This is called the document direction. In a Persian (RTL) document, the binding is on the right side of the booklet. In a Latin (LTR) document, the binding is on the left side of the booklet. When you open a double-sided Persian booklet (printed on both sides on the paper) the right page has an even number and the left page has an odd number. This means that in the Persian book, the first page is the left page. In a Latin book the right page has an odd number and the left page has an even number. This means that in the Latin book, the first page is the right page.
-
-If the page contains multiple columns, Persian columns are placed from right to left, while Latin columns from left to right. Considering the above points the properties of a bi-lingual document also becomes apparent. If a bi-lingual document has two separate Latin and Persian section, each will start at one side of booklet and continue towards the middle, just as if we have pasted the back cover of two booklets (one Persian and the other Latin) to each other. In this case, the page numbers start at one on both sides and grow toward the middle.
-
-If we need to place Persian and Latin sections side by side, then there are two solutions. First solution is using two column Pages. The left side column contains Latin text and the right side column contains Persian text. The other method would be putting Persian and Latin in two facing pages. The left side page would contain Latin and right side page would contain Persian. In both of these cases we need to first assume a direction for the entire booklet and number and arrange the pages accordingly. So, we either consider the document Latin and left bind it or consider Persian and right bind it.
-
-A software that wants to properly support working with a mix of Persian and Latin documents (including bi-lingual documents) needs specific functionality to address the requirements of Persian, Latin and Persian/Latin documents. To support both Persian and Latin, the software needs to properly support both right and left binding of the document. It means that it should be able to both accept the first page as being the left page and as the right page. Beyond the binding it also should support both left-to-right and right-to-left column arrangement. There are currently a few applications that provide this support. The support of bi-lingual software of the side-by-side type, some extra functionality is used which is not fully supported in any of the existing documents. The required functionality is first the ability to work with two independent text streams. This capability exists in normal page layout software. The other is linking the two streams so that the equivalent sections and paragraphs stay in front of each other by adjusting the line and paragraph spacing. This second capability is not provided by any well known software.
-
-In the last part of this section we will look at the various dimensions and metrics of the page that are used in Persian/Iran locale:
-
-The first point to consider is the starting point (zero point) of the measurement ruler. In a normal document where the key factor is the text and the text consists of a single column, the usual place for the zero point of the horizontal ruler is the natural starting point of the text. This is also called a column ruler, since it measures the width of column. When the page layout is the key factor and there are multiple columns, the zero point is usually placed at the upper corner of the page. If there are facing pages, the zero point will be on the binding side of each page. If the page is single sided then the zero point usually is at the side of the natural starting point of writing. This type of ruler is also called the page ruler. For the proper support of bi-directional text, it is recommended that both types of rulers be supported.
-
-The important measurements in a Persian document are paper dimensions, column width, column spacing, margins at four sides of paper, first line indent or out-dent of the paragraph, and paragraph indents within the column for quoted paragraphs. These dimensions are shown in the figure below:
-
-![](PersianHIG-EN-Main44_html_487d4b2d.gif)
-
-There is one point that needs to be considered when naming the above dimension: As you can see left and right are never mentioned and the dimensions are expressed compare relative to natural text starting point as inner and outer margins and near and far indents. Depending on binding side and document direction, each of the inner/near or outer/far dimensions may be located at left or right.
-
-1.  **To specify horizontal dimensions and measurements of page, use inner and outer (relative to binding edge) or near and far (relative to the natural starting point based on writing direction) instead of using left and right.**
-
-2.  **Internationalized software that deals with printed output should be able to handle booklet binding from either top, left or right sides. They should be able to handle both cases of the right page being the first page and the left page being the first page.**
-
-3.  **Internationalized software that support multi-column text should support both left-to-right and right-to-left column order.**
-
-****
-
-There is another issue when we have paragraphs of different directions in the same column of text. The issue is related to deciding the zero point of the column ruler. As we mentioned, the zero point depends on the direction of the text in the column. When direction of the text changes, the ruler zero point will flip to the opposite edge of the column. This may not be desirable for adjusting the relative position of the RTL vs. LTR paragraphs of text. For this reason, it is recommended that a page ruler is also used whose direction remains the same as paragraphs change direction. Note that the zero point of the page ruler depends on binding and document direction which are global.
-
-The following figure shows an example of the column and page rulers in a right-to-left document when the paragraph containing the cursor is also right-to-left.
-
-![](PersianHIG-EN-Main44_html_m637f3444.png)
-
-The following figure shows an example of the column and page rulers in a right-to-left document when the paragraph containing the cursor is left-to-right.
-
-![](PersianHIG-EN-Main44_html_799d9f99.png)
+Specialized and composite widgets are not presented individually. Instead we have mentioned general points regarding the proper localization of such widgets. The last section of this chapter mentions some of the shortcomings in the major GUI toolkits KDE (Qt) and GNOME (GTK).
 
 \
 \
 
-1.  **If you show only one ruler, decide the direction of the ruler based on document or section direction and not the paragraph direction. If you display two rulers one for column and another for page, then you may flip the zero point of the column ruler according to the direction of the active paragraph.**
+### 1.2.Window {.western dir="LTR"}
+
+The shape and control widget placement of the window depends on the active theme. The window in many themes does not require special localization. Themes that put window title in the left side are not suitable for Persian/Iran locale and should preferably mirror the title placement for Persian/Iran locale. A centered window label is recommended to avoid localization issue for right-to-left locales.
+
+The other consideration about the window behavior is the window placement and stacking behavior. Since the most documents that are used in Persian/Iran locale are Persian documents with right-to-left layout, it is recommended the upper right corner of each document window being placed in a suitable and predictable place, regardless of the window width. So, it is better to arrange documents by stacking their top right corner (offsetting each new window a little to the left and down) when the Persian/Iran locale is active. The other solution is center placement of the windows which does not create a very good stacking if the windows and is not recommended.
+
+### 1.3.Dialog Box {.western dir="LTR"}
+
+Dialog boxes are special types of windows that usually have modal behavior and have a group of action buttons that dismiss the window (instead of using the window control widgets to close them). The localization issues of dialog boxes are similar to that of the regular windows. The special notes about button placement on the dialog boxes are discussed in the section for buttons.
+
+### 1.4.Scrollbar {.western dir="LTR"}
+
+The scrollbar is placed on the edge of the windows or on the edges of lists and tables to facilitate scrolling them to reveal the off-screen content. The issues to note for localizing them for Persian/Iran locale are:
+
+Vertical scrollbar is placed on the right edge of the window or list/table in Latin locales. It is not mandatory to flip it to the left edge of the frames but this relocation is acceptable and is recommended is the environment is expected to be mostly localized in Persian with most of the documents being in Persian, too. The placement of vertical scrollbar does not follow the directionality of the active document. It should be always placed in the same consistent side of the frames regardless of whether a given application is actually localized or whether the document has the same direction as the active locale (which determines the placement of the scrollbar).
+
+The default scroll thumb position for vertical scrollbar in Persian/Iran locale is the top of the scroll bar unless another scroll position is saved along with the document.
+
+The horizontal scroll bar is universally placed on the bottom edge of the frame it is scrolling. The default scroll thumb position for horizontal scrollbar following the direction of the content being scrolled: If the content is right-to-left (the usual case in Persian/Iran locale) the scroll thumb is placed to the right, so that the right side of the content is exposed. If the content is left-to-right (even when Persian/Iran locale is active) the scroll thumb is placed to the left, so that the left side of the content is exposed.
+
+### 1.5.Menu Bar {.western dir="LTR"}
+
+A menu bar is usually placed on the top edge of the window. The menu bar is one of the user interface elements that are text oriented and is usually read like text. For this reason, the menu bar should be right aligned and be right-to-left for the Persian/Iran locale. It should have the same directionality and alignment for each locale regardless of the actual language of the active application or document. Mirroring of the menu bar should always be complete, a left aligned menu bar that is right-to-left, or a right aligned menu bar that is left-to-right is never acceptable. So, if there is some technical limitation is completely changing both alignment and direction of the menu bar for the Persian/Iran locale, it should not change partially.
+
+The alignment and direction of the menu that is opened by selecting each menu bar item should have the same directionality and alignment as the menu bar itself.
+
+If the menu titles in the menu bar include an icon, when the menu bar becomes right-to-left for the Persian/Iran locale, the icons should also be placed to the right of the menu title.
+
+To highlight the keyboard equivalent for a menu title, it is not recommended to use single character underlining. Changing the color of the character or its background is recommended for the Persian/Iran locale.
+
+### 1.6.Menu {.western dir="LTR"}
+
+In Persian/Iran locale, menus are right aligned and right to left. A submenu marker appears at the left side of the menu and if the available space permits, the submenus open to the left of the parent menu. All of the menu items regardless of their actual language follow this rule. The menu title is also right aligned relative to the menu frame.
+
+If the items in the menu bar include an icon or other mark, when the menu becomes right-to-left for the Persian/Iran locale, the icons and marks should also be placed to the right of the menu item.
+
+To highlight the keyboard equivalent for a menu item, it is not recommended to use single character underlining. Changing the color of the character or its background is recommended for the Persian/Iran locale.
+
+### 1.7.Tool Bar {.western dir="LTR"}
+
+Toolbar may or may not follow the writing direction. For example, the placement of the items may depend on which corner of the screen it is placed on. Also, the button arrangement on the toolbar may follow a convention that does not follow the writing direction, such as the arrangement of the buttons that mimic audio/visual equipment. For this reason, it is recommended that GUI toolkits provide more options in determining the directionality and placement of the buttons on a toolbar. It is advised that they support such logical placements as the same as text direction or opposite text direction as well as physical ordering such as left-to-right or right-to-left. Also, a group of the buttons may have a given order while the other groups of the buttons follow a different order.
+
+In the usual case, where there are no special placement requirements for the toolbar buttons, the direction and alignment of the toolbar should be similar to menu bar with similar considerations such as avoiding partial change of its directionality.
+
+### 1.8.Static Text {.western dir="LTR"}
+
+Static text is not usually stand alone in the user interface. It is usually part of a larger layout that uses other blocks of static text and other widgets. The proper placement of the static text relative to the other widgets in the logical group is determined by the actual language of those elements and not the directionality of the active Persian/Iran locale. So, even in Persian/Iran locale, if a related group of widgets that include static text (and are read like text) are in English, their placement should follow left-to-right placement. For example, if the static text is a label for another widget, the relative order of text and the widget should follow the proper display order of the language of the static text block. The following picture shows a partially localized screen in right-to-left locale, where the placements of all widgets follow the locale direction instead of the actual text direction:
+
+![](PersianHIG-EN-Main45_html_768dd48b.png) **Wrong!**
+
+The placement of the highlighted static text compared to the widgets they are labeling is incorrect.
+
+Since as we mentioned it is not realistic to assume that all of the applications used in Persian/Iran locale will be fully localized, the behavior of the window layout in some of the existing toolkits (especially GTK) needs enhancements to properly support the cases where the actual language of the GUI does not follow the active system locale.
+
+Since Persian fonts may have swashes and floating marks that fall outside of the nominal boundary of the characters, the clipping region around the static text should have some additional drawable margin around the nominal bounding box of the text. A margin of at least one or two pixels is recommended. Also it is recommended that putting static text elements too close to other elements be avoided for the same reason.
 
 \
 \
 
-As you can see multiple directionalities can be involved in a single document: Document direction (or the binding side), sectionTP^[^1^](#sdfootnote1sym)^PT direction (indicating column layout direction), paragraph direction and string (text run) direction. All of the above directions should be distinctly visualized in the GUI and should be easy to specify and change. For example, putting a thicker edge on the binding side of the paper can help user realize the binding direction.
+### 1.9.Text Field {.western dir="LTR"}
 
-The default direction for all of the above directions in the Persian/Iran locale is right-to-left.
+To properly support various scenarios that can arise in the Persian/Iran locale, the text fields should preferably provide the flexibility of setting the text direction and alignment on a per field basis.
 
-2.  **In addition to the direction of the text run and paragraph, the other directions of the document including column and binding directions should be easy to determine and change.**
+Similar to the placements of static text, the relative placement and orientation of the text fields should follow the actual language used in them and the surrounding related elements such as the labeling static text. Refer to the figure in the previous section. If a set of related text fields are used for numeric data entry their placement may follow numeric (left-to-right) order.
 
-3.  **Default section (column) direction is the same as document (binding) direction and the default paragraph direction is the same as section direction.**
+Since Persian fonts may have swashes and floating marks that fall outside of the nominal boundary of the characters, the clipping region around the editable text should have some additional drawable margin around the nominal bounding box of the text. A margin of at least one or two pixels is recommended.
+
+If the text field is a single-line field with automatic horizontal scrolling support, it should behave properly with right-to-left and bidirectional text. The easiest way to get a reasonable display in all cases while auto-scrolling is trying to keep the visual location of the text cursor in the middle of the field instead of close to a side.
+
+The text input and editing behavior is expected to support the behavior described in Chapter 3.
+
+### 1.10.Date/Time Field {.western dir="LTR"}
+
+Date, Time and Date/Time fields usually represent numerically oriented information. The order of the date components despite each component being numeric (hence left-to-right) is right-to-left. As a result, if the date field is broken into component subfields, the correct subfield order would be right to left. On the other hand, time components are left-to-right, if the time field is broken into component subfields, the correct subfield order would be left to right. If there is a button next to field to provide a visual chooser window to aid in data entry, such a button may stay in the current right side location similar to Latin locales, but is preferred to be placed to the left side of the field or field group in Persian/Iran locale.
+
+The display format and other information regarding date and time in Persian locale can be found in the following Persian document: [Locale’03]
+
+نیازهای شرایط محلی برای زبان فارسی ایران
+
+The data entry order of the time components in Persian/Iran locale are: Hour, minute, second.
+
+The data entry order of the date components in Persian/Iran locale are: Day, month, year.
+
+The default calendar used to interpret the date entry is *Hijri Shamsi* unless otherwise specified by the user. The date input according to any of the calendars used in Iran should be supported without requiring a change in the active calendar. This is achieved by appending a single character suffix to the date input. These suffix characters include: U+0634 ش for *Hijri Shamsi*, U+0642 ق for *Hijri Qamari* and U+0645 م for Gregorian (م is the first character of the word *Miladi* میلادی which is the name of the Gregorian calendar in Iran)
+
+The localized applications should display a calendar suffix when displaying dates that are not expressed in the currently active default calendar.
+
+If the expected default calendar in a date input field differs from the global default calendar, this should be clearly indicated in or around the date field (e.g. by a suffix label next to date field).
+
+Naturally, the numeric components of the date and time fields are normally entered using the Persian digits (U+06F0 to U+06F9) which should be supported in addition to the ASCII digits.
+
+### 1.11.Spinbox {.western dir="LTR"}
+
+The spinbox is the small vertical rectangle that has two small up arrow and down arrow buttons used to rotate the numeric values in fields. It is always associated to an input field. In the Persian locale, the proper placement of this widget follows numeric direction, which means it appears to the right of the field that it affects.
+
+Naturally, the numeric values controlled by this widget should support the Persian digits (U+06F0 to U+06F9) in addition to the normal ASCII digits.
+
+### 1.12.Dropdown List {.western dir="LTR"}
+
+In Persian/Iran Locale the direction and orientation of this widget defaults to right-to-left behavior, but follows the text direction of its actual content and the language of the related surrounding widgets such as its static text label. So, even if the locale is set to Persian/Iran, in software with English GUI, it should still appear the same as it does in a Latin locale. If the widget along with its label is read from right-to-left, then the list button should be placed on the left side and the text direction in the widget should be right-to-left. In this case, the selection list should be right aligned. The text label of this widget in this case will be placed to its right. The position of the scrollbar of the choice list of this widget always follows the global scrollbar placement strategy regardless of the direction of this widget.
+
+### 1.13.Combo Box {.western dir="LTR"}
+
+In Persian/Iran Locale the direction and orientation of this widget defaults to right-to-left behavior, but it follows the text direction of its actual content and the language of the related surrounding widgets such as its static text label. So, even if the locale is set to Persian/Iran, in software with English GUI, it should still appear the same as it does in a Latin locale. If the widget along with its label is read from right-to-left, then the list button should be placed on the left side and the text direction in the widget should be right-to-left. In this case, the selection list should be right aligned. The text label of this widget in this case will be placed to its right. The position of the scrollbar of the choice list of this widget always follows the global scrollbar placement strategy regardless of the direction of this widget.
+
+The behavior of scrolling and text editing of the editable text in this widget is the same as the text field described in section 5.9.
+
+### 1.14.Group Box {.western dir="LTR"}
+
+A group box is used to visually group some related widgets together. A group box may contain a text title. Normally, the members of a group follow the same text directionality. This should be reflected in the alignment and placement of the widgets in a group box. The alignment and direction of the title of the group box also follows the same direction as the group. The direction of the group defaults to right-to-left in Persian/Iran locale but follows the actual language of group box title and the language dominate in the widgets inside the group box. The only part of a group box that is actually affected by its direction is the alignment and direction of the text of its title.
+
+### 1.15.Tab Panel {.western dir="LTR"}
+
+The order and placement of tab panels in Persian/Iran locale follows the global locale direction. It is also fully acceptable if its orientation follows the direction of the actual language of the GUI being displayed. When tab panel has right-to-left orientation, the tabs are either right aligned or center aligned (depending on theme) and the tabs are ordered from right-to-left (the first tab being the rightmost one). The overflow of the tabs is indicated on the left side of the tabs. If the tabs have icons in addition to title, the icon appears to the right of the title.
+
+### 1.16.Button {.western dir="LTR"}
+
+There are many different types of buttons with different combinations and arrangements of text and icons, or possibly sticky behavior. The localization of the button itself is similar to the other widgets. The text in the widget is usually centered and the directionality of the text follows the actual language of the text, defaulting to right-to-left for Persian/Iran locale. If an icon is displayed besides the text it may be placed both before and after the text if the text is centered. If the text is right aligned the suggested position of the icon is the right side of the text and if it is left aligned the suggested position is to the left of the text.
+
+The relative position of the buttons is not closely coupled to the text direction of the GUI. For example, both a “Yes” then “No” and “No” then “Yes” arrangement of buttons is acceptable. The important point regarding the arrangement of the buttons is that they follow a consistent ordering scheme, based on their use and effect. So, the position of normal buttons should be the same in a given locale regardless of the actual language of the GUI being displayed. For example if you put “OK” button to the left of “Cancel” button in Persian/Iran locale, it should be placed in the same way whether the actual GUI is in Persian or English.
+
+If a group of buttons is arranged in a way that they are expected to be read like text, their order should follow the text direction of their actual text. This is rarely the case, though.
+
+If a group of buttons model a real world group of buttons (such as buttons in some electronic equipment) they should follow the arrangement of the real world group of buttons. In this case the text direction of the GUI is irrelevant.
+
+### 1.17.Slider {.western dir="LTR"}
+
+The slider widget is normally used to enter information that may be represented by numbers or numeric ratios. Slider is also used to simulate some real world objects such as similar sliders found on electronic equipment. This means that usually the orientation and direction of a horizontal slider has nothing to do with text direction and should not change depending on locale text direction. Generally, the side of a slider that represents the smaller amount is the left side. In Persian/Iran locale unlike most other widgets, the near end of slider is the left end and the far end of it is its right end.
+
+### 1.18.Date Picker {.western dir="LTR"}
+
+Date picker is a widget usually shaped like a tiny month calendar that permits the selection or display of a calendar date or multiple calendar dates. When this widget is used in Persian/Iran locale, its layout should conform to the description of the calendar layout in the following Persian document: [Locale’03]
+
+نیازهای شرایط محلی برای زبان فارسی ایران
+
+The default calendar shown by this widget is the *Hijri Shamsi* calendar, unless a different calendar is specified by the user. The calendar displayed by this widget should be selectable without the need for globally changing the default calendar. This can be achieved by putting a small button that is used to rotate the calendars and show the abbreviated calendar designator next to the displayed year. If this widget is enlarged so that the available space in each day cell permits, it is recommended that the widget shows multiple calendars simultaneously as it is the norm in Persian calendars.
+
+### 1.19.Check Box {.western dir="LTR"}
+
+Each checkbox is usually part of a larger logical group of widgets that consist of a heading or title (as static text or group box) and a set of checkboxes. It may also sometimes act as the label for a text field or other similar widget. The default direction and orientation of this widget in Persian/Iran locale is right-to-left, meaning that the box of the checkbox is placed to the right side and the text of the checkbox is right-to-left and right-aligned in its bounding box, This control is text oriented and its directionality is determined by the actual language of the group it belongs to. So, it should appear left-to-right in Persian locale if the actual language of the active GUI is English. But if the group language is Persian, even if one checkbox in the group has only English text, it should still appear right-to-left. A group of checkboxes are normally aligned so that the boxes of them are lined up.
+
+The check mark image in the check box does not need mirroring when the checkbox is right-to-left.
+
+### 1.20.Radio Button {.western dir="LTR"}
+
+Each individual radio button is always part of a larger logical group of widgets that consist of a usually a heading or title (as static text or group box) and a set of radio buttons. Each radio button may also sometimes act as the label for a text field or other similar widget. The default direction and orientation of this widget in Persian/Iran locale is right-to-left, meaning that the circle of radio button is placed to the right side and the text of the radio button is right-to-left and right-aligned in its bounding box, This control is text oriented and its directionality is determined by the actual language of the group it belongs to. So, it should appear left-to-right in Persian locale if the actual language of the active GUI is English. But if the group language is Persian, even if one radio button in the group has only English text, it should still appear right-to-left. A group of radio buttons are normally aligned so that their buttons are lined up.
+
+### 1.21.List Box {.western dir="LTR"}
+
+In the Persian/Iran locale the direction and column order of this widget is right-to-left. This means that the direction of the text in each sell is right-to-left and the text in the cell is right-aligned. The order of the columns in this case is also right to left. The direction of the columns may be different based on the data type and the language of the content. In this case the column order usually stays right-to-left. The table itself may be left-to-right; even if it has some right-to-left text columns. Generally, it is best to have control over the directionality of table and its individual columns. So, a multi-column list box is a composite entity with multiple directionality attributes (directionality of each column, and the entire table). If the actual language of the active user interface is left-to-right, it is recommended that the list box stays left-to-right, even if the active locale is Persian/Iran.
+
+It is also advised that the list box widget be flexible enough to let the developer (or localizer) set the alignment of individual columns and column headers in addition to the column directions.
+
+### 1.22.Tree List Box {.western dir="LTR"}
+
+This widget is very similar to a normal list box. The difference is that the first column (rightmost column if the table direction is right-to-left) is a tree with expandable nodes. If the image of the expand/collapse widget of the nodes is not symmetrical, it needs to be mirrored when the tree is right-to-left. In a tree list box, the direction of the first column (the tree column) and the entire table should always be the same. The other considerations are similar to the list box widget described in 5.21.
+
+### 1.23.Text Ruler {.western dir="LTR"}
+
+The text ruler is not a built-in widget in most of the GUI toolkits. This widget is commonly used in text editing and word processing applications when custom tab stops and paragraph margins are supported. It is typically custom built by the developers of the word processing applications. There are two types of text rulers that are commonly used. A text ruler is either page oriented (the zero point is on the edge of the paper) or column oriented (the zero point is on the edge of the active text column). Both rulers may be present in an application especially in page layout applications.
+
+The zero point and placement of the page ruler depends on document properties including its direction, binding and whether it is double sided or single sided. This ruler should not change as the result of activating different paragraphs with different directions.
+
+The zero point and placement of the column ruler usually follows the direction of the active paragraph. The zero point of this ruler is placed on the edge of the column that corresponds to the starting edge of the paragraph (the right edge in right-to-left text). If the direction of the active paragraph is changed, the direction of the ruler also changes and the layout control handles on the ruler also flip to indicate the new start and end of the paragraph. Also, the default alignment of the tab stops is flipped in this case.
+
+It is recommended that word processing applications that support bidirectional layout, support both types of the rulers described above and also have the ability to show both of them simultaneously. This is illustrated in the following figure:
+
+![](PersianHIG-EN-Main45_html_799d9f99.png)
+
+The behavior of the text on tab stops should be visual and does not follow the stream of text across the tab boundary. So, the text should be first segmented into separate fields that fall on each tab stop and the Unicode bidirectional algorithm should be applied on each segment individually. The direction of the movement of the tab character is always determined by the paragraph direction and is never resolved with Unicode bidirectional algorithm.
+
+In the Persian/Iran locale the default document and paragraph directions are right-to-left, so the default ruler direction for both types of rulers is right-to-left.
+
+### 1.24.Progress Bar {.western dir="LTR"}
+
+The progress bar is used to indicate the ratio of the progress of a certain task as a horizontal bar chart. In the Persian/Iran locale the direction of this widget follows the mathematical direction and is left-to-right just like it is in the Latin locales. In Persian/Iran locale unlike most other widgets, the near end of progress bar is the left end and the far end of it is its right end.
+
+### 1.25.KDE Toolbox {.western dir="LTR"}
+
+This widget is KDE specific. In the Persian/Iran locale it is recommended that this widget be mirrored and placed on the right side of the window. Although it is preferable to actually follow the direction of the language of the active application and stay left-to-right if the application is not localized in Persian.
+
+### 1.26.Composite Widgets {.western dir="LTR"}
+
+Designing composite widgets should take into consideration the different directional requirements and options that has been described in the previous chapter and this chapter. It should also be based on the principle of chapter 2 and properly support Persian text as described in chapter 3. It is advised that some flexibility is provided in the direction and positioning of its elements instead of having one fixed directional behavior for it.
+
+### 1.27.Custom Widgets {.western dir="LTR"}
+
+Application may create custom widgets from scratch. In this case the most difficult part of their creation is supporting proper bidirectional behavior for the widgets. For this reason, avoid creating custom widgets unless you have a very good reason for it. If you do create custom widgets pay close attention to its internationalization and bidirectional layout behavior.
+
+### 1.28.Limitations in GNOME and KDE {.western dir="LTR"}
+
+Practically all of the existing GUI toolkits for GNU/Linux have serious design shortcoming when it comes to proper and optimal support of bidirectional locales such as Persian. The main focus of this section is the most popular GUI toolkits, namely KDE (Qt) and GNOME (GTK+). These design shortcomings are the result of either not considering bidirectional layout in the original design (the situation in KDE/Qt) or being too simplistic as if it is just strict right-to-left instead of bidirectional (the situation in GTK+). The main shortcoming include that there is almost no explicit distinction between directionalities and concepts such as near and far as opposed to left and right. As a result, both of these environments lack the finer grain of control that is needed for proper bidirectional layout. In most cases there is no place for any additional data or metadata to help correctly identify proper orientation of each element or groups of elements in a bidirectional locale when the application is either localized or is in a Latin language. Enhancing these toolkits to better support bidirectional locales is not easy. It may result in some API changes and some new concepts being introduced. So, the situation is not expected to be improved in the short term. But since the proper behavior of a bidirectional locale such as Persian/Iran is impossible to achieve without the proper support of these environments, this issue is brought up here to at least help put the issue on the table for the designers and maintainers of these toolkits.
+
+Some of the issues that currently exist are the result of the following issues:
+
+-   There are no provisions for explicitly setting the direction of text or text-like widgets or groups of widgets.
+
+-   Logical alignment (near side, far side, etc.) alongside physical alignment (left side, right side) is not distinguished and provided.
+
+-   Left, right, previous and next and similar concepts are inappropriately named and defined in the existing APIs or are mixed up with each other. An example, consider the name of U+0028 Unicode character. It is named “Left Parenthesis” while it actually means opening parenthesis.
+
+-   It is assumed that bidirectional locals are actually strictly mirrored and right-to-left.
+
+-   There is no API for accessing and assigning directional behavior to individual elements or groups of elements.
+
+-   There is also no way for the localizers to specify the correct directionality of each element.
+
+-   Multi-calendar locales are not properly supported. The existing calendar services like the ones provided in glib do not support none-Gregorian calendars and having multiple active calendars.
+
+-   The text input and editing environments incorrectly reflect the Unicode text ordering model instead of providing a true visual editing environment.
+
+The above issues create different effects on a localized applications but the net result is the reduced usability of the applications localized for Persian vs. their Latin counterparts.
+
+The above issues along with a more extensive list of the design issues in the existing versions of KDE/Qt and GNOME/GTK+ needs to be properly communicated with the developers and maintainers of the above environments so that acceptable solution can be found or developed as quickly as possible.
 
 \
 \
 
-### 1.2.Icons and Images {.western dir="LTR"}
+Appendix {.title-western dir="LTR" style="page-break-before: always"}
+========
 
-Extensive use of images, symbols and icons is one of the characteristics of graphical user interfaces. The correct use of these elements helps in making the interface easier to understand and more elegant. Some developers tend to think that images, symbols and icons are automatically international and do not need localization, but this is not always the case.
+\
+\
 
-It is recommended that the images, symbols and icons are designed to be international and not to require localization. But this can be sometimes a none-trivial task. Internationalized images have the following properties:
+Definitions {.عنوان-پیوست-western dir="LTR" style="page-break-before: always"}
+-----------
 
-Avoid using figures of various parts of human body or gestures. Some cultures find certain images offending. The use of human figure in a similar fashion that is used in international symbols (such as traffic symbols) is acceptable. For example, a thumbs up is considered offensive in Persian/Iran locale.
+**GUI:**Graphical User Interface
 
-Avoid using the shape of items that have different shapes in different places. For example, the shape of a mailbox is different in different places, but the shape of envelope, stamp and even mail stamp is more universal.
+**LTR:**Left-to-right
 
-This category of internationalization concern for images is not specific to Persian/Iran locale and is discussed in the general documents dealing with internationalization. For example see [KDE-i18n] or [GNOME-i18n]. So, we will continue the discussion with some bi-directional specific concerns:
+**RTL:**Right-to-left
 
-There is some misunderstanding as whether writing direction does or does not affect an image. Sometimes an image needs horizontal mirroring but this is not obvious. Sometimes an image seems to need mirror but it does not. An example where mirroring is needed is a side facing user icon. Since potential text should appear in front of the user instead of behind his back, the face should be kept to always look towards the inside and towards the text. This means that in most cases you will need to mirror the image to look the other way for Persian. To make such a user icon international you can change it so that it faces the user instead of looking to the side. Another example is a none-symmetric shape that does not need mirroring for right-to-left writing direction. Although a checkmark ![](PersianHIG-EN-Main44_html_m5a749d7d.png) is not symmetric, it does not need mirroring. A mirrored checkmark look unfamiliar and is actually left handed, instead of being right-to-left. Another example is the playback symbol![](PersianHIG-EN-Main44_html_48e26644.png). Although playback symbol clearly point from left-to-right, it should not be mirrored, because the mirrored symbol does not mean normal play. If anything, it means reverse play which is a different meaning.
+**Principle:**A statement that is considered to be true without being proved. It is used here with a number to label and introduce the GUI design principles mentioned in this document.
 
-There is a tricky issue when we use symbols to indicate the concept of previous and next. The most commonly used symbol for *next* is a right pointing arrow → and the symbol for *previous* is a left pointing arrow ←. These symbols can be confusing in a bi-directional environment when they are associated with text oriented content. Mirroring these symbols in a Persian localized environment is not the solution.
+**Rule:**A normative statement that is expected to be followed by each software localized for Persian.
 
-Consider the previous and next buttons in a web browser application. The arrow directions do not correspond to the application localization, but to the document being viewed. The same window (whether localized for Persian or not) may show both left-to-right and right-to-left documents. Flipping the direction of the arrows based on document direction disassociates the concept from a well defined symbol and is not an option. Unlike the playback symbol discussed earlier which has a very old and none-computer related counterpart that is familiar to practically everyone in the world, the arrow symbols for previous and next do not share the same universal recognition. For this reason, the use of horizontal arrows to indicate the concept of previous or next is not recommended.
+**Guideline:**A none-normative statement that provide a possible solution or a recommendation for dealing with specific issues when localizing application for Persian/Iran locale.
 
-The solution would be either using vertical arrows (vertical direction of the text is almost universally top to bottom) or avoid symbols altogether and rely on the text instead. The other acceptable method is using the rewind ![](PersianHIG-EN-Main44_html_m75837594.png) and fast forward ![](PersianHIG-EN-Main44_html_m1ca15d1c.png)symbols from audio/visual equipment which enjoy almost the same universal recognition as the playback symbol. If that is the case, the rewind should stay to the left of the fast forward button to maintain the integrity of the model it is following.
+**Internationalized Software:**Software that is designed to be localizable for any locale.
 
-4.  **Avoid using horizontal arrows to symbolize the concepts of previous and next. Try avoiding a symbol and using text, instead.**
+**Localized software:**Software (previously internationalized or not) that is localized for Persian/Iran locale.
 
-**Using vertical arrows and using symbols for this purpose is permitted. Also using rewind ![](PersianHIG-EN-Main44_html_m75837594.png) and fast forward ![](PersianHIG-EN-Main44_html_m1ca15d1c.png) in audio visual equipment is permitted for this purpose, provided the original ordering of the symbols is maintained.**
+**Domestic Software:**Software produced locally for the Persian/Iran locale.
+
+**Persian Software:**Domestic software or Persian localized software.
+
+\
+\
+
+References {.عنوان-پیوست-western dir="LTR" style="page-break-before: always"}
+----------
+
+[*Jentner/Nielsen*] ***The Anti-Mac Interface*** by *Don Jentner* and *Jakob Nielsen*, (Communications of the ACM, August 1996)
+
+[*Raskin*] ***The Humane Interface*** by *Jeff Raskin*, (Addison-Wesley Professional; 1st edition, March 29, 2000, ISBN: 0201379376) and related project site at: H[T](http://humane.sourceforge.net/home/)[http://humane.sourceforge.net/home/T](http://humane.sourceforge.net/home/)H
+
+[GNOME-HIG] ***GNOME Human Interface Guidelines*** available online at: H[T](http://developer.gnome.org/projects/gup/hig/)[http://developer.gnome.org/projects/gup/hig/T](http://developer.gnome.org/projects/gup/hig/)H
+
+[KDE-SG] ***KDE Style Guide*** available online at: H[T](http://developer.kde.org/documentation/standards/kde/style/basics/)[http://developer.kde.org/documentation/standards/kde/style/basics/T](http://developer.kde.org/documentation/standards/kde/style/basics/)H
+
+[KDE-UIG] ***KDE User Interface Guidelines*** available online at: H[T](http://developer.kde.org/documentation/design/ui/)[http://developer.kde.org/documentation/design/ui/T](http://developer.kde.org/documentation/design/ui/)H
+
+[Java1] ***Java******™******Look and Feel Design Guidelines, second edition*** by *Sun Microsystems, Inc*. available online at: H[T](http://java.sun.com/products/jlf/ed2/book/)[http://java.sun.com/products/jlf/ed2/book/T](http://java.sun.com/products/jlf/ed2/book/)H
+
+[Java2] ***Java******™******Look and Feel Design Guidelines: Advanced Topics*** by *Sun Microsystems, Inc.* available online at: H[T](http://java.sun.com/products/jlf/at/book/)[http://java.sun.com/products/jlf/at/book/T](http://java.sun.com/products/jlf/at/book/)H
+
+[Apple-HIG] ***Apple Human Interface Guidelines*** by *Apple Computer Inc.* available online at: H[T](http://developer.apple.com/documentation/UserExperience/Conceptual/OSXHIGuidelines/index.html)[http://developer.apple.com/documentation/UserExperience/Conceptual/OSXHIGuidelines/index.htmlT](http://developer.apple.com/documentation/UserExperience/Conceptual/OSXHIGuidelines/index.html)H
+
+[Unicode] ***Unicode How To*** by *Bruno Haible* available online at: H[T](http://www.linux.com/howtos/Unicode-HOWTO.shtml)[http://www.linux.com/howtos/Unicode-HOWTO.shtmlT](http://www.linux.com/howtos/Unicode-HOWTO.shtml)H
+
+[Tognazzini’95] ***Tog on Software Design*** by *Bruce Tognazzini* (Addison-Wesley Professional, 1995)
+
+[Cooper’03] ***About Face 2.0: The Essentials of Interaction Design*** by *Alan Cooper* and *Robert M. Riemann* (Wiley, 2003)
+
+[Norman’02] ***The Design of Everyday Things*** by *Donald A. Norman* (Basic Books, 2002)
+
+[Nielsen’99] ***Designing Web Usability: The Practice of Simplicity*** by *Jakob Nielsen* (New Riders Press, 1999)
+
+[ISIRI-6219] Iranian National Standard ISIRI-6219 “Exchange and Display of Persian Information Using Unicode Standard” 2002, available online in Persian at H[T](http://www.isiri.ir/)[www.isiri.irT](http://www.isiri.ir/)H
+
+[ISIRI-2901] Iranian National Standard ISIRI-2901 “Placement of Persian Characters on Computer Keyboards” 1994, available online in Persian at H[T](http://www.isiri.ir/)[www.isiri.irT](http://www.isiri.ir/)H
+
+[PersianWriting] “Official Guide to Writing in Persian” (دستور خطَ فارسی) by Iranian Academy of Persian Language and Script. Available online in Persian at: H[T](http://www.persianacademy.ir/)[http://www.persianacademy.irT](http://www.persianacademy.ir/)H
+
+[Locale’03] The document titled “نیازهای شرایط محلی برای زبان فارسی ایران” from the Iranian National GNU/Linux Project, 2003. Available online at: H[T](http://projects.farsilinux.org/projects/loosesearch/)[http://projects.farsilinux.org/projects/loosesearch/T](http://projects.farsilinux.org/projects/loosesearch/)H
+
+[Sort’03] The document titled “ترتیب‌بندی و مرتب‌سازی برای زبان فارسی ایران” from the Iranian National GNU/Linux Project, 2003. Available online at: H[T](http://projects.farsilinux.org/projects/loosesearch/)[http://projects.farsilinux.org/projects/loosesearch/T](http://projects.farsilinux.org/projects/loosesearch/)H
+
+[Search’03] The document titled “جستجوی تقریبی برای زبان فارسی ایران” from the Iranian National GNU/Linux Project, 2003. Available online at: H[T](http://projects.farsilinux.org/projects/loosesearch/)[http://projects.farsilinux.org/projects/loosesearch/T](http://projects.farsilinux.org/projects/loosesearch/)H
+
+[OpenType’03] The document titled “توصیف قلم اپن‌تایپ مرجع برای زبان فارسی” from the Iranian National GNU/Linux Project, 2003. Available online at: \
+H[T](http://projects.farsilinux.org/projects/opentype/)[http://projects.farsilinux.org/projects/opentype/T](http://projects.farsilinux.org/projects/opentype/)H
+
+[Calendar’03] The reference implementation of Official Iranian Calendars. Part of Iranian National GNU/Linux Project, 2003. Available online at: H[T](http://projects.farsilinux.org/projects/persian-cal/)[http://projects.farsilinux.org/projects/persian-cal/T](http://projects.farsilinux.org/projects/persian-cal/)H
+
+[OOo-L10N] ***OpenOffice.org Localization Project*** at: H[T](http://l10n.openoffice.org/)[http://l10n.openoffice.orgT](http://l10n.openoffice.org/)H
+
+[Mozilla-L10N] ***Mozilla Localization Project*** at: H[T](http://www.mozilla.org/projects/l10n/)[http://www.mozilla.org/projects/l10n/T](http://www.mozilla.org/projects/l10n/)H
+
+[KDE-i18n] ***KDE Internationalization Site*** at: H[T](http://i18n.kde.org/)[http://i18n.kde.orgT](http://i18n.kde.org/)H
+
+[Qt-i18n] ***Internationalization with Qt*** available online at:******H[Thttp://doc.trolltech.com/3.3/i18n.htmlT](http://doc.trolltech.com/3.3/i18n.html)H
+
+[GTKmm-i18n] ***GTKmm Tutorial, Chapter 20: Internationalization and Localization*** by *Murray Cumming* and *Ole Laursen* available online at: H[T](http://www.gtkmm.org/docs/gtkmm-2.4/docs/tutorial/html/ch20.html)[http://www.gtkmm.org/docs/gtkmm-2.4/docs/tutorial/html/ch20.htmlT](http://www.gtkmm.org/docs/gtkmm-2.4/docs/tutorial/html/ch20.html)H
+
+[Pango] ***Pango Design: The Layout Pipeline*** by *Owen Taylor* available online at: H[T](http://www.pango.org/layout.shtml)[http://www.pango.org/layout.shtmlT](http://www.pango.org/layout.shtml)H
+
+[GNOME-i18n] ***Internationalizing GNOME applications*** by *Malcolm Tredinnick* available online at: H[T](http://www.gnome.org/~malcolm/i18n/)[http://www.gnome.org/\~malcolm/i18n/T](http://www.gnome.org/~malcolm/i18n/)H
+
+[GNOME-L10N] ***GNOME L10N Guidelines for Developers*** by *Christian Rose* available online at: H[T](http://developer.gnome.org/doc/tutorials/gnome-i18n/developer.html)[http://developer.gnome.org/doc/tutorials/gnome-i18n/developer.htmlT](http://developer.gnome.org/doc/tutorials/gnome-i18n/developer.html)H
+
+[LSB] ***Linux Standard Base*** project available online at: H[T](http://www.linuxbase.org/)[http://www.linuxbase.org/T](http://www.linuxbase.org/)H
+
+[CCSpec] ***Cursor Conventions Specification*** available online at: H[T](http://freedesktop.org/wiki/Standards_2fcursor_2dspec)[http://freedesktop.org/wiki/Standards\_2fcursor\_2dspecT](http://freedesktop.org/wiki/Standards_2fcursor_2dspec)H
+
+[TSUSpec] ***The Single UNIX® Specification, Version 3*** available online at: H[T](http://www.unix.org/online.html)[http://www.unix.org/online.htmlT](http://www.unix.org/online.html)H
+
+[ICU-UG] ***ICU User Guide*** by *IBM* available online at: H[T](http://icu.sourceforge.net/userguide/)[http://icu.sourceforge.net/userguide/T](http://icu.sourceforge.net/userguide/)H
+
+[Fitts’] ***Fitts’ Law*** information about this law is available online at: H[T](http://en.wikipedia.org/wiki/Fitts'_law)[http://en.wikipedia.org/wiki/Fitts’\_lawT](http://en.wikipedia.org/wiki/Fitts'_law)H
+
+[OpenType] ***The OpenType Standard 1.4*** by *Microsoft Corporation* available online at: H[T](http://www.microsoft.com/typography/otspec/)[http://www.microsoft.com/typography/otspec/T](http://www.microsoft.com/typography/otspec/)H
 
 \
 \
@@ -104,111 +345,152 @@ The solution would be either using vertical arrows (vertical direction of the te
 \
 \
 
-### 1.3.Direction and Placement of Visual Elements {.western dir="LTR"}
+\
+\
 
-The overall rules for composing the elements in the user interface are similar to the page layout rules for the paper documents. One difference is having much less white space because of the limited screen space. The same rules also apply in a right-to-left environment. The main difference in a right-to-left environment is the mirroring that occurs in the placement of text related elements as the result of writing direction. Items that are not related to writing direction may not need any change. One method to improve the layout adaptability for right-to-left environments is using a vertically symmetric design by using center aligned elements or providing some widgets at both sides of the window such as a resize handle.
-
-Adapting a left-to-right layout for a right-to-left locale isn’t as easy as some developers think. Some developers think that vertically flipping (mirroring) a left-to-right layout will always create the correct right-to-left layout. The simple mirroring is indeed the correct answer for most of the cases, but not all. The reason is that not all placements follow text direction. Some placements are more a matter of choice than necessity. For example, a page header or footer may be left, right or center justified without any of the alignments being wrong. Also, there are places where the order is not really that important. For example, when we have a multiple choice question in a questionnaire, the order of the suggested answers is usually not important, except for a choice like “neither” which should always be last. But there are other cases where order and direction *is* important, but the correct direction does not follow text direction. This last case is the one that causes problems.
-
-To better understand the reality of a bidirectional environment you should consider the fact that in a Latin environment, there is only one direction which is left-to-right and everything is universally designed in that orientation. Even the surrounding real world objects follow the same left-to-right layout and arrangement. This is different in the Persian/Iran locale where text is mostly right-to-left, but there are left-to-right elements as well. So, this environment is not directionally pure and strict as is the Latin environment and can’t be a perfect mirror of it.
-
-The real world objects and devices further obscure the directionality for computer software when we view software as a tool and like an appliance, not a piece of text (e.g. a book) that someone reads. Look at the technological devices that surround us all around the world. Consider for example the Audio/Visual equipment such as Radios, DVD players, etc. They do not have a regional version with a different right-to-left physical layout for right-to-left/bidirectional locales. Many computer user interfaces simulate a device with buttons, sliders, dials and etc. Such a user interface would not look familiar if mirrored into a right-to-left layout, because the physical and real-world counterparts are never right-to-left. This only causes confusion and makes using the user interface more difficult instead of making it easier to use.
-
-For example, a progress bar shows a numeric value or ratio. It also resembles some real world devices. The numbers and numerical x-axis are left-to-right. So, a mirrored progress bar is incorrect and looks weird to a user in Persian/Iran locale although the locale is considered right-to-left. This also implies that some supporting objects (say a stop button next to the progress bar) also do not follow right-to-left text direction. Any object that is modeled after a real-world object or represents numeric values or mathematical charts should follow the directionality of whatever concept it is representing and not the text direction.
-
-Also, it should be noted that for the foreseeable future there will be many software applications that are not localized for Persian. The user interface of this software will continue to be Latin with more or less Latin directionality. Having too much difference of layout between Persian and Latin applications makes using a mix of Persian and Latin applications more difficult.
-
-Changing the location and orientation of user interface elements that are not directly affected by text direction is generally not recommended. An example that demonstrates that a certain alignment is not mandated by text direction is the placement of window control widgets (close/minimize/maximize). As you see in the following figures, these controls are placed at the opposite sides of the window with almost mirrored layout between two dominant proprietary operating systems Windows and Mac OS:
-
-![](PersianHIG-EN-Main44_html_163adb16.png) Window control widgets in Microsoft Windows
-
-![](PersianHIG-EN-Main44_html_m1f9926d4.png) Window control widgets in Apple Mac OS X
-
-This clearly indicates that the location of these controls is a matter of choice and design preference rather than being mandated by writing direction. A lot of other placements are also like this. If it was a few years ago, we had to urge developers to consider mirroring their layouts to better conform to our locale, but now it seems that we need to ask them to stop mirroring every single element they encounter. So, it is now recommended that you mirror elements only when there is a good reason to do so, usually based on the writing direction.
-
-We also need to point out another important consideration when changing the location of elements in a layout. Returning to the above example of window control widgets, you see that in both Mac and Windows layouts, the close box is in the corner. The corners (any of the four corners) are places that are better noticed and more easily targeted. So, the most frequently used elements are placed in such strategic places. This means that there are many special design considerations that determine the suitable place for an element. Any layout change should be made in a way that does not sabotage the design and make it harder to use.
-
-There is an important example of incorrectly changing the placement of GUI elements that can be found in GNOME 2.6 as configured by default in Fedora Core 4 distribution. The English locale shows the three menus on the top bar of the screen from left to right as Programs, Places and then Desktop. When we switch to Persian/Iran locale, these menus are still on the left side of the screen but their order is reversed. So, when Persian/Iran locale active, the menus from left to right are Desktop, Places and then Programs. This is shown in the following figures:
-
-![](PersianHIG-EN-Main44_html_514f908b.png) **OK**
-
-![](PersianHIG-EN-Main44_html_m75a9e912.png) **Wrong!**
-
-In the Latin version, the Programs menu is placed in the corner of the screen to benefit from the Fitts’ law (see [Fitts’]) to make it the easiest menu to access. The current rearrangement in the Persian/Iran locale violates this design. If the menu was fully mirrored so that the Programs menu where placed on the top-right corner of the screen, then the design would have been preserved, and the change would be valid.
-
-As a rule of thumb: If for some technical limitation, you can’t fully re-arrange the layout to preserve its intended function, don’t touch it at all.
-
-There is another design issue in the above mentioned GNOME Programs menu. It is related to the use of alphabetical order in that menu. Since the Programs menu is accessed very often, it is important that the most frequently accessed items in this menu placed properly to make them easier to access. Also, their location should be stable so that the user can learn their place and find them easily. In such a menu, use of alphabetical ordering is a design mistake, because it does not guarantee a suitable and stable place for the often used menu items. The important items should have a suitable and fixed place in the menu and the rest of the items arranged either chronologically (to preserve the location of the older items) or alphabetically if the number of the items in the list exceeds about 7 items.
-
-This bad design choice can be partially offset by using clever names to put the frequently used items in proper places. For example, the name of the frequently used Accessories submenu helps it stay at the top of the menu to make it easier to access. But there is no guarantee that a localized version can (or will) preserve that menu order. For example, in the existing draft Persian translation, the location of the first (Accessories) and last (System Tools) submenus in the Programs menu is reversed. The result is a different (reduced) usability for the Persian version compared to the Latin version.
-
-4.  **The localization of software should not adversely affect its usability and design features.**
-
-5.  **Avoid using alphabetical ordering of the interface elements (such as menu commands) in the design of the internationalized software.**
-
-**The alphabetical ordering is only advised in list of elements that are dynamic and contain many elements.**
+GNU Free Documentation License {.عنوان-پیوست-western dir="LTR" style="page-break-before: always"}
+------------------------------
 
 \
 \
 
-5.  **To support right-to-left (actually bidirectional) locales, avoid blindly mirroring the entire user interface. Developer tools and graphical toolkits should provide more control for developers and localizers in specifying the proper placement of user interface elements.**
+**GNU Free Documentation License**
 
-6.  **To reduce unexpected directionality related issues with GUI designs it is advised the vertically symmetric designs used as much as possible.**
+Version 1.2, November 2002
 
-\
-\
+Copyright (C) 2000, 2001, 2002 Free Software Foundation, Inc.
 
-\
-\
+59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-### 1.4.The Effect of Different Direction in Desktop, Software and Document {.western dir="LTR"}
+Everyone is permitted to copy and distribute verbatim copies
 
-We briefly mentioned the issues of a mixed Persian/Latin environment. Since this is a common scenario, we will discuss it in more detail here. The first thing to note is the three main elements that the user is dealing with when using a computer:
+of this license document, but changing it is not allowed.
 
--   First element is the graphical desktop environment which provides the basic facilities including windows and menus.
+**0. PREAMBLE**
 
--   The second element is the application which is used to perform the intended task.
+The purpose of this License is to make a manual, textbook, or other functional and useful document “free” in the sense of freedom: to assure everyone the effective freedom to copy and redistribute it, with or without modifying it, either commercially or noncommercially. Secondarily, this License preserves for the author and publisher a way to get credit for their work, while not being considered responsible for modifications made by others.
 
--   The third element is the content or the data related to the task which could often be a document.
+This License is a kind of “copyleft”, which means that derivative works of the document must themselves be free in the same sense. It complements the GNU General Public License, which is a copyleft license designed for free software.
 
-At any given time, only one locale should be designated as the active user locale and changing the active locale may require restarting the user session to give a change to properly refresh and relocated the user interface. Having different active locales per running applications is not recommended since it can break the stability of the user interface, especially if each locale has a different directionality. Still, if we have the same locale set for all applications, it is not guaranteed that the three elements above all adhere to the same active locale. When a certain locale is made active, still the desktop environment or the applications may not be localized to support the locale language.
+We have designed this License in order to use it for manuals for free software, because free software needs free documentation: a free program should come with manuals providing the same freedoms that the software does. But this License is not limited to software manuals; it can be used for any textual work, regardless of subject matter or whether it is published as a printed book. We recommend this License principally for works whose purpose is instruction or reference.
 
-Also, the active locale does not determine the language of the data that we will be using. The document opened in the application may have any language and may need to be formatted according to any locale. For example, when the English/US locale is active we may prepare an invoice for an international customer in Spanish (with Spanish number delimiters and date format). This means that some flexibility in the locale activation is required for properly handling data intended for a different locale without completely switching to that locale. Such a document specific locale only affects the document content and should not affect the GUI.
+**1. APPLICABILITY AND DEFINITIONS**
 
-The directionality of the active GUI locale, usually takes precedence over the actual language of the user interface to maintain the consistency and stability of common GUI elements. For example, menu bar is a GUI element that is almost universally available in all applications. It also usually has similar menus in all applications, such as File and Edit menus. For this reason, and despite the fact that menu bar has a text oriented appearance which suggests adhering to the direction of the language, the direction of the menu bar should stay the same for all applications on the same desktop environment. If the active locale is Persian/Iran the menu bar will be right-to-left even for applications that are not localized to Persian. In such a case while localized Persian applications have menu bars with expected orientation, such as the following figure
+This License applies to any manual or other work, in any medium, that contains a notice placed by the copyright holder saying it can be distributed under the terms of this License. Such a notice grants a world-wide, royalty-free license, unlimited in duration, to use that work under the conditions stated herein. The “Document”, below, refers to any such manual or work. Any member of the public is a licensee, and is addressed as “you”. You accept the license if you copy, modify or distribute the work in a way requiring permission under copyright law.
 
-پرونده ویرایش نمایش جستجو … **OK**
+A “Modified Version” of the Document means any work containing the Document or a portion of it, either copied verbatim, or with modifications and/or translated into another language.
 
-None-localized applications will appear to have a reversed menu bar as in the following figure:
+A “Secondary Section” is a named appendix or a front-matter section of the Document that deals exclusively with the relationship of the publishers or authors of the Document to the Document’s overall subject (or to related matters) and contains nothing that could fall directly within that overall subject. (Thus, if the Document is in part a textbook of mathematics, a Secondary Section may not explain any mathematics.) The relationship could be a matter of historical connection with the subject or with related matters, or of legal, commercial, philosophical, ethical or political position regarding them.
 
-File Edit View Search … **OK**
+The “Invariant Sections” are certain Secondary Sections whose titles are designated, as being those of Invariant Sections, in the notice that says that the Document is released under this License. If a section does not fit the above definition of Secondary then it is not allowed to be designated as Invariant. The Document may contain zero Invariant Sections. If the Document does not identify any Invariant Sections then there are none.
 
-This behavior is the correct behavior despite looking strange in the none-localized application, because it maintains the consistency of the placement of equivalent elements. Any elements that are very common and have a consistent placement across most applications should maintain a consistent placement according to active locale. Another example in this regard is the placement of OK and Cancel buttons and other similar elements. One of the most important elements that are sometimes misplaced in this regard is the vertical scroll bar. It has been seen in some web browsers that they flip the position of the vertical scroll bar if you navigate from a page into another page that has the opposite directionality. This is definitely wrong behavior, since scroll bar is one of the most frequently used elements in the user interface and maintaining consistency and stability in its location is very important. The other point regarding scroll bar is that its placement does not really depend on writing direction. For example, in the SmallTalk environment the vertical scroll bar placed on the opposite side. So, unlike the menu bar where keeping the main locale direction makes it look strange, the scroll bar is perfectly OK wherever it is placed as long as it does not flip around.
+The “Cover Texts” are certain short passages of text that are listed, as Front-Cover Texts or Back-Cover Texts, in the notice that says that the Document is released under this License. A Front-Cover Text may be at most 5 words, and a Back-Cover Text may be at most 25 words.
 
-But this does not apply to the parts of the user interface that are expected to be read like text. For example, a form where there are labels and fields, the relative order of fields and their labels should follow the direction of the language they are written in, not that of the active locale. The following screen shot shows the existing incorrect behavior of GNOME:
+A “Transparent” copy of the Document means a machine-readable copy, represented in a format whose specification is available to the general public, that is suitable for revising the document straightforwardly with generic text editors or (for images composed of pixels) generic paint programs or (for drawings) some widely available drawing editor, and that is suitable for input to text formatters or for automatic translation to a variety of formats suitable for input to text formatters. A copy made in an otherwise Transparent file format whose markup, or absence of markup, has been arranged to thwart or discourage subsequent modification by readers is not Transparent. An image format is not Transparent if used for any substantial amount of text. A copy that is not “Transparent” is called “Opaque”.
 
-![](PersianHIG-EN-Main44_html_768dd48b.png) **Wrong!**
+Examples of suitable formats for Transparent copies include plain ASCII without markup, Texinfo input format, LaTeX input format, SGML or XML using a publicly available DTD, and standard-conforming simple HTML, PostScript or PDF designed for human modification. Examples of transparent image formats include PNG, XCF and JPG. Opaque formats include proprietary formats that can be read and edited only by proprietary word processors, SGML or XML for which the DTD and/or processing tools are not generally available, and the machine-generated HTML, PostScript or PDF produced by some word processors for output purposes only.
 
-As you see in the above picture right-to-left layout is clearly incorrect when the actual language of the text in the GUI is English.
+The “Title Page” means, for a printed book, the title page itself, plus such following pages as are needed to hold, legibly, the material this License requires to appear in the title page. For works in formats which do not have any title page as such, “Title Page” means the text near the most prominent appearance of the work’s title, preceding the beginning of the body of the text.
 
-6.  **The placement of the common interface elements follows the direction of the active locale, even if the actual language has a different direction.**
+A section “Entitled XYZ” means a named subunit of the Document whose title either is precisely XYZ or contains XYZ in parentheses following text that translates XYZ in another language. (Here XYZ stands for a specific section name mentioned below, such as “Acknowledgements”, “Dedications”, “Endorsements”, or “History”.) To “Preserve the Title” of such a section when you modify the Document means that it remains a section “Entitled XYZ” according to this definition.
 
-**The directionality of custom GUI elements that are read like text should adhere to the actual language of the GUI regardless of the active locale direction.**
+The Document may include Warranty Disclaimers next to the notice which states that this License applies to the Document. These Warranty Disclaimers are considered to be included by reference in this License, but only as regards disclaiming warranties: any other implication that these Warranty Disclaimers may have is void and has no effect on the meaning of this License.
 
-The decision of the proper placement of the GUI elements is also affected by the fact that there is a considerable user base for the existing none-localized and left-to-right desktop environments. In order to ease the transition of the existing users, the changes in the placement and orientation of the GUI elements should be kept to the minimum that is necessary.
+**2. VERBATIM COPYING**
 
-\
-\
+You may copy and distribute the Document in any medium, either commercially or noncommercially, provided that this License, the copyright notices, and the license notice saying this License applies to the Document are reproduced in all copies, and that you add no other conditions whatsoever to those of this License. You may not use technical measures to obstruct or control the reading or further copying of the copies you make or distribute. However, you may accept compensation in exchange for copies. If you distribute a large enough number of copies you must also follow the conditions in section 3.
 
-7.  **Do not change the orientation and placement of GUI elements unless this is really necessary.**
+You may also lend copies, under the same conditions stated above, and you may publicly display copies.
 
-\
-\
+**3. COPYING IN QUANTITY**
 
-\
-\
+If you publish printed copies (or copies in media that commonly have printed covers) of the Document, numbering more than 100, and the Document’s license notice requires Cover Texts, you must enclose the copies in covers that carry, clearly and legibly, all these Cover Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on the back cover. Both covers must also clearly and legibly identify you as the publisher of these copies. The front cover must present the full title with all words of the title equally prominent and visible. You may add other material on the covers in addition. Copying with changes limited to the covers, as long as they preserve the title of the Document and satisfy these conditions, can be treated as verbatim copying in other respects.
 
-[1](#sdfootnote1anc)TP^^PT A section is a part of document where the layout is similar (same column setup and header/footer, etc)
+If the required texts for either cover are too voluminous to fit legibly, you should put the first ones listed (as many as fit reasonably) on the actual cover, and continue the rest onto adjacent pages.
+
+If you publish or distribute Opaque copies of the Document numbering more than 100, you must either include a machine-readable Transparent copy along with each Opaque copy, or state in or with each Opaque copy a computer-network location from which the general network-using public has access to download using public-standard network protocols a complete Transparent copy of the Document, free of added material. If you use the latter option, you must take reasonably prudent steps, when you begin distribution of Opaque copies in quantity, to ensure that this Transparent copy will remain thus accessible at the stated location until at least one year after the last time you distribute an Opaque copy (directly or through your agents or retailers) of that edition to the public.
+
+It is requested, but not required, that you contact the authors of the Document well before redistributing any large number of copies, to give them a chance to provide you with an updated version of the Document.
+
+**4. MODIFICATIONS**
+
+You may copy and distribute a Modified Version of the Document under the conditions of sections 2 and 3 above, provided that you release the Modified Version under precisely this License, with the Modified Version filling the role of the Document, thus licensing distribution and modification of the Modified Version to whoever possesses a copy of it. In addition, you must do these things in the Modified Version:
+
+A. Use in the Title Page (and on the covers, if any) a title distinct from that of the Document, and from those of previous versions (which should, if there were any, be listed in the History section of the Document). You may use the same title as a previous version if the original publisher of that version gives permission.
+
+B. List on the Title Page, as authors, one or more persons or entities responsible for authorship of the modifications in the Modified Version, together with at least five of the principal authors of the Document (all of its principal authors, if it has fewer than five), unless they release you from this requirement.
+
+C. State on the Title page the name of the publisher of the Modified Version, as the publisher.
+
+D. Preserve all the copyright notices of the Document.
+
+E. Add an appropriate copyright notice for your modifications adjacent to the other copyright notices.
+
+F. Include, immediately after the copyright notices, a license notice giving the public permission to use the Modified Version under the terms of this License, in the form shown in the Addendum below.
+
+G. Preserve in that license notice the full lists of Invariant Sections and required Cover Texts given in the Document’s license notice.
+
+H. Include an unaltered copy of this License.
+
+I. Preserve the section Entitled “History”, Preserve its Title, and add to it an item stating at least the title, year, new authors, and publisher of the Modified Version as given on the Title Page. If there is no section Entitled “History” in the Document, create one stating the title, year, authors, and publisher of the Document as given on its Title Page, then add an item describing the Modified Version as stated in the previous sentence.
+
+J. Preserve the network location, if any, given in the Document for public access to a Transparent copy of the Document, and likewise the network locations given in the Document for previous versions it was based on. These may be placed in the “History” section. You may omit a network location for a work that was published at least four years before the Document itself, or if the original publisher of the version it refers to gives permission.
+
+K. For any section Entitled “Acknowledgements” or “Dedications”, Preserve the Title of the section, and preserve in the section all the substance and tone of each of the contributor acknowledgements and/or dedications given therein.
+
+L. Preserve all the Invariant Sections of the Document, unaltered in their text and in their titles. Section numbers or the equivalent are not considered part of the section titles.
+
+M. Delete any section Entitled “Endorsements”. Such a section may not be included in the Modified Version.
+
+N. Do not retitle any existing section to be Entitled “Endorsements” or to conflict in title with any Invariant Section.
+
+O. Preserve any Warranty Disclaimers.
+
+If the Modified Version includes new front-matter sections or appendices that qualify as Secondary Sections and contain no material copied from the Document, you may at your option designate some or all of these sections as invariant. To do this, add their titles to the list of Invariant Sections in the Modified Version’s license notice. These titles must be distinct from any other section titles.
+
+You may add a section Entitled “Endorsements”, provided it contains nothing but endorsements of your Modified Version by various parties–for example, statements of peer review or that the text has been approved by an organization as the authoritative definition of a standard.
+
+You may add a passage of up to five words as a Front-Cover Text, and a passage of up to 25 words as a Back-Cover Text, to the end of the list of Cover Texts in the Modified Version. Only one passage of Front-Cover Text and one of Back-Cover Text may be added by (or through arrangements made by) any one entity. If the Document already includes a cover text for the same cover, previously added by you or by arrangement made by the same entity you are acting on behalf of, you may not add another; but you may replace the old one, on explicit permission from the previous publisher that added the old one.
+
+The author(s) and publisher(s) of the Document do not by this License give permission to use their names for publicity for or to assert or imply endorsement of any Modified Version.
+
+**5. COMBINING DOCUMENTS**
+
+You may combine the Document with other documents released under this License, under the terms defined in section 4 above for modified versions, provided that you include in the combination all of the Invariant Sections of all of the original documents, unmodified, and list them all as Invariant Sections of your combined work in its license notice, and that you preserve all their Warranty Disclaimers.
+
+The combined work need only contain one copy of this License, and multiple identical Invariant Sections may be replaced with a single copy. If there are multiple Invariant Sections with the same name but different contents, make the title of each such section unique by adding at the end of it, in parentheses, the name of the original author or publisher of that section if known, or else a unique number. Make the same adjustment to the section titles in the list of Invariant Sections in the license notice of the combined work.
+
+In the combination, you must combine any sections Entitled “History” in the various original documents, forming one section Entitled “History”; likewise combine any sections Entitled “Acknowledgements”, and any sections Entitled “Dedications”. You must delete all sections Entitled “Endorsements.”
+
+**6. COLLECTIONS OF DOCUMENTS**
+
+You may make a collection consisting of the Document and other documents released under this License, and replace the individual copies of this License in the various documents with a single copy that is included in the collection, provided that you follow the rules of this License for verbatim copying of each of the documents in all other respects.
+
+You may extract a single document from such a collection, and distribute it individually under this License, provided you insert a copy of this License into the extracted document, and follow this License in all other respects regarding verbatim copying of that document.
+
+**7. AGGREGATION WITH INDEPENDENT WORKS**
+
+A compilation of the Document or its derivatives with other separate and independent documents or works, in or on a volume of a storage or distribution medium, is called an “aggregate” if the copyright resulting from the compilation is not used to limit the legal rights of the compilation’s users beyond what the individual works permit. When the Document is included in an aggregate, this License does not apply to the other works in the aggregate which are not themselves derivative works of the Document.
+
+If the Cover Text requirement of section 3 is applicable to these copies of the Document, then if the Document is less than one half of the entire aggregate, the Document’s Cover Texts may be placed on covers that bracket the Document within the aggregate, or the electronic equivalent of covers if the Document is in electronic form. Otherwise they must appear on printed covers that bracket the whole aggregate.
+
+**8. TRANSLATION**
+
+Translation is considered a kind of modification, so you may distribute translations of the Document under the terms of section 4. Replacing Invariant Sections with translations requires special permission from their copyright holders, but you may include translations of some or all Invariant Sections in addition to the original versions of these Invariant Sections. You may include a translation of this License, and all the license notices in the Document, and any Warranty Disclaimers, provided that you also include the original English version of this License and the original versions of those notices and disclaimers. In case of a disagreement between the translation and the original version of this License or a notice or disclaimer, the original version will prevail.
+
+If a section in the Document is Entitled “Acknowledgements”, “Dedications”, or “History”, the requirement (section 4) to Preserve its Title (section 1) will typically require changing the actual title.
+
+**9. TERMINATION**
+
+You may not copy, modify, sublicense, or distribute the Document except as expressly provided for under this License. Any other attempt to copy, modify, sublicense or distribute the Document is void, and will automatically terminate your rights under this License. However, parties who have received copies, or rights, from you under this License will not have their licenses terminated so long as such parties remain in full compliance.
+
+**10. FUTURE REVISIONS OF THIS LICENSE**
+
+The Free Software Foundation may publish new, revised versions of the GNU Free Documentation License from time to time. Such new versions will be similar in spirit to the present version, but may differ in detail to address new problems or concerns. See http://www.gnu.org/copyleft/.
+
+Each version of the License is given a distinguishing version number. If the Document specifies that a particular numbered version of this License “or any later version” applies to it, you have the option of following the terms and conditions either of that specified version or of any later version that has been published (not as a draft) by the Free Software Foundation. If the Document does not specify a version number of this License, you may choose any version ever published (not as a draft) by the Free Software Foundation.
+
+![](PersianHIG-EN-Main45_html_m63a7d47d.png)
 
 \
 \

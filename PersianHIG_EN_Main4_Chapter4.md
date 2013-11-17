@@ -1,461 +1,102 @@
 \
 \
 
-Chapter 1Persian Text in the GUI {.western dir="LTR"}
---------------------------------
+Chapter 1The Visual Elements in the GUI {.western dir="LTR"}
+---------------------------------------
 
-### 1.1.Characteristics of the Persian Text {.western dir="LTR"}
+This chapter discusses the visual elements in the GUI and guidelines concerning them for a Persian GUI application. The visual elements include all the images, icons, symbols, text, lines and boxes and the layout and composition of these elements to make the visual appearance of the GUI.
 
-There are very obvious differences between Persian text and Latin text, but one of the issues in proper support of Persian language is that many developers treat Persian and Arabic as being the same. To overcome the issues caused by treating Persian like Arabic, we will specify the differences of Persian with Arabic as well as Latin script.
-
-Some may be surprised to know that Persian language is an indo-European language like English, French and German. The writing script of the Persian language which uses a modestly extended Arabic script causes many people to think that Persian is a derivative of the Arabic language, which is not true. Here we will list the main characteristics of the Persian language as far as normal usage in the user interface is concerned:
-
-1.  Like the Arabic language, Persian is written from right to left. Numbers and numeric expressions are written from left to right. The difference of the Persian with other Arabic locales is the lower emphasis on right to left direction, especially when numbers are involved. For example, in Persian/Iran locale many tables and graphs that are numerically oriented use Cartesian direction which is left to right, whilst they may be preferred to be right to left in Arabic speaking locales.
-
-2.  Printed Latin text does not cursively connect adjacent characters and the shape of characters does not depend on their position in the word. In Persian, just like Arabic, the cursive connection of adjacent letters is required and the shape of characters depends on adjacent characters.
-
-3.  In normal Latin printed writing, combining adjacent characters to form a ligature (like replacing B~![](PersianHIG-EN-Main43_html_m23050a1.png)~~B~withB~![](PersianHIG-EN-Main43_html_m78695a6f.png)~~B~) is optional and is used to improve the typographical look of the text. Some ligatures in Persian and Arabic are required for correct writing. The main example is the ligature of letter Lam (U+0644) with Alef (U+0627). For this reason, text rendering subsystem should support automatic formation of ligatures.
-
-4.  In Latin text, each character has two forms: lower case and upper case. This does not apply to Persian and Arabic. They don’t have a concept similar to upper case of lower case of Latin.
-
-5.  Like Arabic the only required set of ligatures in Persian are the ligature of Lam (U+0644) with Alef-based characters (U+0627, U+0622, U+0623, etc) It is worth mentioning that mark to mark positioning by combining them into a single glyph (such as combining U+0651 with U+064E to get U+FC60) is not considered a ligature. The main difference of Persian with Arabic concerning ligatures is in the preferred optional ligatures. Here are the most common optional ligatures in Persian:
-
-    -   The ligature of either U+06A9 and U+06AF with either Lam (U+0644) or Alef-based characters (U+0627, U+0622, U+0623, etc)
-
-    -   The ligature combining certain previous characters with the word final Yeh (U+06CC) in to morph a dandanah in the previous character to a hill in the head of Yeh, similar to this example that combines U+0633 with U+06CC:
-
-![](PersianHIG-EN-Main43_html_3db6b928.png)
-
--   The ligature of either of U+0633 to U+0636 with U+0631, U+0632 or U+0698. Also ligatures of medial form of some other characters (e.g. U+028, U+062A, U+062B) with U+0631, U+0632.
-
-The following optional Arabic ligatures are not desired in Persian. Avoid them for Persian text:
-
--   The ligature of Lam (U+0644) with Meem (U+0645) which looks like:
-
-![](PersianHIG-EN-Main43_html_5b7a1782.png)
-
--   The ligature of Meem (U+0645) with Alef (U+0627) which looks like:
-
-![](PersianHIG-EN-Main43_html_60bfa87f.png)
-
--   The ligature of Lam (U+0644) or Feh (U+0641) with any Yeh (U+64A or U+06CC) which look like:
-
-![](PersianHIG-EN-Main43_html_18bf199f.png)
-
--   The ligature of U+0628, U+062A, U+062B or U+0644 to U+0647 with U+062C to U+062E. For example U+0644 with U+062D forms this glyph in initial form:
-
-![](PersianHIG-EN-Main43_html_73da820c.png)
-
--   None of the three character Arabic optional ligatures are desired for Persian.
-
-Marks called accents that are added to some base characters in Latin are different from the floating marks used in Persian and Arabic. The characteristic of Latin accents is that some very specific accents are used on some very specific base characters. Those accented characters usually play a role very similar to a stand-alone character different from the base character. For this reason, it is common to use composed accented characters in Latin where a base character and an accent are combined to form a new character. In Persian and Arabic the use of floating marks is a lot more free and arbitrary. The floating marks in Persian and Arabic have stand-alone significance (many of them represent vowels, for instance) similar to an independent character. This means that in Persian and Arabic the floating marks are not composed with the base character to make new characters and remain independent and are editable independent of their base glyph.
-
-The short vowels in Persian and Arabic (U+064E, U+0650, U+064F) are zero-width floating marks that are normally omitted in writing.
-
-Among Arabic floating marks other than the above, only U+0651 and U+064B are commonly used in Persian. Unlike the vowels, their presence is normally required to have a correct text.
-
-In Arabic when positioning the two floating marks U+0651 and either U+064D or U+0650 on the same base glyph, the second mark (the vowel) is placed on the first mark not on the character. So, in Arabic the combination of U+0651 and U+0650 looks like: ـِّ This is not the case in Persian and both marks are placed on the base character. For example, the combination of U+0651 and U+0650 is displayed as:ـّ‌ِ
-
-There is a floating mark that is specific to Persian and is not well documented. A short description of this mark follows: When you want to add a U+0650 to the end of a word, if certain conditions are met, U+0650 vowel mark is replaced with a mark whose shape is ![](PersianHIG-EN-Main43_html_m357d746.png) and it is called *Yayeh Morakham* (یای مُرَخَّم) which means “shortened Yeh” and represents an added *Yeh* pronunciation to the usual pronunciation of U+0650 vowel. If a word ends in Heh (U+0647) but the Heh is not pronounced, *Yayeh Morakham* will be used instead of U+0650. \
-A example usage of this mark in Persian is the phrase: خانۀ من (Meaning “my house”) Since writing this mark has not traditionally been well supported in typewriters and computers, it is also written with a full *Yeh* as: خانه‌ی من So, the sequence of U+200C + U+06CC appended to a word ending in U+0647 is equivalent to the presence of *Yayeh Morakham* at the end of the word.\
-Since *Yayeh Morakham* is only used in this specific place and after this specific character it is treated more like accents and there is no separate and specific Unicode entry for it. Instead, in order to support this mark, the usage of *Arabic Hamza Above* (U+0654) is extended in Persian as follows: \
-U+0654 is valid if it appears after U+0647 in Persian and is treated as *Yayeh Morakham*. It should be combined with the shape of base glyph in the form of an added mark above the base glyph shaped ![](PersianHIG-EN-Main43_html_m357d746.png) (A small *Yeh* whose tail swash is cut)\
-The sequences U+0647 + U+0654 and U+0647 + U+200C + U+06CC at the end of a word are equivalent and are valid if U+0647 is not pronounced. The meaning of U+0654 or U+200C + U+06CC are equivalent to U+0650 (which in this context means “of”). The text services in a Persian localized environment should correctly support this special floating mark.
-
-As mentioned in the beginning of this section, Persian is an Indo-European language. This means that Persian uses compound words, prefixes and suffixes. The rule of writing these compound words or prefixes and suffixes is an extension to normal Arabic script in that the components (sub-words) or prefixes and suffixes may not be cursively connected the other parts of the word. According to ISIRI-6219, this is facilitated by adding a Zero-Width None-Joiner (U+200C) between the components of the word or the word and its prefix and/or suffix. The correct display of this disconnection in the middle of the word usually requires that this control character behave as if in addition to splitting the cursive connection, it adds a very short white space between the components it is separating (as if it is U+202F for instance). The text services in a Persian localized environment should correctly support this style of Persian compound words.
-
-Unlike many languages, feminine vs. masculine distinction does not exist in Persian.
-
-In Persian we either have plural or singular and unlike Arabic, a pair is not distinguished. The count of objects specified in Persian also does not require using a plural name. For example, instead of the English phrases “One Book vs. Three Books” in Persian both cases are written identically with singular name (as if we say “Three Book”).
-
-In the Latin alphabet only a few characters descend below the baseline (g, j, p, q, y and Q) but in Persian and Arabic there are many characters that descend below the baseline. The amount of this descend is also traditionally much more than Latin. Generally, the extra swashes in Normal Persian and Arabic and the presence of floating marks causes Persian to require more line spacing than English to be readable. This requires that the Persian localized applications permit enough interline spacing to provide readable Persian text.
-
-Mono-spaced fonts are common in display of Latin text on computers. True mono-space font is impossible in Persian (because of the required ligatures and floating marks). Nearly mono-space font also is not as readable and appealing as Latin text because of inherently more varied character widths and use of swashes in the word final shape of characters. This means that Persian localized software may not assume presence of a mono-space font and depend on mono-space fonts.
-
-Latin text absolutely requires inter-character spacing to be readable but the different shape of word initial and word final characters cause Persian text to stay much more readable if the inter-word spacing approaches zero. This has some undesirable side effects: Some people typing Persian text omit some inter-word spaces without causing user noticeable defect in the display. This is specially the case when a phrase is so common that people start to treat it as a compound word. An example is the three word phrase زد و خورد which is commonly written as زدوخورد. This causes problems with text processing software which require an explicit word delimiter which is practically sometimes absent in Persian. Although the above practice is considered incorrect, but it is actually very common. So, software that needs to accurately separate words in the text will need special lookup dictionaries and other facilities to detect and correct such cases.
-
-Persian text needs kerning for readability and aesthetics much more than Latin text does. So, it is advised that text rendering facilities targeting Persian text support kerning and the Persian fonts provide adequate kerning data.
-
-In Latin text the most common text alignment and justification is left aligned text. Since the cursive connection points in Persian (and Arabic) text are ductile, fully justified text is much more common and usually the expected default in Iran. So, it is advised that text rendering facilities targeting Persian text support full justified.
-
-Full justification of Latin text is mostly achieved by adjusting inter-word spacing and relies on inter-character spacing mostly as a last resort. On the other hand the, full justification of Persian text usually does not involve adjusting inter-word spacing at all. Full justification in Persian text (like Arabic) is achieved by extending the inter-character cursive connections. This effect is usually achieved by adding special glyphs between the connected glyphs. These glyphs are called Tatweel or Kashida and look like horizontal bars placed on the baseline. There is one manually inserted Tatweel defined in Unicode (U+0640), but it is not the most desirable glyph to be used for justification since it is too wide. In order to properly support Persian text, it is necessary that the text rendering services properly support text justification by extending cursive connections. One important step to achieve this goal is the support of OpenType justification features, namely the support of OpenType JSTF table which is not yet supported well on GNU/Linux.
-
-Persian uses some additional alphabetic characters compared to Arabic which include: پ (U+067E) چ (U+0686) ژ (U+0698) گ (U+06AF).
-
-Some Arabic letters are not used in Persian such as إ (U+0673) and *Alef Maksura* ى (U+0649) which looks identical to Persian *Yeh* (U+06CC). When writing Arabic words such as موسی (Moses) which contain *Alef Maksura* in Persian, it is written using Persian *Yeh* instead of *Alef Maksura* and treated as if it actually is *Yeh*. It has been recently suggested that such words be written with normal *Alef* in Persian which is gradually gaining some acceptance. So the above word can also be written as موسا in Persian.
-
-Some Arabic letters are written with a slightly different appearance in Persian. Since Unicode tries to avoid coding language into its encoding while preserving character appearance, it defines different code points for semantically equivalent Arabic and Persian letters. So, instead of Arabic ك (U+0643) and ي (U+064A) Persian uses ک (U+06A9) and ی (U+06CC) respectively.
-
-The shape of some digits and the shape of decimal and thousand separators in Persian differs from Arabic. There are also some differences in the directional behavior of Persian numbers with Arabic numbers. For this reason, there is a second group of digits defined in Arabic block (U+06F0 to U+06F9) which are used for Persian and Urdu and some other languages. Although the same code points are used, the display shape of some digits differs among Persian and Urdu. This is also the case with decimal and thousand separators (U+066B and U+066C). Text rendering services may need to use knowledge of the language (gained for instance through the keyboard layout used to perform text entry) to determine the correct shape of some digits and the shape of decimal and thousand separators in Persian.
-
-### 1.2.Characteristics of the Persian Fonts {.western dir="LTR"}
-
-Since Persian writing is based on Arabic script, Persian fonts share many characteristics with Arabic fonts. The main differences between Arabic and Persian fonts are the result of different styles and calligraphic tastes among Persian and Arabic typographic designers and calligraphers. Since such differences exist, some of the Arabic font designs look foreign and even ugly to the Persian user. On the other hand, some of the best fonts used in Persian have Arabic designs such as Linotype Lotus font.
-
-1.  **Avoid using Arabic fonts that are not familiar for users in Persian/Iran locale in your software user interface.**
-
-**This does not include Arabic text and Arabic designs that are popular in Iran.**
-
-#### .1.2.1.Persian vs. Latin Fonts {.western dir="LTR"}
-
-There are important differences between Persian (including Arabic) fonts and Latin fonts. This leads to issues in deciding the proper font, font size and font style for use in Persian user interface. For this reason we will compare Latin and Persian fonts and discuss some of the issues involved.
-
-Normal Latin fonts usually contain many parallel vertical stems that reside between three well-defined parallel horizontal guide lines. In contrast, there is only one well-defined baseline recognizable in Persian font and the angle, shape and height of the stems in the Persian fonts are quite varied. The following figure shows a sample of Latin vs. Persian Fonts (Linotype Palatino vs. Linotype Lotus):
-
-![](PersianHIG-EN-Main43_html_4256dbfa.png)Both fonts descend below the baseline but the amount and variation of this descend is much more in the Persian font. Extra descend and the presence of swashes, dots and floating marks in the Persian fonts causes the Persian text to require more line spacing to be easily readable.
-
-An important historical side effect of the shape of Persian font is the different effective optical size of Persian fonts with Latin fonts. The more line spacing requirement of Persian fonts means that you have to make Persian font smaller to fit a certain height which determines the point size of the font. So, a 12 point Persian font usually looks smaller and is less readable than a 12 point Latin font. This can significantly affect the readability of the text used in the user interface. The following figure illustrates this effect. In the first line, both fonts have the same size. In the second line the Persian font is enlarged to 117% to make it as readable as the Latin font:
-
-![](PersianHIG-EN-Main43_html_me45cb41.png)
-
-![](PersianHIG-EN-Main43_html_377fd20.png)
-
-To get equivalent readability, the point size of the Persian fonts usually needs to be 5 to 20 percent more than the adjacent Latin font. Since selectively changing font size for the text in the user interface based on the script and language of the text is not supported now, the easiest solution is to have special Persian user interface fonts whose readability vs. size is adjusted to be equivalent to the Latin fonts.
-
-2.  **For displaying Persian text in the user interface use Persian fonts that are specifically designed or adjusted for this purpose.**
+Printed output plays an important role in many software applications and many visual elements in the GUI are modeled after printed page, some parts of the GUI deal with the printed page or visualize it. For this reason, we will first discuss the paper documents and their specifics in Iran/Persian locale.
 
 \
 \
 
-It is also highly recommended that word processing applications support different font and size setting for each language (or at least script) that is used in the document and avoid applying the same font and font size to the entire text containing different languages.
+### 1.1.Paper Documents {.western dir="LTR"}
 
-There is also another difference between Persian and Latin fonts apparent from the previous figures: In Persian text horizontal stems are thicker and make up the main bulk of the font but in Latin text vertical stems are thicker and provide the bulk of the font. As we will see this further affects line spacing, especially for boldface text in Persian.
+Printed output is varied. It could be a single sheet of paper, a continuous roll of paper, thick double sided book with hundreds of pages, a large multi-sheet CAD drawing or a giant color poster. In this discussion we will focus on sheet by sheet print of normal size, whose usage is the most common.
 
-#### .1.2.2.Persian Font Styles {.western dir="LTR"}
+Multi-page documents have different types: It could be unbound sheet-by-sheet document or a bound booklet. They may be single sided or double sided. In the case of a booklet, it could be bound from the side or from the top.
 
-It is a normal practice to use different font style or underlining to emphasize portions of the text. The most common font styles in Latin include **Bold**, *Italic* and ***Bold-Italic***. The main characteristic of the bold font style is the added stem thickness that makes the text look blacker. The main property of the italic style is the slanted vertical stems in the font which makes it look more dynamic. The fonts that lack other italic characteristics but posses the slanted vertical stems are usually called *Oblique* or *Slant* instead of *Italic*.
+On the other hand the document may be Persian, Latin or bi-lingual Persian/Latin. For example, an international contract could have the Persian and English translations side by side either on adjacent columns or opposing pages. A bi-lingual journal may have a Persian half and a Latin half.
 
-Since the advent of printing in Iran similar font styles have been created for Persian. The properties of Persian font cause the Persian text styles to have some differences with their Latin counterparts. In the Persian fonts the horizontal stems are dominant and determine the blackness of a font. This fact with the added effect of multiple dots on some characters, cause the Persian bold style to have a tendency to grow more in height rather than width. In contrast, the Latin bold text tends to grow in width but maintain its height. When designing Persian font families, usually the line spacing of the font is taken even higher to accommodate for the increase in height for the bold style. The other issue caused by this fact is the reduced effectiveness of the normal algorithm used to simulate bold style when a true design is not available. The existing method usually strikes the normal font twice with a slight (one pixel) horizontal shift to simulate bold text. This method creates ugly (sometimes damaging) results in Persian and does not provide enough blackness.
+If a printed document is intended to be bound from the side, the proper side for binding depends on the direction of the primary language of the document. This is called the document direction. In a Persian (RTL) document, the binding is on the right side of the booklet. In a Latin (LTR) document, the binding is on the left side of the booklet. When you open a double-sided Persian booklet (printed on both sides on the paper) the right page has an even number and the left page has an odd number. This means that in the Persian book, the first page is the left page. In a Latin book the right page has an odd number and the left page has an even number. This means that in the Latin book, the first page is the right page.
 
-1.  **Always try to design and have bold style for Persian fonts targeting screen and GUI.**
+If the page contains multiple columns, Persian columns are placed from right to left, while Latin columns from left to right. Considering the above points the properties of a bi-lingual document also becomes apparent. If a bi-lingual document has two separate Latin and Persian section, each will start at one side of booklet and continue towards the middle, just as if we have pasted the back cover of two booklets (one Persian and the other Latin) to each other. In this case, the page numbers start at one on both sides and grow toward the middle.
 
-\
-\
+If we need to place Persian and Latin sections side by side, then there are two solutions. First solution is using two column Pages. The left side column contains Latin text and the right side column contains Persian text. The other method would be putting Persian and Latin in two facing pages. The left side page would contain Latin and right side page would contain Persian. In both of these cases we need to first assume a direction for the entire booklet and number and arrange the pages accordingly. So, we either consider the document Latin and left bind it or consider Persian and right bind it.
 
-In Persian, Italic style is not defined and a simple Oblique or slanted style is used which is called *Mayel* (مایل). Although the direction of the slant may be the same as Latin, it is less desired and less common and the usual slant angle is the reverse of Latin. So, the default Oblique or Slant style in Persian uses a slant angel opposite to Latin fonts and the one which has the same angle than Latin are considered to be Reverse-Oblique or Back-Slant called *Mayel-be-Aghab* (مایل به عقب). This is a bit confusing for developers used to Latin fonts. If we have a Persian-only text always the normal oblique style is used (which is the reverse of Latin) but if the text is bi-lingual, the reverse oblique may be used.
+A software that wants to properly support working with a mix of Persian and Latin documents (including bi-lingual documents) needs specific functionality to address the requirements of Persian, Latin and Persian/Latin documents. To support both Persian and Latin, the software needs to properly support both right and left binding of the document. It means that it should be able to both accept the first page as being the left page and as the right page. Beyond the binding it also should support both left-to-right and right-to-left column arrangement. There are currently a few applications that provide this support. The support of bi-lingual software of the side-by-side type, some extra functionality is used which is not fully supported in any of the existing documents. The required functionality is first the ability to work with two independent text streams. This capability exists in normal page layout software. The other is linking the two streams so that the equivalent sections and paragraphs stay in front of each other by adjusting the line and paragraph spacing. This second capability is not provided by any well known software.
 
-There is also a general issue which limits the usefulness of this style in Persian. The fact that in the Persian fonts the horizontal stems are dominant causes a slanted font to be less distinguishable in Persian. This means that slanting vertical stems in Persian text does not create enough visible difference and it is hardly noticeable in a word like *سست*. It is also worth mentioning that there have been some efforts to define an italic-inspired font style for Persian called *Iranic* which tries to address the distinction issue above. Unfortunately, Iranic fonts are practically none-existent.
+In the last part of this section we will look at the various dimensions and metrics of the page that are used in Persian/Iran locale:
 
-2.  **Try to limit or eliminate the use of Italic (or Oblique) style in Persian user interfaces.**
+The first point to consider is the starting point (zero point) of the measurement ruler. In a normal document where the key factor is the text and the text consists of a single column, the usual place for the zero point of the horizontal ruler is the natural starting point of the text. This is also called a column ruler, since it measures the width of column. When the page layout is the key factor and there are multiple columns, the zero point is usually placed at the upper corner of the page. If there are facing pages, the zero point will be on the binding side of each page. If the page is single sided then the zero point usually is at the side of the natural starting point of writing. This type of ruler is also called the page ruler. For the proper support of bi-directional text, it is recommended that both types of rulers be supported.
 
-3.  **The software that supports font style should be adaptable to show the actual styles available instead of listing the generic bold and italic as the available style variants.**
+The important measurements in a Persian document are paper dimensions, column width, column spacing, margins at four sides of paper, first line indent or out-dent of the paragraph, and paragraph indents within the column for quoted paragraphs. These dimensions are shown in the figure below:
 
-\
-\
+![](PersianHIG-EN-Main44_html_487d4b2d.gif)
 
-There is another point concerning underlined text in Persian. Because of the extra descent and presence of dots below the baseline, Persian underline needs to be lower down the baseline than Latin underline. To get the correct effect, font designers should properly specify underline position for Persian fonts and application software should actually read and adhere to the underline position specified in the font instead of drawing a generic underline in a fixed position. This difference in suitable underline position creates another issue. If underlined text is a mix of Persian and Latin, the underline will be broken and will look unacceptable as shown below:
+There is one point that needs to be considered when naming the above dimension: As you can see left and right are never mentioned and the dimensions are expressed compare relative to natural text starting point as inner and outer margins and near and far indents. Depending on binding side and document direction, each of the inner/near or outer/far dimensions may be located at left or right.
 
-![](PersianHIG-EN-Main43_html_1ed75ec.png)
+1.  **To specify horizontal dimensions and measurements of page, use inner and outer (relative to binding edge) or near and far (relative to the natural starting point based on writing direction) instead of using left and right.**
 
-For this reason, the underline position should be determined as the lowest line indicated by various fonts that are used on the same line. If this is not possible try to eliminate the use of underlined text in your Persian user interfaces.
+2.  **Internationalized software that deals with printed output should be able to handle booklet binding from either top, left or right sides. They should be able to handle both cases of the right page being the first page and the left page being the first page.**
 
-4.  **Using underlined style for a text containing both Persian and Latin font requires special handling and is not recommended.**
-
-**If the underline is used, it should conform to Persian position of underline even for the portions using Latin font.**
-
-The other important and widespread issue regarding usage of underline for Persian text involves underlining a single character of a word to indicate the shortcut or command character for the action represented by the text. Because of some vary narrow characters and presence of many dots below Persian text, a single character underline is not readable and is not recommended in Persian. To highlight such a character in Persian, use a different color for the character or its background or at least use a colored underline to make it distinguishable.
-
-5.  **Underlining a single character should be avoided in Persian text.**
-
-\
-\
-
-In addition to the Latin inspired font styles, there are some other methods used to highlight a portion of the Persian text. They include:
-
-1- Putting the text inside Persian quotes (U+00AB and U+00BB) without implying citation but intended for emphasis.
-
-2- Inserting Tatweel (U+0640) characters manually to stretch a word or phrase.
-
-3- Changing calligraphic style of text from Naskh to Nastaliq or vice versa (which is currently limited to handwriting because of lack of acceptable Nastaliq Tahrir fonts)
-
-#### .1.2.3.Persian Font Size and Metrics {.western dir="LTR"}
-
-As mentioned, compared to the Latin font of the same point size, Persian font usually looks smaller and is less readable. This effect depends on the font design. Also, the required line spacing for proper readability of Persian text at a given font size is more than Latin text. This is the result of more varied ascents and specially descents of the characters and presence of dots, swashes (like ک U+06A9) and floating marks. The comfortable line spacing for Persian text is usually 15% to 60% more than Latin text and may be up to 120% if the text heavily uses floating marks.
-
-The other notable difference regarding vertical font metrics is the ratio of ascender to descender of the Persian fonts compared to Latin. For Latin text, the ratio is usually greater than 2 and may be as high as five, while for the Persian text the ration is usually less than 2 and normally never goes above 3. This potentially creates another issue when putting Persian and Latin text on the same line. The combination of Persian and Latin font of same size may require more space than any one of them needs alone.
-
-So, if the sum of ascender + descender (which roughly determines the point size) is the same for a Persian and Latin font, the ascender of the Latin font is normally higher which determines the ascender for the combination and the descender of the Persian font is larger which determines the descender of the combination. The new sum which indicates minimum line spacing will be increased.
-
-For example, consider a Persian font with ascender of 0.9cm and descender of 0.6cm combined with a Latin font with ascender of 1.1cm and descender of 0.4cm. The resulting combination needs a minimum of 1.1cm + 0.6cm = 1.7cm which is more than the 1.5cm any one of them would require alone. A line containing both Persian and Latin font needs more space than a text with any one of these fonts alone.
-
-Since the text used in the user interface potentially can contain both Persian and Latin, the above issue should be noted when selecting font for the user interface and in the design of Persian fonts for the user interface.
-
-#### .1.2.4.GUI Fonts {.western dir="LTR"}
-
-Font designed for use on display screens which are used for GUI text and web pages have important differences with the normal fonts designed for printed output. To improve readability these fonts usually look larger and more widely spaced with exaggerated features. For example look at the difference in on-screen rendering of the following two fonts:
-
-![](PersianHIG-EN-Main43_html_m299a078c.png)
-
-The above figure shows a 10 point screen font rendered at 96dpi (first line) vs. a 10 point normal font rendered at 96dpi. The limited resolution available when rendering display fonts makes proper display of the variations in stem widths and serif sizes impossible. So, most display fonts use an almost constant stem width with thick, oversized serifs. The stem width is also usually much thicker in the boldface variation of the display font.
-
-The other design feature of the display fonts is the increased attention to the quality of the low resolution rendering of the font. This is attained by using TrueType (instead of PostScript) curves and extensive TrueType hinting. Extensive hinting of a font is a difficult and expensive process, which makes production of display fonts more expensive and time consuming. This limits the availability of high quality display fonts compared to the normal fonts.
-
-The above features are common for display fonts in any script. There are some features that are important for Persian GUI (screen) fonts:
-
-Since the Persian and Latin GUI fonts are used side by side, a Persian GUI font should be compatible and in harmony with its Latin equivalent. To achieve this, it is necessary to reduce the descender of the Persian font compared to the traditional designs. This may even require using a different and higher actual baseline for the Persian character than the nominal baseline encoded in the font. This technique has been used in the old (pre-Mac OS 8) Persian and Arabic GUI fonts of Apple Macintosh as shown in the following figure:
-
-![](PersianHIG-EN-Main43_html_m400f5959.png)
-
-Since the readability of the font is the primary concern in GUI fonts, a Persian GUI font needs to be made larger to improve its readability.
-
-#### .1.2.5.Classification of Persian Fonts {.western dir="LTR"}
-
-Latin fonts have been categorized in different ways and these categories are well documented. There are different classification schemes that have minor differences. This classification has various uses. For example, by using the font classification, some software are intelligent enough to substitute a similar font (with similar metrics and design) when the font specified in the document is missing. It is possible to store some of these classifications in OpenType fonts.
-
-The above classifications do not exist for Persian fonts and are not usually applicable to Persian fonts. Still, sometimes it is useful or required to classify Persian fonts. Unfortunately, there isn’t any notable published work on categorizing and classification of Persian fonts. This seems like a legitimate subject for future research.
-
-We may look at font classification from a different angle as well: Matching each category of Latin fonts with the matching font along their recommended relative sizes. There isn’t any official work or published document in this regard, although many typesetters have their own matching collections.
-
-In order to use Persian fonts in GNU/Linux, we need a minimal classification of Persian fonts to support fontconfig. The three main fontconfig font categories are:
-
-1.  Serif, such as:\
-     ![](PersianHIG-EN-Main43_html_229cd4d0.png)
-
-2.  Sans-serif, (Sans for short) such as:\
-     ![](PersianHIG-EN-Main43_html_53767d7.png)
-
-3.  Mono-space, (Mono for short) such as: ![](PersianHIG-EN-Main43_html_m2607f45a.png)
-
-Here we determine the equivalent categories in Persian fonts:
-
-A feature like the serifs in Latin fonts (as displayed below) does not exist in Persian fonts. Since the traditional Latin fonts are serif and have varied stem width, we assume that the traditional Persian fonts with varied stem widths are Serif.
-
-![](PersianHIG-EN-Main43_html_51b6fc32.png)
-
-3.  **Traditional Persian fonts with varied stem widths are defined to be Serif.**
+3.  **Internationalized software that support multi-column text should support both left-to-right and right-to-left column order.**
 
 ****
 
-Sans-serif fonts are more recent designs whose main features are lack of serifs and usually almost constant stem width. Based on the latter property, the recent Persian fonts that use an almost constant stem width are considered Sans-serif.
+There is another issue when we have paragraphs of different directions in the same column of text. The issue is related to deciding the zero point of the column ruler. As we mentioned, the zero point depends on the direction of the text in the column. When direction of the text changes, the ruler zero point will flip to the opposite edge of the column. This may not be desirable for adjusting the relative position of the RTL vs. LTR paragraphs of text. For this reason, it is recommended that a page ruler is also used whose direction remains the same as paragraphs change direction. Note that the zero point of the page ruler depends on binding and document direction which are global.
 
-4.  **Persian fonts with nearly constant stem width are defined to be Sans-serif.**
+The following figure shows an example of the column and page rulers in a right-to-left document when the paragraph containing the cursor is also right-to-left.
 
-\
-\
+![](PersianHIG-EN-Main44_html_m637f3444.png)
 
-Early typewriters popularized fixed-pitched or mono-space fonts. As the name implies, each character in these fonts has the same width as any other character. As we mentioned earlier, true mono-spaced fonts are not possible in Persian and near-mono-space fonts designed for Persian in early computer age are now extinct because of the lack of readability and aesthetics. For this reason, mono-space Persian font does not exist and only may be created for the sole purpose of providing near-mono-space functionality for legacy applications that require it. There isn’t any notable example or worthy effort in designing such font for Persian in a modern format (such as OpenType)
+The following figure shows an example of the column and page rulers in a right-to-left document when the paragraph containing the cursor is left-to-right.
 
-5.  **Software targeting Persian/Iran locale should not depend on the presence of a mono-spaced font for Persian.**
-
-**Applications are allowed to depend on custom mono-spaced font they install themselves.**
-
-#### .1.2.6.Persian OpenType Fonts {.western dir="LTR"}
-
-The recommended font format for Persian fonts is OpenType font format developed by Microsoft and Adobe. The important feature of this font format which makes it suitable for Persian is its advanced functionality for mapping characters to different glyphs based on different criteria and support for language specific glyph variations. Unfortunately, language specific glyph variation is not well supported by most text rendering services.
-
-For information on how to make a Persian OpenType font refer to the following Persian document: [OpenType’03]
-
-توصیف قلم اپن‌تایپ مرجع برای زبان فارسی
-
-The font described and provided by the above document provides the minimum that is normally required. The following additional capabilities are also recommended:
-
--   A more extensive glyph repository to cover more typographical needs such as different types of dashes and spaces.
-
--   Complete kerning information
-
--   Optimal mark positions information
-
--   Contextual correction of the display of the Hyphen-Minus U+002D since the shape of hyphen and minus are too different in Persian
-
--   Proper support of *Yayeh Morakham* as described in item 3.1 of the section 3.1
-
--   Proper display of Persian or Arabic decimal and thousand separators based on the digits used. See item -3.1 of the section 3.1
-
--   Definition of correct cursor position within ligatures in GDEF table
-
-There are other desirable features that are not discussed here.
-
-Now let’s ask this question: Is the existing features (the 4 character feature tables in GSUB and GPOS tables) of OpenType fonts enough for complete Persian support? The short answer is almost yes. There are some other desirable features, one important example follows:
-
-It would be very useful if there was a UDUistinguished UGUlyph UShUapes feature (suggested feature id ‘dgsh’) that would display otherwise identical appearance of different glyphs so that the editor would have a chance to know exactly what character they are looking at. This feature is useful in Persian because there are some cases that some none-Persian characters in some display positions would look identical to some Persian characters. For example, Arabic U+0643 looks identical to Persian U+06A9 in initial and medial forms.
-
-#### .1.2.7.Other Font Issues {.western dir="LTR"}
-
-There are some other internationalization issues regarding fonts that are not specific to Persian. Such issues are not discussed in this document. For these issues refer to internationalization documentation of you target platform.
-
-### 1.3.Writing in Persian for the GUI {.western dir="LTR"}
-
-Authoring text for use in GUI has some special considerations such as being consistent, concise and simple. Such considerations when writing in Persian in discussed in the Persian version of this document. Since this section only applies to people writing in Persian it is not reproduced in this English edition document. If you know Persian, please refer to the Persian edition of this document.
-
-### 1.4.Translating User Interface to Persian {.western dir="LTR"}
-
-Similar to the above section, most of the discussion in this section is only relevant to Persian readers. There is only one point that concerns the text in internationalized software that is discussed here. For the rest of the discussion refer to the Persian edition of this document.
-
-Separate localizable text should be provided in internationalized software for each different context and meaning where the same string appears. For example, “OK” may be used as a button label. “OK” may also be used to indicate a status. If an application uses “OK” in both contexts, it should provide two separate localizable “OK” strings with additional comment to describe the context of the string usage. A standard glossary for reference or semi automatic localization should also provide such context information. Any tool for semi-automatic localization should also be made aware of such context information.
-
-### 1.5.Persian Keyboard {.western dir="LTR"}
-
-Persian keyboard like the keyboard for any other none-Latin script consists of two key definition groups. One group provides the keyboard layout for typing in Persian while the other provides a Latin (usually U.S. English) layout for typing Latin text.
-
-The main key group which provides the Persian layout should conform to Iranian National standard ISIRI-2901 as of this writing. [ISIRI-2901] This standard is currently being revised to support ISIRI-6219 Persian Unicode text. Supporting the latest draft of this new standard is recommended.
-
-The secondary key group which provides the Latin layout is usually an English layout supporting U.S. English or International English (ISO-9995-x series). It is permitted to be other Latin layouts for special deployments. Adding additional key groups for specialized requirements is also permitted.
-
-6.  **Persian keyboard consists of at least two key groups. The primary key group provides Persian layout while the secondary group provide the Latin (usually English) layout. Only one key group is active at any time and the active key group should be easily recognizable.**
-
-**Key interpretations according to both key groups should be marked on the keyboard and distinguished by position and/or color. In addition to the main alphabet and digits, at least these characters should be marked for the Persian group of the keyboard: U+0021, U+0028, U+0029, U+002B, U+002D, U+002E, U+002F, U+003A, U+003D, U+005B, U+005D, U+007B, U+007D, U+00AB, U+00BB, U+00D7, U+00F7, U+060C, U+061B, U+0640, U+064B, U+0651, U+0654, U+066A, U+066B, U+066C, U+200C, U+200D, U+2010, U+2212**
-
-The two key groups share some common characters, but the interpretation and effect of typing them using each group may be different. Another possibility is contextual interpretation of a keystroke based on adjacent characters. These cases will be discussed later.
-
-To aid in the above cases software applications should be able to tell which key group produced any given input character and be able to receive notification on the events of active key group change.
-
-7.  **Application should be able to determine the active key group (or active layout) of the keyboard.**
-
-**Application should also be able to listen to active key group (or active layout) change events.**
-
-To facilitate ease of use and to conform to the GUI design principles, the following rules need to be followed:
-
-8.  **When starting up the computer in a Persian localized environment, Persian key group (layout) should be selected by default.**
-
-9.  **The user should be able to easily recognize which key group (Persian or Latin) is active at any given time. It is recommended that the active key group be recognizable by just looking at the text cursor.**
-
-10. **Changing the active key group from Persian to Latin and vise versa should be easily possible via keyboard and mouse.**
-
-11. **Explicit change of the active key group by user has a global effect in all windows. Automatic change of active key group should follow the conditions of 3.5**
-
-12. **Application are permitted (sometimes forced) to change or restrict the active key group of the keyboard to facilitate data entry or data integrity. The change of key group should satisfy the following conditions:\
-    1) Provide clear feedback and inform the user about the change.\
-    2) The automatic change has locale effect in the active window, or active text field. Leaving the context that caused the change should restore the keyboard with appropriate user feed back, so the user knows that keyboard is restored.\
-    3) If after automatic keyboard change, the user explicitly changes keyboard the explicit change should be honored and automatic keyboard change suspended until either user leaves the context or changes keyboard back to the same key group that automatic change would select.\
-    4) In the above case if the change of active key group is not permitted, the software should react to the attempted change and inform the user why the change is not permitted.\
-    5) If data entry in a field is restricted to a given keyboard layout (key group), the application should visually indicate this by specially marking the entry field (e.g. putting the layout badge next to the field). In such a case the keyboard should change automatically and user should not be asked to do it manually.**
-
-**5) If data entry in a field is restricted to a given keyboard layout (key group), the application should visually indicate this by specially marking the entry field (e.g. putting the layout badge next to the field). In such a case the keyboard should change automatically and user should not be asked to do it manually.**
-
-The behavior of command key equivalents and keyboard shortcuts also needs to be specified. For example, it is common to define Control-P as the shortcut for the Print… command in the File menu. Since at any given time one group in the keyboard is active and P is only defined in one of them, the correct behavior may not be obvious.
-
-First let’s examine the question of whether such keyboard shortcuts are localizable. The answer is no. Keyboard shortcuts are always defined using Latin alphabet and standard keyboard shortcuts are the same for all languages. As a result, always the Latin key group is active for the purpose of keyboard shortcuts and command key equivalents. So, the active key group only affects typing and when shortcut or command modifiers are held (Control, Alt, Meta or combinations of them) the keyboard behaves as if the Latin group is selected.
-
-It should also be noted that Persian applications are permitted to select and document their keyboard shortcuts based on the Persian keys. For example, the shortcut for selecting a command labeled تجدید محاسبات could be considered as being Control-ت and be documented to the user as such but actual shortcut is Control-J. There is a slight chance of such a shortcut definition not working properly if the Latin keyboard layout is different than the one expected.
-
-13. **Keyboard shortcuts and command key equivalents are not localizable. Persian applications are permitted to document their custom shortcuts as if they are defined in Persian.**
-
-14. **Keyboard always behaves as if Latin layout if active when a key is typed while holding down one of Control, Alt or Meta keys or their combinations with other modifiers.**
+![](PersianHIG-EN-Main44_html_799d9f99.png)
 
 \
 \
 
-### 1.6.Entering and Editing Persian Text {.western dir="LTR"}
+1.  **If you show only one ruler, decide the direction of the ruler based on document or section direction and not the paragraph direction. If you display two rulers one for column and another for page, then you may flip the zero point of the column ruler according to the direction of the active paragraph.**
 
-There are some challenges in entering and editing Persian text because of the characteristics of the Arabic script such as its directionality. The existing Unicode-based solutions do not address these challenges very well which causes lack of user friendliness in Persian text editing.
+\
+\
 
-#### .1.6.1.Types of Text Editors {.western dir="LTR"}
+As you can see multiple directionalities can be involved in a single document: Document direction (or the binding side), sectionTP^[^1^](#sdfootnote1sym)^PT direction (indicating column layout direction), paragraph direction and string (text run) direction. All of the above directions should be distinctly visualized in the GUI and should be easy to specify and change. For example, putting a thicker edge on the binding side of the paper can help user realize the binding direction.
 
-Before getting to the proposed text entry and editing solution, we will examine the common scenarios in text editing and the major types of text editors. The common text editing activities include:
+The default direction for all of the above directions in the Persian/Iran locale is right-to-left.
 
-1.  Simple full screen plain text editing. For example, text editing with gedit of GNOME. In this case only text is important and text formatting is not relevant.
+2.  **In addition to the direction of the text run and paragraph, the other directions of the document including column and binding directions should be easy to determine and change.**
 
-2.  Entering and editing text in single-line or multi-line text fields possibly having length restriction or input templates. This case also focuses on the text without formatting options.
+3.  **Default section (column) direction is the same as document (binding) direction and the default paragraph direction is the same as section direction.**
 
-3.  Letter typing and correspondence: In this case text formatting and page margins also become important.
+\
+\
 
-4.  Typesetting and page layout: In addition to text formatting and page margins involves text columns, style sheets, master pages, table of contents and indexing and etc. There are two main approaches to this type of text editing: GUI approach and markup text approach such as T~E~X.
+### 1.2.Icons and Images {.western dir="LTR"}
 
-5.  Entering and editing text boxes in graphics or CAD applications.
+Extensive use of images, symbols and icons is one of the characteristics of graphical user interfaces. The correct use of these elements helps in making the interface easier to understand and more elegant. Some developers tend to think that images, symbols and icons are automatically international and do not need localization, but this is not always the case.
 
-6.  Entering and editing structured text such as program source code or XML or other similar markup. The special features in this type of editing involve syntax checking and assistance and structure auto-enforcement.
+It is recommended that the images, symbols and icons are designed to be international and not to require localization. But this can be sometimes a none-trivial task. Internationalized images have the following properties:
 
-7.  Automatic text processing such as database publishing and XML transformations.
+Avoid using figures of various parts of human body or gestures. Some cultures find certain images offending. The use of human figure in a similar fashion that is used in international symbols (such as traffic symbols) is acceptable. For example, a thumbs up is considered offensive in Persian/Iran locale.
 
-8.  Text input and editing using unconventional input methods such as speech recognition, OCR or hand-writing recognition.
+Avoid using the shape of items that have different shapes in different places. For example, the shape of a mailbox is different in different places, but the shape of envelope, stamp and even mail stamp is more universal.
 
-In each of the above case there are some differences in the functional requirements for text editing. To address these cases various text editing solutions and environments have been created.
+This category of internationalization concern for images is not specific to Persian/Iran locale and is discussed in the general documents dealing with internationalization. For example see [KDE-i18n] or [GNOME-i18n]. So, we will continue the discussion with some bi-directional specific concerns:
 
-The requirement for the cases 1, 2, 3 and part of 5 are addressed today by the standard toolkits provided by popular graphical desktop environments (GNOME and KDE) which provide usually adequate support for Persian these days. For most of the other cases (except maybe 8) there are Free/Open Source projects that address the requirements but their compatibility with Persian and Unicode may be very limited.
+There is some misunderstanding as whether writing direction does or does not affect an image. Sometimes an image needs horizontal mirroring but this is not obvious. Sometimes an image seems to need mirror but it does not. An example where mirroring is needed is a side facing user icon. Since potential text should appear in front of the user instead of behind his back, the face should be kept to always look towards the inside and towards the text. This means that in most cases you will need to mirror the image to look the other way for Persian. To make such a user icon international you can change it so that it faces the user instead of looking to the side. Another example is a none-symmetric shape that does not need mirroring for right-to-left writing direction. Although a checkmark ![](PersianHIG-EN-Main44_html_m5a749d7d.png) is not symmetric, it does not need mirroring. A mirrored checkmark look unfamiliar and is actually left handed, instead of being right-to-left. Another example is the playback symbol![](PersianHIG-EN-Main44_html_48e26644.png). Although playback symbol clearly point from left-to-right, it should not be mirrored, because the mirrored symbol does not mean normal play. If anything, it means reverse play which is a different meaning.
 
-There are also some Persian specific scenarios:
+There is a tricky issue when we use symbols to indicate the concept of previous and next. The most commonly used symbol for *next* is a right pointing arrow → and the symbol for *previous* is a left pointing arrow ←. These symbols can be confusing in a bi-directional environment when they are associated with text oriented content. Mirroring these symbols in a Persian localized environment is not the solution.
 
-9.  Entry and editing heavily marked text (usually Arabic religious and Qoranic text) which needs special facilities to ease the text entry and editing.
+Consider the previous and next buttons in a web browser application. The arrow directions do not correspond to the application localization, but to the document being viewed. The same window (whether localized for Persian or not) may show both left-to-right and right-to-left documents. Flipping the direction of the arrows based on document direction disassociates the concept from a well defined symbol and is not an option. Unlike the playback symbol discussed earlier which has a very old and none-computer related counterpart that is familiar to practically everyone in the world, the arrow symbols for previous and next do not share the same universal recognition. For this reason, the use of horizontal arrows to indicate the concept of previous or next is not recommended.
 
-10. Entry and editing of simulated Persian calligraphic text or hand-writing style text.
+The solution would be either using vertical arrows (vertical direction of the text is almost universally top to bottom) or avoid symbols altogether and rely on the text instead. The other acceptable method is using the rewind ![](PersianHIG-EN-Main44_html_m75837594.png) and fast forward ![](PersianHIG-EN-Main44_html_m1ca15d1c.png)symbols from audio/visual equipment which enjoy almost the same universal recognition as the playback symbol. If that is the case, the rewind should stay to the left of the fast forward button to maintain the integrity of the model it is following.
 
-11. Entry and editing of Persian poetry which uses a special formatting not well supported by ordinary solutions.
+4.  **Avoid using horizontal arrows to symbolize the concepts of previous and next. Try avoiding a symbol and using text, instead.**
 
-There isn’t any mature Free/Open Source software to address the above more specialized Persian text editing requirements. This document will not go into such special cases and only focus on generic baseline text input and editing. There are two main types of generic text editing solutions:
-
-Type One) Focuses on text input and editing with emphasis on plain text and its structure. It is mostly used for the above cases 1, 2, 6 and 7. Many Latin solutions for this type of text editing use mono-space font and limit text formatting to syntax highlighting by changing the color of the text. A single line text field editor is also usually of this type. This type of editors if are restricted to mono-space fonts are not usable for Persian.
-
-Type 2) Text editors that support multiple fonts, sizes and styles and are GUI oriented in their design. Basic support for Persian in this type of editor is usually easier but full support of bi-directional operation can be quite tricky.
-
-#### .1.6.2.Persian Text Editing Issues {.western dir="LTR"}
-
-Simple entry of Persian text unlike some languages (e.g. Japanese) is almost as easy as English and does not have a serious issue despite the fact that it is bi-directional. The real challenge starts when we start editing the Persian text. There are two main challenges:
-
-The first challenge is the visual discontinuity of Persian text compared to its semantic (logical) order. This makes the visual selection and editing of Persian text difficult and the behaviors none-obvious.
-
-The second challenge involves the lack of clear boundary around characters and separate editablity of floating marks despite being placed on base characters. This also makes selecting text more difficult than Latin.
-
-#### .1.6.3. Shortcomings of the Existing Editors {.western dir="LTR"}
-
-As mentioned in Chapter 2, the existing text editing solutions incorrectly use the semantic and logical text model used in Unicode as the basis for their visual text editing behavior. Visual text editing common in GUIs requires a model that provides easier visual interaction and predictability. As a result the existing text editing solutions are not user-friendly.
-
-The Unicode model works well when sequentially entering data because in the user can input the text in the natural order of speaking it. Once the text is input, the resulting visual presentation of bi-directional text does not reflect this logical order. The existing attempts at addressing this issue (such as paired text cursors on direction boundaries) have not been very successful.
-
-The most notable effect caused by the existing behavior is having a jumpy cursor and difficulty in prediction of the result of typing actions and difficulty and visual discontinuity of text selection. Even in some editing environment, arrow keys will sometimes move the cursor in the opposite direction.
-
-#### .1.6.4.Resolving Persian Text Editing Issues {.western dir="LTR"}
-
-One of the key to the solution is noticing that entering and editing text are two very distinct operations. When entering text, the source of the action is the concept of the text on user’s mind and its natural order is semantic. So, the easiest and most natural order of text entry is the semantic order. So far, the existing Unicode-based behavior is good, although the visual feedback of the writing action needs some work.
-
-When editing text, the user starts with the visual representation of the text and locates the visual position of edit action. In this case, the visual presentation and result of editing action is what matters most. So the editing position specified by the user is completely visual by nature. The main rules that determine the correct editing behavior are:
-
-The visual point of effect for editing actions should be constant and predictable. The user should be able to easily and unambiguously specify and recognize this point of effect. The editing should not wreck the visual representation and should only have local visual effect on the editing spot without visually changing the surrounding text.
-
-As we will see, the above rules will result in the logical edit position to become more difficult to determine and also may imply additional changes to the surrounding text to maintain its visual appearance.
-
-Since the above rules only apply to editing, the first step is precisely distinguishing text input from text editing.
-
-#### .1.6.5.Detecting Input and Edit Mode {.western dir="LTR"}
-
-The short definition of text input is easy: when user is typing characters that are added to the text, or deleting the character(s) just entered using Backspace key, the text input mode is active. If the previously active mode has been the edit mode it is changed to the input mode. There is one exception in edit mode if user types Backspace key, the editing mode continues until user types another character.
-
-Any action that interrupts the continuity of text input sequence causes input mode to end. The following actions explicitly start editing mode:
-
--   Changing cursor position using mouse, navigation keys (arrow keys, page up/down, etc) or other commands (e.g. search)
-
--   Selecting a range of text by mouse, navigation keys (arrow keys, page up/down, etc) or other commands (e.g. search)
-
--   Issuing editing commands such as Cut, Copy, Paste
-
-To better illustrate the mode transitions, we also provide some case that do not affect text input/edit modes:
-
--   Change of text style and appearance (size, color, etc)
-
--   Commands that affect a paragraph or section without moving the cursor such as changing text margins of applying style sheet.
-
--   Changing the active key group of the keyboard. This action has some other effects on editing that we will discuss later.
-
--   Commands that do not directly affect text such as saving the document.
-
-#### .1.6.6.Directionality Definitions {.western dir="LTR"}
-
-Before defining the input and editing behaviors we need to define some terms:
-
-Character Directionality: The natural directional property of the character (not the direction it assumes in a certain context). Some characters have strong directionality and some have weak or neutral directionality.
-
-**Character Direction**: Also called effective character direction. The direction assigned to a character in a certain context. It is always either left-to-right or right-to-left and may even be the opposite of its natural direction. Character direction is determined using Unicode bi-directional algorithm.
-
-**Direction Run**: A sequence of characters that have the same resolved direction. We may not have two adjacent direction runs with the same direction, because they would be parts of the same direction run. Each direction run boundary is either ending point for both adjacent runs or the starting point for both of them.
-
-**Text Direction**: The dominant direction of a text is either left-to-right or right-to-left which determines the relative position of adjacent direction runs. The text direction is either explicitly specified or is inferred from the context and is always known. If the text is left-to-right the adjacent direction runs are placed from left-to-right. If the text is right-to-left the adjacent direction runs are placed from right-to-left.
-
-**Default Text Direction**: If the text direction is not explicitly specified, the text direction is inferred from context (keyboard layout or the text being entered). As long as there isn’t enough context information, the text direction will have an assumed direction. This assumed direction is the default text direction and is right-to-left in a Persian localized environment.
-
-**Direction Boundary**: The boundary between two direction runs is a direction boundary. The adjacent text to a boundary either runs toward the boundary on both sides or runs away from the boundary on both sides.
-
-**Keyboard Direction**: At any given time, the keyboard has a defined direction. When the Persian key group (layout) is selected in the keyboard, it is defined to be right-to-left. When the Latin key group (layout) is selected in the keyboard, it is defined to be left-to-right.
-
-**Common Keyboard Characters**: the characters that can be typed with both Persian key group and Latin key group of the keyboard are called common keyboard characters. An example is the space (U+020) character.
-
-Color Codes of Direction Runs: To make it easier to understand the definitions, the text in the figures is color coded as follows:
-
-![](PersianHIG-EN-Main43_html_m63a7d47d.png) Right-to-Left direction run
-
-![](PersianHIG-EN-Main43_html_m267faaaf.png) Left-to-Right direction run
-
-![](PersianHIG-EN-Main43_html_4b1ff532.png) A part of the direction run that has weak direction and may get separated form the run if the context is changed
-
-![](PersianHIG-EN-Main43_html_m592b6ea8.png) Persian number (left-to-right) direction run
+**Using vertical arrows and using symbols for this purpose is permitted. Also using rewind ![](PersianHIG-EN-Main44_html_m75837594.png) and fast forward ![](PersianHIG-EN-Main44_html_m1ca15d1c.png) in audio visual equipment is permitted for this purpose, provided the original ordering of the symbols is maintained.**
 
 \
 \
@@ -463,412 +104,111 @@ Color Codes of Direction Runs: To make it easier to understand the definitions, 
 \
 \
 
-#### .1.6.7.Cursor Visual Cues for Text Input/Edit {.western dir="LTR"}
+### 1.3.Direction and Placement of Visual Elements {.western dir="LTR"}
 
-To aid in text input and editing it is recommended that the shape of text cursor changes based on context. The suitable shape of the cursor during text editing is determined based on the direction of the text at the two sides of the cursor and the direction of the keyboard. During text input the shape of the cursor is also determined based on the text and keyboard direction. The main difference between input and edit is the possibility of cursor jump during text inputTP^[^1^](#sdfootnote1sym)^PT which causes appearance of jump indicator in addition to cursor. The suggested shapes for the cursor include:
+The overall rules for composing the elements in the user interface are similar to the page layout rules for the paper documents. One difference is having much less white space because of the limited screen space. The same rules also apply in a right-to-left environment. The main difference in a right-to-left environment is the mirroring that occurs in the placement of text related elements as the result of writing direction. Items that are not related to writing direction may not need any change. One method to improve the layout adaptability for right-to-left environments is using a vertically symmetric design by using center aligned elements or providing some widgets at both sides of the window such as a resize handle.
 
--   The existing normal shape of the text cursor which is a vertical thin bar is used when the cursor is inside a direction run and the keyboard direction is the same as the run direction. It is true both while editing and entering text. This shape is also used when the keyboard direction is the same as text direction and the cursor is on the text boundary (beginning or end of line)
+Adapting a left-to-right layout for a right-to-left locale isn’t as easy as some developers think. Some developers think that vertically flipping (mirroring) a left-to-right layout will always create the correct right-to-left layout. The simple mirroring is indeed the correct answer for most of the cases, but not all. The reason is that not all placements follow text direction. Some placements are more a matter of choice than necessity. For example, a page header or footer may be left, right or center justified without any of the alignments being wrong. Also, there are places where the order is not really that important. For example, when we have a multiple choice question in a questionnaire, the order of the suggested answers is usually not important, except for a choice like “neither” which should always be last. But there are other cases where order and direction *is* important, but the correct direction does not follow text direction. This last case is the one that causes problems.
 
--   During the entry or editing of Persian text, when the cursor is inside a number or on the boundary of a number its shape will be:
+To better understand the reality of a bidirectional environment you should consider the fact that in a Latin environment, there is only one direction which is left-to-right and everything is universally designed in that orientation. Even the surrounding real world objects follow the same left-to-right layout and arrangement. This is different in the Persian/Iran locale where text is mostly right-to-left, but there are left-to-right elements as well. So, this environment is not directionally pure and strict as is the Latin environment and can’t be a perfect mirror of it.
 
-    -   Before starting the typing action: ![](PersianHIG-EN-Main43_html_5f7c89c7.png)
+The real world objects and devices further obscure the directionality for computer software when we view software as a tool and like an appliance, not a piece of text (e.g. a book) that someone reads. Look at the technological devices that surround us all around the world. Consider for example the Audio/Visual equipment such as Radios, DVD players, etc. They do not have a regional version with a different right-to-left physical layout for right-to-left/bidirectional locales. Many computer user interfaces simulate a device with buttons, sliders, dials and etc. Such a user interface would not look familiar if mirrored into a right-to-left layout, because the physical and real-world counterparts are never right-to-left. This only causes confusion and makes using the user interface more difficult instead of making it easier to use.
 
-    -   During typing digits: ![](PersianHIG-EN-Main43_html_40da3d30.png) In this case, a jump marker such as ![](PersianHIG-EN-Main43_html_m3cd1a8d.png) indicates the jump target (which occurs if a right to left character is typed)
+For example, a progress bar shows a numeric value or ratio. It also resembles some real world devices. The numbers and numerical x-axis are left-to-right. So, a mirrored progress bar is incorrect and looks weird to a user in Persian/Iran locale although the locale is considered right-to-left. This also implies that some supporting objects (say a stop button next to the progress bar) also do not follow right-to-left text direction. Any object that is modeled after a real-world object or represents numeric values or mathematical charts should follow the directionality of whatever concept it is representing and not the text direction.
 
--   When one of the following conditions is met, the shape of the cursor indicates the keyboard direction. If the keyboard is right-to-left it will be ![](PersianHIG-EN-Main43_html_1a8ffc5e.png) and when keyboard is left-to-right the cursor shape will be ![](PersianHIG-EN-Main43_html_40da3d30.png)
+Also, it should be noted that for the foreseeable future there will be many software applications that are not localized for Persian. The user interface of this software will continue to be Latin with more or less Latin directionality. Having too much difference of layout between Persian and Latin applications makes using a mix of Persian and Latin applications more difficult.
 
-    -   The cursor is on a direction boundary
+Changing the location and orientation of user interface elements that are not directly affected by text direction is generally not recommended. An example that demonstrates that a certain alignment is not mandated by text direction is the placement of window control widgets (close/minimize/maximize). As you see in the following figures, these controls are placed at the opposite sides of the window with almost mirrored layout between two dominant proprietary operating systems Windows and Mac OS:
 
-    -   The cursor is on line boundary and the keyboard direction does not match writing direction.
+![](PersianHIG-EN-Main44_html_163adb16.png) Window control widgets in Microsoft Windows
 
-    -   The cursor is inside a direction run but the direction of the keyboard does not match the text run.
+![](PersianHIG-EN-Main44_html_m1f9926d4.png) Window control widgets in Apple Mac OS X
 
--   When entering Persian number or typing text whose direction is the opposite of current text direction, there is a potential jump point for the cursor. It is useful to mark this point, but the mark should be easily distinguishable from the actual cursor which remains adjacent to the character just typed. Examples are shown below:
+This clearly indicates that the location of these controls is a matter of choice and design preference rather than being mandated by writing direction. A lot of other placements are also like this. If it was a few years ago, we had to urge developers to consider mirroring their layouts to better conform to our locale, but now it seems that we need to ask them to stop mirroring every single element they encounter. So, it is now recommended that you mirror elements only when there is a good reason to do so, usually based on the writing direction.
 
-In the middle of typing digits: ![](PersianHIG-EN-Main43_html_m36fde222.png)
+We also need to point out another important consideration when changing the location of elements in a layout. Returning to the above example of window control widgets, you see that in both Mac and Windows layouts, the close box is in the corner. The corners (any of the four corners) are places that are better noticed and more easily targeted. So, the most frequently used elements are placed in such strategic places. This means that there are many special design considerations that determine the suitable place for an element. Any layout change should be made in a way that does not sabotage the design and make it harder to use.
 
-After typing a RTL character: ![](PersianHIG-EN-Main43_html_5179590e.png)
+There is an important example of incorrectly changing the placement of GUI elements that can be found in GNOME 2.6 as configured by default in Fedora Core 4 distribution. The English locale shows the three menus on the top bar of the screen from left to right as Programs, Places and then Desktop. When we switch to Persian/Iran locale, these menus are still on the left side of the screen but their order is reversed. So, when Persian/Iran locale active, the menus from left to right are Desktop, Places and then Programs. This is shown in the following figures:
 
--   When the character visually adjacent to the text cursor is a Unicode control character, (U+200C to U+200F, and U+ 202B to U+ 202E) it is recommended that a visual marker appears on the same visual side as the cursor which identifies the control character.
+![](PersianHIG-EN-Main44_html_514f908b.png) **OK**
 
--   To better display the position of cursor inside a ligature it may be useful to have a slanted or even broken cursor to clearly show the position of the cursor.
+![](PersianHIG-EN-Main44_html_m75a9e912.png) **Wrong!**
 
--   In Persian text, when the cursor moves on a character with floating marks using arrow keys, it will stay on the same spot as it passes the floating marks. To properly visualize the actual cursor position, a small tag should appear above and/or below the character (depending on mark) and behind the cursor to indicate the position of cursor relative to the floating marks as shown in the following example. In the following sequence of images from right to left the right to left traversal of a word is shown using left arrow key:
+In the Latin version, the Programs menu is placed in the corner of the screen to benefit from the Fitts’ law (see [Fitts’]) to make it the easiest menu to access. The current rearrangement in the Persian/Iran locale violates this design. If the menu was fully mirrored so that the Programs menu where placed on the top-right corner of the screen, then the design would have been preserved, and the change would be valid.
 
-![](PersianHIG-EN-Main43_html_1dc76c4a.png)
+As a rule of thumb: If for some technical limitation, you can’t fully re-arrange the layout to preserve its intended function, don’t touch it at all.
 
-#### .1.6.8.The Desired Text Input Behavior {.western dir="LTR"}
+There is another design issue in the above mentioned GNOME Programs menu. It is related to the use of alphabetical order in that menu. Since the Programs menu is accessed very often, it is important that the most frequently accessed items in this menu placed properly to make them easier to access. Also, their location should be stable so that the user can learn their place and find them easily. In such a menu, use of alphabetical ordering is a design mistake, because it does not guarantee a suitable and stable place for the often used menu items. The important items should have a suitable and fixed place in the menu and the rest of the items arranged either chronologically (to preserve the location of the older items) or alphabetically if the number of the items in the list exceeds about 7 items.
 
-The desired text input behavior is defined in a way to maintain semantic order of the input (which may cause the cursor to jump on direction boundaries). This behavior is currently implemented in the existing Unicode-based solutions. So, there is no need to explain it here. The desired behavior defined in this document only attempt to reduce text jump and rearrangement compared to existing visual feedback of text input. This involves changing the directional behavior of common keyboard characters (that have weak direction) to adhere to keyboard direction while being typed.
+This bad design choice can be partially offset by using clever names to put the frequently used items in proper places. For example, the name of the frequently used Accessories submenu helps it stay at the top of the menu to make it easier to access. But there is no guarantee that a localized version can (or will) preserve that menu order. For example, in the existing draft Persian translation, the location of the first (Accessories) and last (System Tools) submenus in the Programs menu is reversed. The result is a different (reduced) usability for the Persian version compared to the Latin version.
 
-The easiest way to describe this behavior is using a virtual character. When a character is typed, it is displayed as if there is a direction mark character with the same direction as the keyboard just after the typed character. So, if the keyboard is right-to-left, it behaves as if there is a U+200F (Right to Left Mark) just after the typed character and if the keyboard is left-to-right, it behaves as if there is a U+200E (Left to Right Mark) just after the typed character. This virtual character should not actually be stored in the text. The effect of this virtual direction mark only starts after user starts typing and switching keyboard alone should not affect the displayed text.
+4.  **The localization of software should not adversely affect its usability and design features.**
 
-The following figures visualize the effect of these virtual characters. The first line shows the intended text. The next couple of lines show the visual feed back during some points of typing with the existing implementations. The last couple of lines show the same points of typing with the suggested behavior:
+5.  **Avoid using alphabetical ordering of the interface elements (such as menu commands) in the design of the internationalized software.**
 
-The desired sentence is:
-
-![](PersianHIG-EN-Main43_html_m7b3cdf95.png)
-
-The existing behavior during type:
-
-![](PersianHIG-EN-Main43_html_m3e2f08a2.png)
-
-The suggested desired behavior during type:
-
-![](PersianHIG-EN-Main43_html_4c843acc.png)
-
-#### .1.6.9.Selecting Edit Location {.western dir="LTR"}
-
-Before actually starting to edit text we first need to determine the position where we want to edit. As we mentioned earlier, this is a visual action. It means that we determine the visual location of the edit not the logical position as it is the case with the current implementations. We consider two cases of selecting the location of the edit. The first case is using keyboard navigation keys and the second case is using the mouse. The other issue that we will discuss along the selection process involves intelligent and automatic selection of appropriate editing keyboard which is strongly recommended. User may temporarily (by the explicit keyboard setting described in the previous section) or permanently disable this keyboard switch behavior.
-
-First we consider the case where we want to select a single point of editing, which means placing the text cursor without selecting a range of text.
-
-##### .1.6.9.1.Moving Cursor with Keyboard {.western dir="LTR"}
-
-Moving text cursor is a visual operation. Arrow keys should always move the cursor in the direction indicated by the arrows. There is an important issue with this definition when applied to left and right arrow keys. When cursor moves beyond the current line when moving with left or right arrow keys, it jumps to one of the opposite side of one of the adjacent lines. When crossing text direction, this can be problematic. To minimize the issues created by crossing text direction boundary we define the following behavior:
-
-**Left arrow at the left edge of the line**: When the text (paragraph) direction in the starting position of the text cursor is right-to-left, typing left arrow at the left edge of the line causes the cursor to jump to the right edge of the line below regardless of text direction of the next line. When the text (paragraph) direction in the starting position of the text cursor is left-to-right, typing left arrow at the left edge of the line causes the cursor to jump to the right edge of the line above regardless of text direction of the previous line.
-
-**Right arrow at the right edge of the line**: When the text (paragraph) direction in the starting position of the text cursor is right-to-left, typing right arrow at the right edge of the line causes the cursor to jump to the left edge of the line above regardless of text direction of the previous line.
-
-When the text (paragraph) direction in the starting position of the text cursor is left-to-right, typing right arrow at the right edge of the line causes the cursor to jump to the left edge of the line below regardless of text direction of the next line.
-
-**Clarification of auto-repeat behavior:** We used “starting position of the text cursor” in the above definitions to imply that if cursor moves automatically as a result of key auto repeat, the directional behavior of the arrow keys is determined once and in the start of movement, not with each step of the movement. This eliminates trapping the cursor between two paragraphs with opposing text direction. So, that if the user holds the left or right arrow key long enough, the cursor will end up at the beginning or the end of the document.
-
-**Passing over ligatures and floating marks:**When the cursor passes floating marks its shape is augmented by a specially positioned floating mark tag as described in 3.6.7. When the cursor passes ligatures, for each character in the ligature, the cursor advances a bit on the ligature glyph, the amount of this advance should be normally given by OpenType GDEF ligature caret positioning information or can be estimated by dividing the width of the ligature to the number of characters in it.
-
-**Passing over control characters:**When the cursor passes control characters its shape is augmented by a specially positioned control character tag as described in 3.6.7.\
-\
-\
-
-##### .1.6.9.2.Intelligent Keyboard Selection {.western dir="LTR"}
-
-Each time cursor passes the Persian/Latin boundary (A direction boundary where neither side is a Persian number) Keyboard may intelligently switch to conform to the new text run. In the case, the first arrow key instead of moving into the new text run switches the cursor but stays on the boundary, the second arrow key will then move to the new boundary. This is illustrated in the following figures: (Text direction is right to left)
-
-**Left arrow key is pressed. As a result cursor reaches direction boundary from right to left, its shape changes from vertical bar to indicate its direction which is the same as the keyboard layout (Persian):**
-
-![](PersianHIG-EN-Main43_html_513e21db.png)
-
-**Left arrow key is pressed again. Instead of cursor movement, keyboard layout is switched to Latin and cursor shape changes to indicate the keyboard layout direction:**
-
-![](PersianHIG-EN-Main43_html_m155cb217.png)
-
-**Left arrow key is pressed again. The cursor moves to left-to-right text while keyboard is also left to right. The shape of the cursors returns to normal vertical bar which indicates that text and keyboard directions are the same:**
-
-![](PersianHIG-EN-Main43_html_m61478f9a.png)
+**The alphabetical ordering is only advised in list of elements that are dynamic and contain many elements.**
 
 \
 \
 
-When the cursor is positioned using mouse the keyboard is synchronized with the character that is closer to the actual click location.
+5.  **To support right-to-left (actually bidirectional) locales, avoid blindly mirroring the entire user interface. Developer tools and graphical toolkits should provide more control for developers and localizers in specifying the proper placement of user interface elements.**
 
-##### .1.6.9.3.Positioning Cursor with Mouse {.western dir="LTR"}
-
-Since the cursor position is strictly visual, the positioning of cursor with mouse is very easy and predictable. Here is how the position is determined:
-
-If a simple glyph is clicked cursor is placed either to the left or to the right of the glyph depending on whether the left or right half of the glyph is clicked. If the click is dead center, text direction decides: RTL chooses left and LTR chooses right.
-
-If a ligature glyph is click you may either behave as above or use division of glyph width among characters (using GDEF or estimate) to put the cursor in the middle of the ligature.
-
-If the glyph has floating marks, since the position is visual, the cursor is positioned in a way that would be passed the floating marks if it is placed to the left of the glyph.
-
-If there is control character adjacent to the clicked glyph, the cursor position never passes the control character.
-
-When the click is outside the line boundary, the cursor is placed at the visual edge of the line on the same side that is clicked.
-
-##### .1.6.9.4.Selecting a Text Range {.western dir="LTR"}
-
-Selecting a range of text is one of the most common text editing activities. The existing solutions which select a logically continuous text create a visually discontinuous selection. This creates difficulties in text selection. The other issue involves correct selection behavior at the edges of the line.
-
-To achieve the most natural and user friendly effect it is recommended that a visually continuous range of text to be always selected. This implies potentially discontinues logical text selection which is not supported by most text engines. Since this may require extensive changes in the text engine, it is also acceptable to keep the current selection mechanism with the following refinements:
-
-As long as the starting and ending points of selection is concerned, the previously described behavior still holds. Some extra care needed to select the correct side that falls into the selection which leads to the logically selected range of text. The rule of thumb in this regard is: Try to keep the selected area between the visual starting and ending points of selection. To illustrate what we mean by the above statement, follow figure that shows the step by step selection of bi-directional text using mouse with the current text selection behavior:
-
-**1. Mouse pointer is clicked on the right of c (blue arrow) and is dragged past e (red arrow):**
-
-![](PersianHIG-EN-Main43_html_4974ebd6.png)
-
-**2. Mouse pointer continues to drag just to the left passing over s:**
-
-![](PersianHIG-EN-Main43_html_205ee801.png)
-
-**3. As the mouse pointer reaches the right edge of space to the left of s, the****incorrect behavior****occurs:**
-
-![](PersianHIG-EN-Main43_html_e4c9840.png)
-
-**4. As the mouse pointer passes to the left edge of the space, the correct discontinuous selection is made:**
-
-![](PersianHIG-EN-Main43_html_2258007e.png)
-
-The third step in the above selection is incorrect where the imaginary cursor position is still between s and space but instead of selecting from c to s, the selection is from o to space where both characters fall outside of the visual range from start to the end of the selection. The correct behavior in the third step would have been to continue to select like the previous step. The fourth step is acceptable since the selection visually touches both starting and ending points of the selection and a portion (the space) of the selected text is actually between the two points.
-
-Correctly interpreting the intention of the user based on mouse movement has many fine points that are beyond this document but can help improve software behavior.
-
-#### .1.6.10.The Desired Text Editing Behavior {.western dir="LTR"}
-
-As mentioned during text editing first a visual location or text range is specified for editing. The main intention of the editing behavior should be maintaining the initial visual appearance as much as possible. A single keystroke that causes the whole text line to rearrange and become something else is not something that users like or anticipate. The users expect the edit to affect the visual point that receives the edit. Achieving this goal can create a lot of work behind the scene for the editing software.
-
-If all of the items involved in the edit have the same direction, the existing behavior will be perfectly valid. The main problem starts when we edit positions in the inclusive interval of a yellow zone. The name yellow zone comes from the convention used in the figures of this section. The part of each direction run that is subject to direction change is marked yellow.
-
-The other case where things can get tricky is when inserting a text of opposite direction in a direction run that is not the same as text direction.
-
-We will study these cases in this section. First we will start by the assumption that there is one insertion point (cursor) and we don’t have a range. We also assume that the edit consists of adding a single character. The following figure illustrates the expected behavior in each case. Comments for each case will follow:
-
-**Environment 1: Persian keyboard layout, Right-to-Left text, cursor as shown below:**
-
-![](PersianHIG-EN-Main43_html_57d8a6e2.png)
-
-**Case 1: A Persian letter********ف********(U+0641)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_3d3db2ab.png)
-
-**Case 2: A Persian digit********۵********(U+06F5)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_417b59c8.png)
-
-**Case 3: A Slash********/****(U+002F)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_m401bdc54.png)
-
-**Comments on** **Cases 1 to 3**: Nothing special, the same as the existing behavior, since the result of the edit already appears where it should.
-
-**Environment 2: Latin keyboard layout, Right-to-Left text, cursor as shown below:**
-
-![](PersianHIG-EN-Main43_html_700d90eb.png)
-
-**Case 4: A Latin letter********E****(U+0045)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_60c4ad54.png)
-
-**Comments on Case 4**: The LTR character is added to the yellow zone of the RTL run which would be re-arranged with the existing behavior. So, the following is performed instead of a straight insert:
-
--   The yellow zone from the cursor to the end of the run (its left) is removed.
-
--   The removed zone is scanned for mirrored characters and each mirrored character is replaced with its pair. In the example, U+0028 is replaced with U+0029.
-
--   The logical order of characters in the removed section is reversed. This is not actually illustrated since the removed section is a single character.
-
--   The removed section is added to the end (right) of the adjacent LTR run.
-
--   The typed LTR letter is appended to the end of the adjacent LTR run.
+6.  **To reduce unexpected directionality related issues with GUI designs it is advised the vertically symmetric designs used as much as possible.**
 
 \
 \
 
-**Case 5: A Slash********/****(U+002F)****is typed, the result is:**
+\
+\
 
-![](PersianHIG-EN-Main43_html_33e633dc.png)
+### 1.4.The Effect of Different Direction in Desktop, Software and Document {.western dir="LTR"}
 
-**Case 6:****U+0028****is typed, the result is:**
+We briefly mentioned the issues of a mixed Persian/Latin environment. Since this is a common scenario, we will discuss it in more detail here. The first thing to note is the three main elements that the user is dealing with when using a computer:
 
-![](PersianHIG-EN-Main43_html_31b904d.png)
+-   First element is the graphical desktop environment which provides the basic facilities including windows and menus.
 
-**Comments on Cases 5 & 6**: The operation is the same as 4 with the added step to preserve keyboard direction in the common keyboard character:
+-   The second element is the application which is used to perform the intended task.
 
--   After the character typed is appended to the LTR run, an LTR mark (U+200E) is also appended to the LTR run.
+-   The third element is the content or the data related to the task which could often be a document.
+
+At any given time, only one locale should be designated as the active user locale and changing the active locale may require restarting the user session to give a change to properly refresh and relocated the user interface. Having different active locales per running applications is not recommended since it can break the stability of the user interface, especially if each locale has a different directionality. Still, if we have the same locale set for all applications, it is not guaranteed that the three elements above all adhere to the same active locale. When a certain locale is made active, still the desktop environment or the applications may not be localized to support the locale language.
+
+Also, the active locale does not determine the language of the data that we will be using. The document opened in the application may have any language and may need to be formatted according to any locale. For example, when the English/US locale is active we may prepare an invoice for an international customer in Spanish (with Spanish number delimiters and date format). This means that some flexibility in the locale activation is required for properly handling data intended for a different locale without completely switching to that locale. Such a document specific locale only affects the document content and should not affect the GUI.
+
+The directionality of the active GUI locale, usually takes precedence over the actual language of the user interface to maintain the consistency and stability of common GUI elements. For example, menu bar is a GUI element that is almost universally available in all applications. It also usually has similar menus in all applications, such as File and Edit menus. For this reason, and despite the fact that menu bar has a text oriented appearance which suggests adhering to the direction of the language, the direction of the menu bar should stay the same for all applications on the same desktop environment. If the active locale is Persian/Iran the menu bar will be right-to-left even for applications that are not localized to Persian. In such a case while localized Persian applications have menu bars with expected orientation, such as the following figure
+
+پرونده ویرایش نمایش جستجو … **OK**
+
+None-localized applications will appear to have a reversed menu bar as in the following figure:
+
+File Edit View Search … **OK**
+
+This behavior is the correct behavior despite looking strange in the none-localized application, because it maintains the consistency of the placement of equivalent elements. Any elements that are very common and have a consistent placement across most applications should maintain a consistent placement according to active locale. Another example in this regard is the placement of OK and Cancel buttons and other similar elements. One of the most important elements that are sometimes misplaced in this regard is the vertical scroll bar. It has been seen in some web browsers that they flip the position of the vertical scroll bar if you navigate from a page into another page that has the opposite directionality. This is definitely wrong behavior, since scroll bar is one of the most frequently used elements in the user interface and maintaining consistency and stability in its location is very important. The other point regarding scroll bar is that its placement does not really depend on writing direction. For example, in the SmallTalk environment the vertical scroll bar placed on the opposite side. So, unlike the menu bar where keeping the main locale direction makes it look strange, the scroll bar is perfectly OK wherever it is placed as long as it does not flip around.
+
+But this does not apply to the parts of the user interface that are expected to be read like text. For example, a form where there are labels and fields, the relative order of fields and their labels should follow the direction of the language they are written in, not that of the active locale. The following screen shot shows the existing incorrect behavior of GNOME:
+
+![](PersianHIG-EN-Main44_html_768dd48b.png) **Wrong!**
+
+As you see in the above picture right-to-left layout is clearly incorrect when the actual language of the text in the GUI is English.
+
+6.  **The placement of the common interface elements follows the direction of the active locale, even if the actual language has a different direction.**
+
+**The directionality of custom GUI elements that are read like text should adhere to the actual language of the GUI regardless of the active locale direction.**
+
+The decision of the proper placement of the GUI elements is also affected by the fact that there is a considerable user base for the existing none-localized and left-to-right desktop environments. In order to ease the transition of the existing users, the changes in the placement and orientation of the GUI elements should be kept to the minimum that is necessary.
 
 \
 \
 
-**Environment 3: Persian keyboard layout, Right-to-Left text, cursor as shown below:**
-
-![](PersianHIG-EN-Main43_html_m526c2342.png)
-
-**Case 7: A Persian letter********ف********(U+0641)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_6908293b.png)
-
-**Comments on Case 7**: Nothing special, the same as the existing behavior, since the result of the edit already appears where it should.
-
-**Case 8: A Persian digit********۵********(U+06F5)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_m18b646fb.png)
-
-**Comments on Case 8**: Before inserting the digits a U+200F is inserted to maintain the yellow zone visual arrangement.
-
-**Case 9: A Slash********/****(U+002F)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_2eac4665.png)
-
-**Comments on Case 7**: Nothing special, the same as the existing behavior, since the result of the edit already appears where it should.
-
-**Environment 4: Latin keyboard layout, Right-to-Left text, cursor as shown below:**
-
-![](PersianHIG-EN-Main43_html_m38b470e4.png)
-
-**Case 10: A Latin letter********E****(U+0045)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_4e70e273.png)
-
-**Comments on Case 10**: LTR character is added to the yellow zone of RTL run which would be re-arranged with the existing behavior. So, the following is performed instead of a straight insert:
-
--   The yellow zone from the beginning of the run (its right) to cursor is removed.
-
--   The removed zone is scanned for mirrored characters and each mirrored character is replaced with its pair. In the example, U+0029 is replaced with U+0028.
-
--   The logical order of characters in the removed section is reversed. This is not actually illustrated since the removed section is a single character.
-
--   The removed section is added to the start (left) of the adjacent LTR run.
-
--   The typed LTR letter is inserted to the start of the adjacent LTR run.
-
-**Case 11: A Slash********/****(U+002F)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_41ba8fdd.png)
-
-**Case 12:****U+0028****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_m736b284f.png)
-
-**Comments on Cases 11 & 12**: LTR keyboard is used to type a character with weak direction. Same as above with an additional step to maintain LTR direction:
-
--   After the character typed is inserted to the start of the LTR run, an LTR mark (U+200E) is also inserted to the start of the LTR run.
-
-**Environment 4: Persian keyboard layout, Left-to-Right text, cursor as shown below:**
-
-![](PersianHIG-EN-Main43_html_m599cc008.png)
-
-**Case 13: A Persian letter********ف********(U+0641)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_m15938d57.png)
-
-**Comments on Case 13:** RTL text is added to the yellow zone of the LTR run which would be re-arranged with the existing behavior. So, the following is performed instead of a straight insert:
-
--   The yellow zone from the cursor to the end of the run (its left) is removed.
-
--   The removed zone is scanned for mirrored characters and each mirrored character is replaced with its pair. In the example, U+0028 is replaced with U+0029.
-
--   The logical order of characters in the removed section is reversed. This is not actually illustrated since the removed section is a single character.
-
--   The removed section is added to the end (left) of the adjacent RTL run.
-
--   The typed RTL letter is appended to the end of the adjacent RTL run.
-
-**Case 14: A Persian digit********۵********(U+06F5)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_3ed64dda.png)
-
-**Comments on Case 14**: Despite the LTR directionality of the Persian digit, the result should be RTL according to the keyboard and no additional adjustment is needed in this case for the digit direction. So, the operation is identical the Case 13 above.
-
-**Case 15: A Slash********/****(U+002F)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_mdca2d84.png)
-
-**Case 16:****U+0028****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_100ded95.png)
-
-**Cases 15 & 16**: Same as 13 & 14, with the following additional step to ensure keyboard directionality is enforced:
-
--   After the character appended to the end of the RTL run, an RTL mark (U+200F) is also appended to the end of the RTL run.
-
-**Environment 5: Latin keyboard layout, Left-to-Right text, cursor as shown below:**
-
-![](PersianHIG-EN-Main43_html_m17ada1e5.png)
-
-**Case 17:****A Latin letter********E****(U+0045)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_m1fa57fd9.png)
-
-**Case 18:****A Slash********/****(U+002F)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_79404589.png)
-
-**Comments on Cases 17 & 18**: Nothing special, the same as the existing behavior, since the result of the edit already appears where it should.
-
-**Environment 6: Persian keyboard layout, Left-to-Right text, cursor as shown below:**
-
-![](PersianHIG-EN-Main43_html_5a890cdd.png)
-
-**Case 19: A Persian letter********ف********(U+0641)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_m4ddc3e9b.png)
-
-**Comments on Case 19**: RTL character is added to the yellow zone of the LTR run which would be re-arranged with the existing behavior. So, the following is performed instead of a straight insert:
-
--   The yellow zone from the start of the run (its left) to the cursor is removed.
-
--   The removed zone is scanned for mirrored characters and each mirrored character is replaced with its pair. In the example, U+0029 is replaced with U+0028.
-
--   The logical order of characters in the removed section is reversed. This is not actually illustrated since the removed section is a single character.
-
--   The removed section is added to the beginning (left) of the adjacent RTL run.
-
--   The typed RTL letter is inserted to the start of the adjacent RTL run.
-
-**Case 20: A Persian digit********۵********(U+06F5)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_m41595ac5.png)
-
-**Case 21: A Slash********/****(U+002F)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_2940454e.png)
-
-**Case 22:****U+0028****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_67e84a01.png)****
-
-**Comments on Cases 20 to 22**: Same as 19, with the following additional step to ensure keyboard directionality is enforced:
-
--   An RTL mark (U+200F) is also inserted to the start of the RTL run.
-
-**Environment 7: Latin keyboard layout, Left-to-Right text, cursor as shown below:**
-
-![](PersianHIG-EN-Main43_html_524fad06.png)
-
-**Case 23:****A Latin letter********E****(U+0045)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_m6d76dc2.png)
-
-**Case 24:****A Slash********/****(U+002F)****is typed, the result is:**
-
-![](PersianHIG-EN-Main43_html_m1a9bd7e9.png)
-
-**Comments on Cases 23 & 24**: Nothing special, the same as the existing behavior, since the result of the edit already appears where it should.
-
-After dealing with the above cases, we continue to define the other behaviors:
-
-**Behavior of Backspace and (Forward) Delete Keys**: For the moment, since a new behavior based on the above logic to maintain visual appearance still needs further development, we currently recommend to maintain the existing behavior with the following adjustment regarding directional control characters: It is normally better to skip these control codes to maintain the proper appearance of the remaining parts of text. In this case the application might need to add an explicit command to delete directional control characters. Also, mapping the visual cursor to the logical starting point of the delete action is performed based on the direction of the keyboard if the cursor is on the direction boundary.
-
-Text Insertion Behavior: The logical location of text insertion is determined based on the text direction of the pasted text. As the general rule: The text visually appears where it is inserted. Also the text maintains its original appearance. To maintain the original visual layout we need to know the original text direction. So, when cutting or copying text either one of U+202A or U+202B should be added to the start of the text to indicate text direction and a U+202C should be added to the end of text to restore directionality. The pasting behavior is very similar to typing a single character, and involves some adjustment to the yellow zone. There are additional cases to be considered, for example when the pasted text has two halves of opposing directions pasted in the yellow zone with similar directions on each side. There also may or may not be a need to keep directional embedding control characters in the pasted text. The rule here is trying to maintain visual appearance while minimizing changes and use of control characters. A through and exhaustive discussion of all cases would be too lengthy and would add little to the general understanding of the desired behavior, so we will not go into further details here.
-
-**Inserting Text of Opposite Direction**: One final case that we mention here is adding a character of the opposite direction to the middle of a direction run whose direction is the opposite of text direction. This case would cause the text segments to the sides of the cursor would swap which wrecks the visual appearance. In such cases, use of directional embedding to bracket the enclosing direction run which houses the cursor is used to maintain visual stability. It means surrounding the text run with directional embedding of the same direction before inserting the character.
-
-There are still other cases not covered here, but the general approach to dealing with them should be easy to infer from what was discussed here. To conserve some space and avoid drowning in details, we will end this section here. We hope to provide an appendix with detailed algorithmic description (similar to Unicode Annex \#9) of the desired behavior along with a reference implementation in a future edition of this document.
+7.  **Do not change the orientation and placement of GUI elements unless this is really necessary.**
 
 \
 \
 
-#### .1.6.11.Normalizing Text After Editing {.western dir="LTR"}
-
-As we saw in the previous section, the steps taken during the edit session to maintain the visual stability of the edited text will result some re-ordering and directional control code insertions in the middle of text. This may adversely affect the quality of text for data processing purposes (even as simple as a search). To maintain the quality of the edited text, some post processing of the text will be required after each edit action. The application may mark a portion of text (at most the affected paragraph) as dirty whenever any re-ordering or control code insertion occurs during editing. Then the application needs to normalize text by re-arranging it to remove auto-inserted directional control characters so that the order of the backing store character matches the natural reading order of the text. We hope to provide an appendix with detailed algorithmic description (similar to Unicode Annex \#9) of how to normalize backing store to match reading order along with a reference implementation in a future edition of this document.
-
-As a side note, it should also be noted that determining natural reading order in rare cases may actually require addition of directional control characters. Since such cases need to be taken care of during the typing action, such control characters need to be inserted manually. The bi-directional text editing services should provide an appropriate user interface (that would insert matching pairs of directional embeddings for example). The existing solutions in this regard do not work for normal users. A dedicated section for this topic may be added to a future update of this document.
-
-### 1.7.Text Engine Architecture {.western dir="LTR"}
-
-From the previous section it is apparent that the information regarding the visual layout and order of text is as important as the logical order for text editing. So, such information should be properly maintained and easily available within the text editing architecture. For example the text engine should be able to readily (with very low overhead) answer such questions:
-
-What is (are) the character(s) behind this glyph?
-
-What is the character to the left (or right) of this character?
-
-What is the character to the left (or right) of cursor?
-
-Is the cursor in the yellow zone (the zone that can potentially change direction)?
-
-Also, it should be noted that rendering Persian text is mush more expensive than Latin text because of contextual shaping and mark positioning. This means that the text engine should be optimized based on the assumption that converting characters to glyphs is very expensive and avoid repeatedly performing this action. This means that caching composed glyphs is necessary and even invalidating cache should be kept to the minimum glyphs that are really invalid. For example, it is possible to push the cached glyphs aside and insert the new glyphs instead of throwing away an entire line or paragraph and recomposing all of its glyphs. Minimally invalidating the cache also means using more knowledge about the text to glyph conversion process to correctly determine what remains valid after a change in the text buffer.
-
-Unfortunately, the existing engines are very slow in handling Persian text and their architecture is not optimized for handling complex bi-directional text layout efficiently. The reason for this lack of performance is repeatedly re-computing a lot of things that have not changed. If implemented properly, it can be almost as efficient as Latin text layout.
-
-The other very important shortcoming of the existing text engines is their lack of support for proper justification of Persian text using Tatweel (extending cursive connections) or other means as defined by OpenType JSTF table. Some engines also lack proper kerning support which is necessary in Persian.
-
-A full specification of a desirable text engine for handling Persian text is beyond this document. The main reason that this issue is brought up here is that the existing text engines are inadequate for Persian and their lack of performance and functionality adversely impacts the user experience which is a key factor in GUI design.
-
 \
 \
 
-[1](#sdfootnote1anc)TP^^PT During text editing, the cursor never jumps in the suggested behavior
+[1](#sdfootnote1anc)TP^^PT A section is a part of document where the layout is similar (same column setup and header/footer, etc)
 
 \
 \
