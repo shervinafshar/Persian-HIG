@@ -1,4 +1,6 @@
-RTL-HIG
+Persian-HIG
 =======
 
-Human Interface Guidelines for Right-to-Left
+Persian Graphical User Interface Specifications and Guidelines
+
+Author: Hooman Mehr
