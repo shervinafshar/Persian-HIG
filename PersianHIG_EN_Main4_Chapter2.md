@@ -1,17 +1,12 @@
-\
-\
 
-Chapter 1Principles of Graphical User Interface Design {.western dir="LTR"}
-------------------------------------------------------
+Chapter 2 - Principles of Graphical User Interface Design
+---------------------------------------------------------
 
 In order to design successful and friendly interfaces, designers should be familiar with principles of GUI (Graphical User Interface) design. In this chapter, we first briefly examine some common principles and then point out some additional considerations that apply to Persian and bi-directional GUI design. We will also mention some aspects of supporting Persian locale as part of the design process.
 
-\
-\
+### 2.1. Common Principles of GUI Design
 
-### 1.1.Common Principles of GUI Design {.western dir="LTR"}
-
-Years of experience in the design of graphical user interfaces has shown that conforming to some principles and practices helps ensure the quality and usability of the GUI. As a result, today’s desktop environments come with documentation covering GUI design guidelines according to their flavor and priorities. Although it has been a long time since the first commercially successful GUI environments appeared in the marketTP^[^1^](#sdfootnote1sym)^PT, their design principles have seen very little change over the time. The different GUI design guidelines available for different environments are also fundamentally very similar. This is surprising considering the amount of changes in the industry during the past twenty years.
+Years of experience in the design of graphical user interfaces has shown that conforming to some principles and practices helps ensure the quality and usability of the GUI. As a result, today’s desktop environments come with documentation covering GUI design guidelines according to their flavor and priorities. Although it has been a long time since the first commercially successful GUI environments appeared in the [market][1], their design principles have seen very little change over the time. The different GUI design guidelines available for different environments are also fundamentally very similar. This is surprising considering the amount of changes in the industry during the past twenty years.
 
 There have been various attempts at improving and changing the initial principles governing GUI design, but such attempts so far have not been successful. See [Raskin], [Jentner/Nielson].
 
@@ -19,25 +14,22 @@ This indicates that innovation in basic principles of the user interface design 
 
 It should also be noted that properly supporting these design principles for bi-directional locales sometimes implies none-obvious changes to the existing designs. The special considerations for bi-directional friendly designs are scarce and lacking.
 
-1.  **When designing or localizing graphical user interfaces, conform to the GUI guidelines and style guides available for the target environment. The prerequisite for conformance to this document is to first conform to the GUI design documentation available for the target platform as follows:**
+**Rule 1: When designing or localizing graphical user interfaces, conform to the GUI guidelines and style guides available for the target environment. The prerequisite for conformance to this document is to first conform to the GUI design documentation available for the target platform as follows:**
 
--   **Targeting GNOME: Use “GNOME Human Interface Guidelines” available online at:**H[T](http://developer.gnome.org/projects/gup/hig/)**[http://developer.gnome.org/projects/gup/hig/T](http://developer.gnome.org/projects/gup/hig/)**H**[GNOME-HIG]**
-
--   **Targeting KDE: Use “KDE Style Guide” and “KDE User Interface Guidelines”**
-
--   **(**H[T](http://developer.kde.org/documentation/standards/kde/style/basics/)**[http://developer.kde.org/documentation/standards/kde/style/basics/T](http://developer.kde.org/documentation/standards/kde/style/basics/)**H**and**H[T](http://developer.kde.org/documentation/design/ui/)**[http://developer.kde.org/documentation/design/ui/T](http://developer.kde.org/documentation/design/ui/)**H**) [KDE-SG] & [KDE-UIG]**
-
--   **Targeting Java: Use “Java™ Look and Feel Design Guidelines” (Two volumes, available online at:**HT**[http://java.sun.com/products/jlf/](http://java.sun.com/products/jlf/)HT) [Java1] & [Java2]**
-
--   **Other environments: User the available GUI design documentation if any, or use one from another platform.**
+- Targeting GNOME: Use GNOME Human Interface Guidelines” available online at: http://developer.gnome.org/projects/gup/hig/ [GNOME-HIG]
+- Targeting KDE: Use KDE Style Guide” and KDE User Interface Guidelines” http://developer.kde.org/documentation/standards/kde/style/basics [KDE-SG] & [KDE-UIG]
+- Targeting Java: Use Java™ Look and Feel Design Guidelines” (Two volumes, available online at: http://java.sun.com/products/jlf/) [Java1] & [Java2]
+- Other environments: User the available GUI design documentation if any, or use one from another platform.
 
 In addition, studying additional resources including articles and GUI design documentation from different platforms including Apple Macintosh [Apple-HIG] and Microsoft Windows is highly recommended. It helps you gain a better understanding of the various aspects of GUI design.
 
-### 1.2.Applying GUI Design Principles to Persian {.western dir="LTR"}
+  [1]: "Apple Macintosh GUI introduced in 1984."
+
+### 2.2. Applying GUI Design Principles to Persian
 
 There are many common rules in GUI design. They may be differently worded or prioritized but the essence of the principles are very similar if not identical. The existing implementations of the GUI designs sometimes fail to maintain conformity to these common principles when they are localized for Persian/Iran or more generally any bi-directional locale. In this section we briefly mention some of these principles and indicate how they are violated in a bi-directional locale.
 
-1.  **Conform to User Expectations**
+**Principle 1. Conform to User Expectations**
 
 One of the most important characteristics of any good software is that they behave in a way that is consistent with user expectations, hence not confusing them. Any action or reaction from software that is unexpected or unfamiliar to the user will be seen by the user as confusing. In order to maintain the principle of conforming to user expectations, the designer of the software should have a good understanding about the experiences and expectations of the typical user.
 
@@ -45,7 +37,7 @@ It is worth noting that some designers believe in positively surprising user by 
 
 Many designers and developers of internationalized software don’t have enough information about the expectations of the users in bi-directional locales. This leads to designs that show confusing behavior when localized for bi-directional locales. The most important case in this regard is the incorrect assumption that supporting the Unicode bi-directional algorithm takes care of most of the requirements of bi-directional languages. The other incorrect assumption is that the behavior of Unicode bi-directional algorithm matches user expectations. As we will see below this is not the case.
 
-1.  **Supporting Unicode and its bi-directional algorithm is not enough to support bi-directional locales.**
+**Guideline 1: Supporting Unicode and its bi-directional algorithm is not enough to support bi-directional locales.**
 
 **In addition to Unicode, the software should support proper bi-directional layout and interaction.**
 
@@ -53,11 +45,11 @@ To make the above point clear, please note the intention of Unicode: It is desig
 
 The semantic encoding of Unicode does not mix well with GUI way of doing things. As we know, graphical user interfaces rely on visual communication and direct manipulation of visual elements. The fact that current text editing solutions rely on Unicode model instead of a more visual-friendly approach, is currently causing confusing and unpredictable behavior such as jumpy text cursor or dual cursors.
 
-2.  **Do not directly map Unicode bi-directional concepts and model to the design of GUI applications.**
+**Guideline 2: Do not directly map Unicode bi-directional concepts and model to the design of GUI applications.**
 
 **The software should use a consistent and easily predictable visual model when dealing with bi-directionality.**
 
-2.  **Free User’s Minds for Productive Tasks**
+**Principle 2. Free User’s Minds for Productive Tasks**
 
 We use computers to free ourselves from engaging our mind in none-creative, repetitive and boring chores. One of the ways that we can improve our productivity and free our mind to concentrate on important things is by learning basic skills and performing them sub-consciously. Well designed software reduces the burden on users and lets the user gain productivity by helping the user apply existing skills and learn new skills quickly and efficiently.
 
@@ -65,84 +57,56 @@ Graphical user interfaces help reduce the need for abstract thinking of users by
 
 Some of the existing designs in bi-directional environments violate the basic requirement of visual stability and predictability of the environment. In such designs, the user interface elements (such as vertical scroll bar) keep jumping around and user can’t tell for sure what will be selected if the user drags the mouse over a piece of bi-directional text or what happens to the surrounding text if you type a new character. If the position of the important interface elements (like scroll bar) is not stable, users will not be able to learn their position and they have to constantly and consciously search for them.
 
-3.  **The position of the user interface elements should be stable and predictable.**
+**Guideline 3: The position of the user interface elements should be stable and predictable.**
 
 **This does not apply to elements that have to change position to remain readable depending on writing direction.**
 
-\
-\
-
-3.  **Respect the Users and Give them Confidence**
+**Principle 3. Respect the Users and Give them Confidence**
 
 The user interface should indicate and reinforce the fact that the computer is serving the user and not the other way around. To achieve this, user interface should have some properties, for example:
 
--   The software should do what it is told to do. Any user action should have a direct and expected outcomeTP^[^2^](#sdfootnote2sym)^PT.
-
--   The software should carry out user commands by itself. Breaking down each operation into too many steps and constantly asking for permission to proceed or asking for additional information in different steps should be avoided.
-
--   The software operations should be safe so that user can confidently work without fearing potential damage to the work at hand. This is normally achieved by maintain reversibility of actions and delaying irreversible operationsTP^[^3^](#sdfootnote3sym)^PT.
-
--   The software should not pretend to know more than the user or treat the user as being dumb. Using names such as Wizards and Experts for assisting services in the applications is not recommended. Use a name such as Assistant instead. Also too much explanation and breaking operations into very small steps does not improve user friendliness and ease of use. Although this may be useful in rarely used operations (such as first time internet connection setup), or for novice users.
-
--   The software should be polished. The user should feel that the software has attention to detail to make it more comfortable and productive for the user.
+- The software should do what it is told to do. Any user action should have a direct and expected outcome[2][2].
+- The software should carry out user commands by itself. Breaking down each operation into too many steps and constantly asking for permission to proceed or asking for additional information in different steps should be avoided.
+- The software operations should be safe so that user can confidently work without fearing potential damage to the work at hand. This is normally achieved by maintain reversibility of actions and delaying irreversible operations[3][3].
+- The software should not pretend to know more than the user or treat the user as being dumb. Using names such as Wizards and Experts for assisting services in the applications is not recommended. Use a name such as Assistant instead. Also too much explanation and breaking operations into very small steps does not improve user friendliness and ease of use. Although this may be useful in rarely used operations (such as first time internet connection setup), or for novice users.
+- The software should be polished. The user should feel that the software has attention to detail to make it more comfortable and productive for the user.
 
 In a bi-directional environment the issues of lack of stability and predictability adversely affect the software in this regard, too.
 
-\
-\
+  [2]: "Warning the users about dangerous and irreversible operations is OK and desired."
+  [3]: "A good example is the trash can (recycle bin) metaphor."
 
-4.  **Design Software for the International Market**
+**Principle 4. Design Software for the International Market**
 
 Designing for the global world market have seen increasing importance and attention in recent years. Even if you initially plan on releasing your software to the local market, taking the time to plan for its internationalization will not add too much work in the initial design but will save a lot of time and cost when you decide to go international.
 
-2.  **You should first properly internationalize your software to correctly support Persian locale.**
-
-\
-\
+**Rule 2: You should first properly internationalize your software to correctly support Persian locale.**
 
 For more information about software internationalization refer to you platform’s appropriate documentation, such as:
 
--   Unicode How To [Unicode]
-
--   KDE Internationalization Site (i18n.kde.org) [KDE-i18n]
-
--   Internationalization with Qt [Qt-i18n]
-
--   GTKmm Tutorial, Chapter 20 [GTKmm-i18n]
-
--   Internationalizing GNOME Applications [GNOME-i18n]
-
--   GNOME L10N Guidelines for Developers [GNOME-L10N]
-
--   ICU User Guide [ICU-UG]
-
-\
-\
+- Unicode How To [Unicode]
+- KDE Internationalization Site (i18n.kde.org) [KDE-i18n]
+- Internationalization with Qt [Qt-i18n]
+- GTKmm Tutorial, Chapter 20 [GTKmm-i18n]
+- Internationalizing GNOME Applications [GNOME-i18n]
+- GNOME L10N Guidelines for Developers [GNOME-L10N]
+- ICU User Guide [ICU-UG]
 
 **Other Principles**
 
 The above principles are not the only principles in GUI design. Also, the above principles are discussed from different perspective in the GUI design literature (see [KDE-UIG], [GNOME-HIG] and [Apple-HIG]). The above principles where only mentioned to indicate that bi-directional locales may pose some challenges in adhering to the established GUI design principles.
 
-\
-\
-
-\
-\
-
-### 1.3.Specifics of Bi-directional GUI Design {.western dir="LTR"}
+### 2.3. Specifics of Bi-directional GUI Design
 
 There are some bi-directional specific considerations that are usually overlooked in software design. In order to bring the most important issues in this regard to light, we define some additional principles.
 
-\
-\
-
-5.  **Left and Right differs from Previous and Next**
+**Principle 5. Left and Right differs from Previous and Next**
 
 The architecture of the existing environments and toolkits is heavily affected by strictly left to right writing direction in the locale where they originated. Many of the existing architectures do not make a clear (or any) distinction between the concrete and visual concept of left and right and some abstract concepts such as previous and next or near and far.
 
 For example, the most common visual symbol for the concept of *Previous* is a left pointing arrow ← but this is based on the left-to-right writing direction. In a bi-directional environment, a left pointing arrow means visual direction left and never means *Previous*. The only common symbols that can be used to indicate *Previous* and *Next* seem to be the symbols used in the AV equipment, solely based on their wide-spread deployment all over the world. This will be discussed in more detail later. A similar issue is related to the order of placement of elements such as buttons. Most of the time, the first element is put on the left side which does not indicate the first position in right-to-left locales.
 
-3.  **Use horizontal arrows only to indicate visual directions, do not use them to indicate *previous* or *next*. Use the text “Previous” and “Next” when possible and place them according to writing direction.**
+**Rule 3: Use horizontal arrows only to indicate visual directions, do not use them to indicate *previous* or *next*. Use the text “Previous” and “Next” when possible and place them according to writing direction.**
 
 **To visualize previous and next you may use symbols used in the controls of audio/visual equipment. In that case, maintain their visual order (*previous* in left and *next* in right). You may also use up-pointing arrow to visualize *previous* and down-pointing arrow for *next*.**
 
@@ -150,67 +114,24 @@ For example, the most common visual symbol for the concept of *Previous* is a le
 
 When the user interface is text oriented so that the user reads it like text, conform to the writing direction when placing the buttons, as shown below:
 
+<div dir="rtl">
 نمایش فیلم: [آغاز] [درنگ] [پایان] رجوع به فصل: [اوّل] [قبل] [بعد] [آخر]
+</div>
 
 Movie Playback: [Start] [Pause] [Stop] Jump to chapter: [First] [Previous] [Next] [Last]
 
 When the user interface resembles audio/visual equipment, the order of placement and symbols should conform to their conventions, as shown below:
 
-\
-\
+![](PersianHIG-EN-Main42_html_MediaButtons.png)
 
-
-
-
-
-
-
-
-
-
-
-آخری
-
-
-
-بعدی
-
-
-
-قبلی
-
-
-
-اوّلی
-
- آخری
-
- بعدی
-
- قبلی
-
- اوّلی
-
-آخری 
-
-بعدی 
-
- قبلی
-
- اوّلی
-
-\
-\
-
-6.  **Left Justify and Right Justify Differs From Left-to-Right and Right-to-Left**
+**Principle 6. Left Justify and Right Justify Differs From Left-to-Right and Right-to-Left**
 
 When writing from right-to-left we usually start writing from the right edge of the paper, so the natural text alignment when writing from right-to-left is right justified. Similarly, the natural text alignment for left-to-right will be left justified. But this does not mean that the application should change explicitly set justification when user changes the writing direction. Applications should also provide separate controls for text direction and justification.
 
-4.  **Text processing applications should provide independent controls for text direction and text justification.**
-
+**Rule 4: Text processing applications should provide independent controls for text direction and text justification.**
 **When justification is not explicitly specified, applications should change text justification to reflect natural text alignment based on writing direction.**
 
-7.  **Position and Orientation of User Interface Elements follow Tradition**
+**Principle 7. Position and Orientation of User Interface Elements follow Tradition**
 
 The above principle indicates that the position of the interface elements is based on existing practices and traditions which do not necessarily follow writing direction. Some developers make the incorrect assumption that the position and direction of user interface elements always conforms to the main writing direction. Hence, they simply mirror their user interfaces for right-to-left locales as if those locales exist in a mirror universe. Such mirroring usually creates acceptable result, but this is not always the case. Consider the example of positioning previous/next buttons according to the way they are traditionally positioned in audio/visual equipment.
 
@@ -230,11 +151,11 @@ Window control widgets in Microsoft Windows
 
 Window control widgets in Apple Macintosh
 
-4.  **Avoid blindly mirroring everything in the user interface to make them right-to-left. So called right-to-left locales are actually bi-directional. Only rearrange elements that users read like text.**
+**Guideline 1: Avoid blindly mirroring everything in the user interface to make them right-to-left. So called right-to-left locales are actually bi-directional. Only rearrange elements that users read like text.**
 
 **The correct position and orientation of each element is determined based on user expectations which do not always reflect writing direction.**
 
-### 1.4.Locale Requirements for Iran {.western dir="LTR"}
+### 2.4. Locale Requirements for Iran
 
 Any software with Persian user interface should properly support fa\_IR GNU/Linux locale. This includes different items specified in locale data files including sorting, searching, etc. In the following sections, we will mention the main topics regarding support of fa\_IR locale.
 
@@ -244,12 +165,9 @@ A textual description of locale related items such as paper size, date and time 
 
 Any software application that is properly internationalized and supports GNU/Linux locales should normally work properly with Persian locale without requiring any modification or special treatment.
 
-5.  **Any software with Persian user interface should properly support fa\_IR GNU/Linux locale.**
+**Rule 1: Any software with Persian user interface should properly support fa\_IR GNU/Linux locale.**
 
-\
-\
-
-#### .1.4.1.Search and Sort {.western dir="LTR"}
+#### 2.4.1. Search and Sort
 
 Supporting proper Persian search and sort is one of the locale support requirements. For more information and a textual description of sort requirements you may refer to the following Persian document: [Sort’03]
 
@@ -265,14 +183,11 @@ As a result, a lot of the existing Persian text in files and databases are not p
 
 U+0643, U+0649, U+064A, U+0660 to U+0669, U+06AA, U+06C0 to U+06C2
 
-5.  **Filter the imported text to ensure that it conforms to ISIRI-6219 standard.**
+**Guideline 5: Filter the imported text to ensure that it conforms to ISIRI-6219 standard.**
 
-6.  **Any software with Persian user interface that performs text search and sort should properly support searching and sorting despite receiving text that is not fully ISIRI-6219 compliant.**
+**Rule 6: Any software with Persian user interface that performs text search and sort should properly support searching and sorting despite receiving text that is not fully ISIRI-6219 compliant.**
 
-\
-\
-
-#### .1.4.2.Calendar {.western dir="LTR"}
+#### 2.4.2. Calendar
 
 Another important issue in properly supporting Persian locale is the proper support for official calendars of the Islamic Republic of Iran. This is the area that creates the most amount of work for developers. The reason is that the calendar requirement in Iran is not very common in other well known regions of the world. Iran is one of the very few countries where the calendar used for business and official operations is not Gregorian.
 
@@ -292,18 +207,15 @@ The localized applications should display a calendar suffix when displaying date
 
 Also, the localized applications that store future dates in *Hijri Qamari* should be able to take into account the possible change of the physical day representing the date and dynamically adjust their behavior. Calendar focused applications need even more capabilities, details of which are beyond this document.
 
-7.  **Applications that deal with date should support all Iranian calendars.**
+**Rule 7: Applications that deal with date should support all Iranian calendars.**
 
-8.  **Applications that deal with date and calendar should be able to handle multiple simultaneous calendars and dynamically changing the active and default calendars.**
+**Rule 8: Applications that deal with date and calendar should be able to handle multiple simultaneous calendars and dynamically changing the active and default calendars.**
 
-9.  **Date entry field should be capable of accepting date input in any of the official calendars in Iran regardless of the currently active or default calendar.**
+**Rule 9: Date entry field should be capable of accepting date input in any of the official calendars in Iran regardless of the currently active or default calendar.**
 
-10. **Applications that store future dates in *Hijri Qamari* should be able to cope with possible change in the physical day representing the date.**
+**Rule 10: Applications that store future dates in *Hijri Qamari* should be able to cope with possible change in the physical day representing the date.**
 
-\
-\
-
-#### .1.4.3.Week {.western dir="LTR"}
+#### 2.4.3. Week
 
 The start of the week and weekend holidays in Iran is different from the countries using Gregorian calendar and is very similar to the most of the other Islamic countries. The start of the week is Saturday in Iran and based on the local rules in different offices, the duration of the weekend holiday is either one, one and a half or two days. The actual holidays are: Friday, half of Thursday and Friday, Thursday and Friday or Friday and Saturday. The latter is used in the offices of the foreign companies or institutions.
 
@@ -311,12 +223,9 @@ Calendar and diary applications localized for Iran should be able to properly su
 
 The other point worth mentioning regarding Iranian week is that it is not customary in Iran to number the weeks of the year. For this reason, there is no official rule for the method of determining the first week of each year.
 
-11. **Calendar and diary applications localized for Iran should be able to accept Saturday as the start of the week and support Thursday (half day of full day), Friday and Saturday as weekend holidays.**
+**Rule 11: Calendar and diary applications localized for Iran should be able to accept Saturday as the start of the week and support Thursday (half day of full day), Friday and Saturday as weekend holidays.**
 
-\
-\
-
-#### .1.4.4.Naming GUI Objects {.western dir="LTR"}
+#### 2.4.4. Naming GUI Objects
 
 Naming rules for GUI objects such as the name of files and directories in the file system should be flexible enough to accept Persian names. This includes many types of object names from file system to network entities (such as server or service names) and user names, addresses, etc.
 
@@ -332,24 +241,14 @@ The are some issues related to protocol prefixes in URIs (Uniform Resource Ident
 
 Truncating names and other text strings is another issue which needs special attention in Persian. This will be discussed in a future update of this document.
 
-12. **Persian software should be able to accept Persian names for the objects they are dealing with.**
+**Rule 12: Persian software should be able to accept Persian names for the objects they are dealing with.**
 
 **Current infrastructures and protocols may not permit this, but this is expected to change over time.**
 
-### 1.5.Dual Language User Interface {.western dir="LTR"}
+### 2.5. Dual Language User Interface
 
 Most of the existing software user interfaces are not localized for Persian. Limited availability of the Persian localization is expected to continue for quite some time. Also, many types of software are too specialized to be localized for Persian. Also, the existing global trends necessitate the use of the English language in many cases. This means that for the time being, instead of having a unified Persian working environment on the computer, we are facing a bi-lingual environment.
 
 The differences in the text direction of Persian and Latin (mostly English) in such a bi-lingual environment create some issues. For example, consider the menu bar. Since the menu bar is text oriented and is usually read like text, it is expected to follow the direction of the text it is written in. On the other hand, we specified that often used and common elements in the user interface should have stable and constant placements to facilitate ease of use.
 
-There is a contradiction among the rules here that needs a resolution. In most cases, when an element is used in many places (which is the case with menu bar) the principle of keeping stability and consistency has a higher priority and we have to keep both menu bars in the same direction which means that one of them will not be in the correct reading order. Items that have more local and specific uses adhere to the orientation implied by their language. For example, a text label for an entry field written in a Latin should be always placed to the left of the field, while the text label for an entry field in written in Persian should be always placed to the right of the field. This issue is further discussed in 5.
-
-[1](#sdfootnote1anc)TP^^PT Apple Macintosh GUI introduced in 1984
-
-[2](#sdfootnote2anc)TP^^PT Warning the users about dangerous and irreversible operations is OK and desired.
-
-[3](#sdfootnote3anc)TP^^PT A good example is the trash can (recycle bin) metaphor
-
-\
-\
-
+There is a contradiction among the rules here that needs a resolution. In most cases, when an element is used in many places (which is the case with menu bar) the principle of keeping stability and consistency has a higher priority and we have to keep both menu bars in the same direction which means that one of them will not be in the correct reading order. Items that have more local and specific uses adhere to the orientation implied by their language. For example, a text label for an entry field written in a Latin should be always placed to the left of the field, while the text label for an entry field in written in Persian should be always placed to the right of the field. This issue is further discussed in chapter 5.

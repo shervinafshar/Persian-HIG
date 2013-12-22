@@ -1,17 +1,11 @@
-\
-\
-
-Chapter 1The Visual Elements in the GUI {.western dir="LTR"}
----------------------------------------
+Chapter 4 - The Visual Elements in the GUI
+------------------------------------------
 
 This chapter discusses the visual elements in the GUI and guidelines concerning them for a Persian GUI application. The visual elements include all the images, icons, symbols, text, lines and boxes and the layout and composition of these elements to make the visual appearance of the GUI.
 
 Printed output plays an important role in many software applications and many visual elements in the GUI are modeled after printed page, some parts of the GUI deal with the printed page or visualize it. For this reason, we will first discuss the paper documents and their specifics in Iran/Persian locale.
 
-\
-\
-
-### 1.1.Paper Documents {.western dir="LTR"}
+### 4.1. Paper Documents
 
 Printed output is varied. It could be a single sheet of paper, a continuous roll of paper, thick double sided book with hundreds of pages, a large multi-sheet CAD drawing or a giant color poster. In this discussion we will focus on sheet by sheet print of normal size, whose usage is the most common.
 
@@ -37,13 +31,11 @@ The important measurements in a Persian document are paper dimensions, column wi
 
 There is one point that needs to be considered when naming the above dimension: As you can see left and right are never mentioned and the dimensions are expressed compare relative to natural text starting point as inner and outer margins and near and far indents. Depending on binding side and document direction, each of the inner/near or outer/far dimensions may be located at left or right.
 
-1.  **To specify horizontal dimensions and measurements of page, use inner and outer (relative to binding edge) or near and far (relative to the natural starting point based on writing direction) instead of using left and right.**
+**Rule 1: To specify horizontal dimensions and measurements of page, use inner and outer (relative to binding edge) or near and far (relative to the natural starting point based on writing direction) instead of using left and right.**
 
-2.  **Internationalized software that deals with printed output should be able to handle booklet binding from either top, left or right sides. They should be able to handle both cases of the right page being the first page and the left page being the first page.**
+**Rule 2: Internationalized software that deals with printed output should be able to handle booklet binding from either top, left or right sides. They should be able to handle both cases of the right page being the first page and the left page being the first page.**
 
-3.  **Internationalized software that support multi-column text should support both left-to-right and right-to-left column order.**
-
-****
+**Rule 3: Internationalized software that support multi-column text should support both left-to-right and right-to-left column order.**
 
 There is another issue when we have paragraphs of different directions in the same column of text. The issue is related to deciding the zero point of the column ruler. As we mentioned, the zero point depends on the direction of the text in the column. When direction of the text changes, the ruler zero point will flip to the opposite edge of the column. This may not be desirable for adjusting the relative position of the RTL vs. LTR paragraphs of text. For this reason, it is recommended that a page ruler is also used whose direction remains the same as paragraphs change direction. Note that the zero point of the page ruler depends on binding and document direction which are global.
 
@@ -55,26 +47,19 @@ The following figure shows an example of the column and page rulers in a right-t
 
 ![](PersianHIG-EN-Main44_html_799d9f99.png)
 
-\
-\
+**Guideline 1: If you show only one ruler, decide the direction of the ruler based on document or section direction and not the paragraph direction. If you display two rulers one for column and another for page, then you may flip the zero point of the column ruler according to the direction of the active paragraph.**
 
-1.  **If you show only one ruler, decide the direction of the ruler based on document or section direction and not the paragraph direction. If you display two rulers one for column and another for page, then you may flip the zero point of the column ruler according to the direction of the active paragraph.**
-
-\
-\
-
-As you can see multiple directionalities can be involved in a single document: Document direction (or the binding side), sectionTP^[^1^](#sdfootnote1sym)^PT direction (indicating column layout direction), paragraph direction and string (text run) direction. All of the above directions should be distinctly visualized in the GUI and should be easy to specify and change. For example, putting a thicker edge on the binding side of the paper can help user realize the binding direction.
+As you can see multiple directionalities can be involved in a single document: Document direction (or the binding side), section[1][1] direction (indicating column layout direction), paragraph direction and string (text run) direction. All of the above directions should be distinctly visualized in the GUI and should be easy to specify and change. For example, putting a thicker edge on the binding side of the paper can help user realize the binding direction.
 
 The default direction for all of the above directions in the Persian/Iran locale is right-to-left.
 
-2.  **In addition to the direction of the text run and paragraph, the other directions of the document including column and binding directions should be easy to determine and change.**
+**Guideline 2: In addition to the direction of the text run and paragraph, the other directions of the document including column and binding directions should be easy to determine and change.**
 
-3.  **Default section (column) direction is the same as document (binding) direction and the default paragraph direction is the same as section direction.**
+**Guideline 3: Default section (column) direction is the same as document (binding) direction and the default paragraph direction is the same as section direction.**
 
-\
-\
+   [1]: A section is a part of document where the layout is similar (same column setup and header/footer, etc).
 
-### 1.2.Icons and Images {.western dir="LTR"}
+### 4.2. Icons and Images
 
 Extensive use of images, symbols and icons is one of the characteristics of graphical user interfaces. The correct use of these elements helps in making the interface easier to understand and more elegant. Some developers tend to think that images, symbols and icons are automatically international and do not need localization, but this is not always the case.
 
@@ -94,17 +79,11 @@ Consider the previous and next buttons in a web browser application. The arrow d
 
 The solution would be either using vertical arrows (vertical direction of the text is almost universally top to bottom) or avoid symbols altogether and rely on the text instead. The other acceptable method is using the rewind ![](PersianHIG-EN-Main44_html_m75837594.png) and fast forward ![](PersianHIG-EN-Main44_html_m1ca15d1c.png)symbols from audio/visual equipment which enjoy almost the same universal recognition as the playback symbol. If that is the case, the rewind should stay to the left of the fast forward button to maintain the integrity of the model it is following.
 
-4.  **Avoid using horizontal arrows to symbolize the concepts of previous and next. Try avoiding a symbol and using text, instead.**
+**Guideline 4: Avoid using horizontal arrows to symbolize the concepts of previous and next. Try avoiding a symbol and using text, instead.**
 
 **Using vertical arrows and using symbols for this purpose is permitted. Also using rewind ![](PersianHIG-EN-Main44_html_m75837594.png) and fast forward ![](PersianHIG-EN-Main44_html_m1ca15d1c.png) in audio visual equipment is permitted for this purpose, provided the original ordering of the symbols is maintained.**
 
-\
-\
-
-\
-\
-
-### 1.3.Direction and Placement of Visual Elements {.western dir="LTR"}
+### 4.3. Direction and Placement of Visual Elements
 
 The overall rules for composing the elements in the user interface are similar to the page layout rules for the paper documents. One difference is having much less white space because of the limited screen space. The same rules also apply in a right-to-left environment. The main difference in a right-to-left environment is the mirroring that occurs in the placement of text related elements as the result of writing direction. Items that are not related to writing direction may not need any change. One method to improve the layout adaptability for right-to-left environments is using a vertically symmetric design by using center aligned elements or providing some widgets at both sides of the window such as a resize handle.
 
@@ -142,33 +121,22 @@ There is another design issue in the above mentioned GNOME Programs menu. It is 
 
 This bad design choice can be partially offset by using clever names to put the frequently used items in proper places. For example, the name of the frequently used Accessories submenu helps it stay at the top of the menu to make it easier to access. But there is no guarantee that a localized version can (or will) preserve that menu order. For example, in the existing draft Persian translation, the location of the first (Accessories) and last (System Tools) submenus in the Programs menu is reversed. The result is a different (reduced) usability for the Persian version compared to the Latin version.
 
-4.  **The localization of software should not adversely affect its usability and design features.**
+**Rule 1: The localization of software should not adversely affect its usability and design features.**
 
-5.  **Avoid using alphabetical ordering of the interface elements (such as menu commands) in the design of the internationalized software.**
+**Rule 2: Avoid using alphabetical ordering of the interface elements (such as menu commands) in the design of the internationalized software.**
 
 **The alphabetical ordering is only advised in list of elements that are dynamic and contain many elements.**
 
-\
-\
+**Guideline 1: To support right-to-left (actually bidirectional) locales, avoid blindly mirroring the entire user interface. Developer tools and graphical toolkits should provide more control for developers and localizers in specifying the proper placement of user interface elements.**
 
-5.  **To support right-to-left (actually bidirectional) locales, avoid blindly mirroring the entire user interface. Developer tools and graphical toolkits should provide more control for developers and localizers in specifying the proper placement of user interface elements.**
+**Guideline 2: To reduce unexpected directionality related issues with GUI designs it is advised the vertically symmetric designs used as much as possible.**
 
-6.  **To reduce unexpected directionality related issues with GUI designs it is advised the vertically symmetric designs used as much as possible.**
-
-\
-\
-
-\
-\
-
-### 1.4.The Effect of Different Direction in Desktop, Software and Document {.western dir="LTR"}
+### 4.4. The Effect of Different Direction in Desktop, Software and Document
 
 We briefly mentioned the issues of a mixed Persian/Latin environment. Since this is a common scenario, we will discuss it in more detail here. The first thing to note is the three main elements that the user is dealing with when using a computer:
 
 -   First element is the graphical desktop environment which provides the basic facilities including windows and menus.
-
 -   The second element is the application which is used to perform the intended task.
-
 -   The third element is the content or the data related to the task which could often be a document.
 
 At any given time, only one locale should be designated as the active user locale and changing the active locale may require restarting the user session to give a change to properly refresh and relocated the user interface. Having different active locales per running applications is not recommended since it can break the stability of the user interface, especially if each locale has a different directionality. Still, if we have the same locale set for all applications, it is not guaranteed that the three elements above all adhere to the same active locale. When a certain locale is made active, still the desktop environment or the applications may not be localized to support the locale language.
@@ -191,25 +159,10 @@ But this does not apply to the parts of the user interface that are expected to 
 
 As you see in the above picture right-to-left layout is clearly incorrect when the actual language of the text in the GUI is English.
 
-6.  **The placement of the common interface elements follows the direction of the active locale, even if the actual language has a different direction.**
+**Rule 1: The placement of the common interface elements follows the direction of the active locale, even if the actual language has a different direction.**
 
 **The directionality of custom GUI elements that are read like text should adhere to the actual language of the GUI regardless of the active locale direction.**
 
 The decision of the proper placement of the GUI elements is also affected by the fact that there is a considerable user base for the existing none-localized and left-to-right desktop environments. In order to ease the transition of the existing users, the changes in the placement and orientation of the GUI elements should be kept to the minimum that is necessary.
 
-\
-\
-
-7.  **Do not change the orientation and placement of GUI elements unless this is really necessary.**
-
-\
-\
-
-\
-\
-
-[1](#sdfootnote1anc)TP^^PT A section is a part of document where the layout is similar (same column setup and header/footer, etc)
-
-\
-\
-
+**Rule 2: Do not change the orientation and placement of GUI elements unless this is really necessary.**

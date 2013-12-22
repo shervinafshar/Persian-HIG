@@ -14,7 +14,6 @@ This document aims to provide some information, guidelines and rules to help cre
 
 Appendix includes definitions, references and the document license agreement.
 
-
 ### 1.2 Scope
 
 This document applies to all of the desktop applications running on popular GNU/Linux desktop environments including GNOME and KDE that are intended to be used by Persian speaking users in the Islamic Republic of Iran. It also applies to graphical user interface (GUI) applications that are multi-platform. Such software includes Web-based and Java applications. To enable development of the above applications, it also applies to the underlying platforms, toolkits and libraries.
