@@ -27,7 +27,7 @@ The first point to consider is the starting point (zero point) of the measuremen
 
 The important measurements in a Persian document are paper dimensions, column width, column spacing, margins at four sides of paper, first line indent or out-dent of the paragraph, and paragraph indents within the column for quoted paragraphs. These dimensions are shown in the figure below:
 
-![](PersianHIG-EN-Main44_html_487d4b2d.gif)
+![](img/PersianHIG_EN_Main4_Chapter4_487d4b2d.gif)
 
 There is one point that needs to be considered when naming the above dimension: As you can see left and right are never mentioned and the dimensions are expressed compare relative to natural text starting point as inner and outer margins and near and far indents. Depending on binding side and document direction, each of the inner/near or outer/far dimensions may be located at left or right.
 
@@ -41,11 +41,11 @@ There is another issue when we have paragraphs of different directions in the sa
 
 The following figure shows an example of the column and page rulers in a right-to-left document when the paragraph containing the cursor is also right-to-left.
 
-![](PersianHIG-EN-Main44_html_m637f3444.png)
+![](img/PersianHIG_EN_Main4_Chapter4_m637f3444.png)
 
 The following figure shows an example of the column and page rulers in a right-to-left document when the paragraph containing the cursor is left-to-right.
 
-![](PersianHIG-EN-Main44_html_799d9f99.png)
+![](img/PersianHIG_EN_Main4_Chapter4_799d9f99.png)
 
 **Guideline 1: If you show only one ruler, decide the direction of the ruler based on document or section direction and not the paragraph direction. If you display two rulers one for column and another for page, then you may flip the zero point of the column ruler according to the direction of the active paragraph.**
 
@@ -71,17 +71,17 @@ Avoid using the shape of items that have different shapes in different places. F
 
 This category of internationalization concern for images is not specific to Persian/Iran locale and is discussed in the general documents dealing with internationalization. For example see [KDE-i18n] or [GNOME-i18n]. So, we will continue the discussion with some bi-directional specific concerns:
 
-There is some misunderstanding as whether writing direction does or does not affect an image. Sometimes an image needs horizontal mirroring but this is not obvious. Sometimes an image seems to need mirror but it does not. An example where mirroring is needed is a side facing user icon. Since potential text should appear in front of the user instead of behind his back, the face should be kept to always look towards the inside and towards the text. This means that in most cases you will need to mirror the image to look the other way for Persian. To make such a user icon international you can change it so that it faces the user instead of looking to the side. Another example is a none-symmetric shape that does not need mirroring for right-to-left writing direction. Although a checkmark ![](PersianHIG-EN-Main44_html_m5a749d7d.png) is not symmetric, it does not need mirroring. A mirrored checkmark look unfamiliar and is actually left handed, instead of being right-to-left. Another example is the playback symbol![](PersianHIG-EN-Main44_html_48e26644.png). Although playback symbol clearly point from left-to-right, it should not be mirrored, because the mirrored symbol does not mean normal play. If anything, it means reverse play which is a different meaning.
+There is some misunderstanding as whether writing direction does or does not affect an image. Sometimes an image needs horizontal mirroring but this is not obvious. Sometimes an image seems to need mirror but it does not. An example where mirroring is needed is a side facing user icon. Since potential text should appear in front of the user instead of behind his back, the face should be kept to always look towards the inside and towards the text. This means that in most cases you will need to mirror the image to look the other way for Persian. To make such a user icon international you can change it so that it faces the user instead of looking to the side. Another example is a none-symmetric shape that does not need mirroring for right-to-left writing direction. Although a checkmark ![](img/PersianHIG_EN_Main4_Chapter4_m5a749d7d.png) is not symmetric, it does not need mirroring. A mirrored checkmark look unfamiliar and is actually left handed, instead of being right-to-left. Another example is the playback symbol![](img/PersianHIG_EN_Main4_Chapter4_48e26644.png). Although playback symbol clearly point from left-to-right, it should not be mirrored, because the mirrored symbol does not mean normal play. If anything, it means reverse play which is a different meaning.
 
 There is a tricky issue when we use symbols to indicate the concept of previous and next. The most commonly used symbol for *next* is a right pointing arrow → and the symbol for *previous* is a left pointing arrow ←. These symbols can be confusing in a bi-directional environment when they are associated with text oriented content. Mirroring these symbols in a Persian localized environment is not the solution.
 
 Consider the previous and next buttons in a web browser application. The arrow directions do not correspond to the application localization, but to the document being viewed. The same window (whether localized for Persian or not) may show both left-to-right and right-to-left documents. Flipping the direction of the arrows based on document direction disassociates the concept from a well defined symbol and is not an option. Unlike the playback symbol discussed earlier which has a very old and none-computer related counterpart that is familiar to practically everyone in the world, the arrow symbols for previous and next do not share the same universal recognition. For this reason, the use of horizontal arrows to indicate the concept of previous or next is not recommended.
 
-The solution would be either using vertical arrows (vertical direction of the text is almost universally top to bottom) or avoid symbols altogether and rely on the text instead. The other acceptable method is using the rewind ![](PersianHIG-EN-Main44_html_m75837594.png) and fast forward ![](PersianHIG-EN-Main44_html_m1ca15d1c.png)symbols from audio/visual equipment which enjoy almost the same universal recognition as the playback symbol. If that is the case, the rewind should stay to the left of the fast forward button to maintain the integrity of the model it is following.
+The solution would be either using vertical arrows (vertical direction of the text is almost universally top to bottom) or avoid symbols altogether and rely on the text instead. The other acceptable method is using the rewind ![](img/PersianHIG_EN_Main4_Chapter4_m75837594.png) and fast forward ![](img/PersianHIG_EN_Main4_Chapter4_m1ca15d1c.png)symbols from audio/visual equipment which enjoy almost the same universal recognition as the playback symbol. If that is the case, the rewind should stay to the left of the fast forward button to maintain the integrity of the model it is following.
 
 **Guideline 4: Avoid using horizontal arrows to symbolize the concepts of previous and next. Try avoiding a symbol and using text, instead.**
 
-**Using vertical arrows and using symbols for this purpose is permitted. Also using rewind ![](PersianHIG-EN-Main44_html_m75837594.png) and fast forward ![](PersianHIG-EN-Main44_html_m1ca15d1c.png) in audio visual equipment is permitted for this purpose, provided the original ordering of the symbols is maintained.**
+**Using vertical arrows and using symbols for this purpose is permitted. Also using rewind ![](img/PersianHIG_EN_Main4_Chapter4_m75837594.png) and fast forward ![](img/PersianHIG_EN_Main4_Chapter4_m1ca15d1c.png) in audio visual equipment is permitted for this purpose, provided the original ordering of the symbols is maintained.**
 
 ### 4.3. Direction and Placement of Visual Elements
 
@@ -99,9 +99,9 @@ Also, it should be noted that for the foreseeable future there will be many soft
 
 Changing the location and orientation of user interface elements that are not directly affected by text direction is generally not recommended. An example that demonstrates that a certain alignment is not mandated by text direction is the placement of window control widgets (close/minimize/maximize). As you see in the following figures, these controls are placed at the opposite sides of the window with almost mirrored layout between two dominant proprietary operating systems Windows and Mac OS:
 
-![](PersianHIG-EN-Main44_html_163adb16.png) Window control widgets in Microsoft Windows
+![](img/PersianHIG_EN_Main4_Chapter4_163adb16.png) Window control widgets in Microsoft Windows
 
-![](PersianHIG-EN-Main44_html_m1f9926d4.png) Window control widgets in Apple Mac OS X
+![](img/PersianHIG_EN_Main4_Chapter4_m1f9926d4.png) Window control widgets in Apple Mac OS X
 
 This clearly indicates that the location of these controls is a matter of choice and design preference rather than being mandated by writing direction. A lot of other placements are also like this. If it was a few years ago, we had to urge developers to consider mirroring their layouts to better conform to our locale, but now it seems that we need to ask them to stop mirroring every single element they encounter. So, it is now recommended that you mirror elements only when there is a good reason to do so, usually based on the writing direction.
 
@@ -109,9 +109,9 @@ We also need to point out another important consideration when changing the loca
 
 There is an important example of incorrectly changing the placement of GUI elements that can be found in GNOME 2.6 as configured by default in Fedora Core 4 distribution. The English locale shows the three menus on the top bar of the screen from left to right as Programs, Places and then Desktop. When we switch to Persian/Iran locale, these menus are still on the left side of the screen but their order is reversed. So, when Persian/Iran locale active, the menus from left to right are Desktop, Places and then Programs. This is shown in the following figures:
 
-![](PersianHIG-EN-Main44_html_514f908b.png) **OK**
+![](img/PersianHIG_EN_Main4_Chapter4_514f908b.png) **OK**
 
-![](PersianHIG-EN-Main44_html_m75a9e912.png) **Wrong!**
+![](img/PersianHIG_EN_Main4_Chapter4_m75a9e912.png) **Wrong!**
 
 In the Latin version, the Programs menu is placed in the corner of the screen to benefit from the Fitts’ law (see [Fitts’]) to make it the easiest menu to access. The current rearrangement in the Persian/Iran locale violates this design. If the menu was fully mirrored so that the Programs menu where placed on the top-right corner of the screen, then the design would have been preserved, and the change would be valid.
 
@@ -155,7 +155,7 @@ This behavior is the correct behavior despite looking strange in the none-locali
 
 But this does not apply to the parts of the user interface that are expected to be read like text. For example, a form where there are labels and fields, the relative order of fields and their labels should follow the direction of the language they are written in, not that of the active locale. The following screen shot shows the existing incorrect behavior of GNOME:
 
-![](PersianHIG-EN-Main44_html_768dd48b.png) **Wrong!**
+![](img/PersianHIG_EN_Main4_Chapter4_768dd48b.png) **Wrong!**
 
 As you see in the above picture right-to-left layout is clearly incorrect when the actual language of the text in the GUI is English.
 

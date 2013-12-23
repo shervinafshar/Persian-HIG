@@ -16,9 +16,9 @@ It should also be noted that properly supporting these design principles for bi-
 
 **Rule 1: When designing or localizing graphical user interfaces, conform to the GUI guidelines and style guides available for the target environment. The prerequisite for conformance to this document is to first conform to the GUI design documentation available for the target platform as follows:**
 
-- Targeting GNOME: Use GNOME Human Interface Guidelines” available online at: http://developer.gnome.org/projects/gup/hig/ [GNOME-HIG]
-- Targeting KDE: Use KDE Style Guide” and KDE User Interface Guidelines” http://developer.kde.org/documentation/standards/kde/style/basics [KDE-SG] & [KDE-UIG]
-- Targeting Java: Use Java™ Look and Feel Design Guidelines” (Two volumes, available online at: http://java.sun.com/products/jlf/) [Java1] & [Java2]
+- Targeting GNOME: Use GNOME Human Interface Guidelines” available online at: [http://developer.gnome.org/projects/gup/hig/](http://developer.gnome.org/projects/gup/hig/) [GNOME-HIG]
+- Targeting KDE: Use KDE Style Guide” and KDE User Interface Guidelines” [http://developer.kde.org/documentation/standards/kde/style/basics](http://developer.kde.org/documentation/standards/kde/style/basics) [KDE-SG] & [KDE-UIG]
+- Targeting Java: Use Java™ Look and Feel Design Guidelines” (Two volumes, available online at: [http://java.sun.com/products/jlf/](http://java.sun.com/products/jlf/)) [Java1] & [Java2]
 - Other environments: User the available GUI design documentation if any, or use one from another platform.
 
 In addition, studying additional resources including articles and GUI design documentation from different platforms including Apple Macintosh [Apple-HIG] and Microsoft Windows is highly recommended. It helps you gain a better understanding of the various aspects of GUI design.
@@ -122,7 +122,7 @@ Movie Playback: [Start] [Pause] [Stop] Jump to chapter: [First] [Previous] [Next
 
 When the user interface resembles audio/visual equipment, the order of placement and symbols should conform to their conventions, as shown below:
 
-![](PersianHIG-EN-Main42_html_MediaButtons.png)
+![](img/PersianHIG_EN_Main4_Chapter2_MediaButtons.png)
 
 **Principle 6. Left Justify and Right Justify Differs From Left-to-Right and Right-to-Left**
 
@@ -137,17 +137,17 @@ The above principle indicates that the position of the interface elements is bas
 
 The position of user interface elements should be compatible with the experiences and expectations of the users (Principle 1). Such experiences and expectations may not be related to writing direction. As a rule of thumb, the interface elements that users read like normal text should follow writing direction. For other cases, you have to find out how they are traditionally placed in the locale you are targeting. Many expected placements actually follow left-to-right conventions even in right-to-left locales. The reason is that they either follow mathematical direction (like a progress bar) which is universally left-to-right, or they follow some real world equipment which have left-to-right orientation (such as audio/visual equipment mentioned earlier).
 
-Items such as radio dials and the buttons on audio/visual equipment do not have locale specific versions with different layouts and directions. For example, a left pointing “Forward Play” button ![](PersianHIG-EN-Main42_html_11f8e070.png) is never expected in any locale, since the symbol universally reflects the same audio/visual equipment distributed all over the world.
+Items such as radio dials and the buttons on audio/visual equipment do not have locale specific versions with different layouts and directions. For example, a left pointing “Forward Play” button ![](img/PersianHIG_EN_Main4_Chapter2_11f8e070.png) is never expected in any locale, since the symbol universally reflects the same audio/visual equipment distributed all over the world.
 
-It should also be noted that some apparently directional symbols get their direction from other origins that do not have anything to do with writing direction. For example, although the normal shape of a check mark ![](PersianHIG-EN-Main42_html_m5a749d7d.png) is directional, but it does not follow writing direction. Its direction indicates that it is right-handed. A left handed person will be more comfortable to put check mark with a mirrored shape. This is true both in right-to-left writing and left-to-right writing.
+It should also be noted that some apparently directional symbols get their direction from other origins that do not have anything to do with writing direction. For example, although the normal shape of a check mark ![](img/PersianHIG_EN_Main4_Chapter2_m5a749d7d.png) is directional, but it does not follow writing direction. Its direction indicates that it is right-handed. A left handed person will be more comfortable to put check mark with a mirrored shape. This is true both in right-to-left writing and left-to-right writing.
 
 In many cases the placement of user interface elements are simply a matter of design choice. In such cases, it is not advised to change the position or orientation of elements for different writing directions. A clear example of things that are design choices and have nothing to do with writing direction is to placement of window control widgets in the two major proprietary operating systems Microsoft Windows and Apple Macintosh. As you can see in the pictures below, the widgets are placed at the opposite sides of the window:
 
-![](PersianHIG-EN-Main42_html_m610117.png)
+![](img/PersianHIG_EN_Main4_Chapter2_m610117.png)
 
 Window control widgets in Microsoft Windows
 
-![](PersianHIG-EN-Main42_html_139f37d1.png)
+![](img/PersianHIG_EN_Main4_Chapter2_139f37d1.png)
 
 Window control widgets in Apple Macintosh
 

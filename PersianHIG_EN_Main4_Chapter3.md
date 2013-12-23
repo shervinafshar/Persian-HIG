@@ -11,22 +11,22 @@ Some may be surprised to know that Persian language is an indo-European language
 
 2.  Printed Latin text does not cursively connect adjacent characters and the shape of characters does not depend on their position in the word. In Persian, just like Arabic, the cursive connection of adjacent letters is required and the shape of characters depends on adjacent characters.
 
-3.  In normal Latin printed writing, combining adjacent characters to form a ligature (like replacing ![](PersianHIG-EN-Main43_html_m23050a1.png) with ![](PersianHIG-EN-Main43_html_m78695a6f.png)) is optional and is used to improve the typographical look of the text. Some ligatures in Persian and Arabic are required for correct writing. The main example is the ligature of letter Lam (U+0644) with Alef (U+0627). For this reason, text rendering subsystem should support automatic formation of ligatures.
+3.  In normal Latin printed writing, combining adjacent characters to form a ligature (like replacing ![](img/PersianHIG_EN_Main4_Chapter3_m23050a1.png) with ![](img/PersianHIG_EN_Main4_Chapter3_m78695a6f.png)) is optional and is used to improve the typographical look of the text. Some ligatures in Persian and Arabic are required for correct writing. The main example is the ligature of letter Lam (U+0644) with Alef (U+0627). For this reason, text rendering subsystem should support automatic formation of ligatures.
 
 4.  In Latin text, each character has two forms: lower case and upper case. This does not apply to Persian and Arabic. They don’t have a concept similar to upper case of lower case of Latin.
 
 5.  Like Arabic the only required set of ligatures in Persian are the ligature of Lam (U+0644) with Alef-based characters (U+0627, U+0622, U+0623, etc) It is worth mentioning that mark to mark positioning by combining them into a single glyph (such as combining U+0651 with U+064E to get U+FC60) is not considered a ligature. The main difference of Persian with Arabic concerning ligatures is in the preferred optional ligatures. Here are the most common optional ligatures in Persian:
 
     -   The ligature of either U+06A9 and U+06AF with either Lam (U+0644) or Alef-based characters (U+0627, U+0622, U+0623, etc)
-    -   The ligature combining certain previous characters with the word final Yeh (U+06CC) in to morph a dandanah in the previous character to a hill in the head of Yeh, similar to this example that combines U+0633 with U+06CC: ![](PersianHIG-EN-Main43_html_3db6b928.png)
+    -   The ligature combining certain previous characters with the word final Yeh (U+06CC) in to morph a dandanah in the previous character to a hill in the head of Yeh, similar to this example that combines U+0633 with U+06CC: ![](img/PersianHIG_EN_Main4_Chapter3_3db6b928.png)
 	-   The ligature of either of U+0633 to U+0636 with U+0631, U+0632 or U+0698. Also ligatures of medial form of some other characters (e.g. U+028, U+062A, U+062B) with U+0631, U+0632.
 
 6. The following optional Arabic ligatures are not desired in Persian. Avoid them for Persian text:
 
-	-   The ligature of Lam (U+0644) with Meem (U+0645) which looks like: ![](PersianHIG-EN-Main43_html_5b7a1782.png)
-	-   The ligature of Meem (U+0645) with Alef (U+0627) which looks like: ![](PersianHIG-EN-Main43_html_60bfa87f.png)
-	-   The ligature of Lam (U+0644) or Feh (U+0641) with any Yeh (U+64A or U+06CC) which look like: ![](PersianHIG-EN-Main43_html_18bf199f.png)
-	-   The ligature of U+0628, U+062A, U+062B or U+0644 to U+0647 with U+062C to U+062E. For example U+0644 with U+062D forms this glyph in initial form: ![](PersianHIG-EN-Main43_html_73da820c.png)
+	-   The ligature of Lam (U+0644) with Meem (U+0645) which looks like: ![](img/PersianHIG_EN_Main4_Chapter3_5b7a1782.png)
+	-   The ligature of Meem (U+0645) with Alef (U+0627) which looks like: ![](img/PersianHIG_EN_Main4_Chapter3_60bfa87f.png)
+	-   The ligature of Lam (U+0644) or Feh (U+0641) with any Yeh (U+64A or U+06CC) which look like: ![](img/PersianHIG_EN_Main4_Chapter3_18bf199f.png)
+	-   The ligature of U+0628, U+062A, U+062B or U+0644 to U+0647 with U+062C to U+062E. For example U+0644 with U+062D forms this glyph in initial form: ![](img/PersianHIG_EN_Main4_Chapter3_73da820c.png)
 	-   None of the three character Arabic optional ligatures are desired for Persian.
 
 7. Marks called accents that are added to some base characters in Latin are different from the floating marks used in Persian and Arabic. The characteristic of Latin accents is that some very specific accents are used on some very specific base characters. Those accented characters usually play a role very similar to a stand-alone character different from the base character. For this reason, it is common to use composed accented characters in Latin where a base character and an accent are combined to form a new character. In Persian and Arabic the use of floating marks is a lot more free and arbitrary. The floating marks in Persian and Arabic have stand-alone significance (many of them represent vowels, for instance) similar to an independent character. This means that in Persian and Arabic the floating marks are not composed with the base character to make new characters and remain independent and are editable independent of their base glyph.
@@ -37,13 +37,13 @@ Some may be surprised to know that Persian language is an indo-European language
 
 10. In Arabic when positioning the two floating marks U+0651 and either U+064D or U+0650 on the same base glyph, the second mark (the vowel) is placed on the first mark not on the character. So, in Arabic the combination of U+0651 and U+0650 looks like: ـِّ This is not the case in Persian and both marks are placed on the base character. For example, the combination of U+0651 and U+0650 is displayed as:ـّ‌ِ
 
-11. There is a floating mark that is specific to Persian and is not well documented. A short description of this mark follows: When you want to add a U+0650 to the end of a word, if certain conditions are met, U+0650 vowel mark is replaced with a mark whose shape is ![](PersianHIG-EN-Main43_html_m357d746.png) and it is called *Yayeh Morakham* (یای مُرَخَّم) which means “shortened Yeh” and represents an added *Yeh* pronunciation to the usual pronunciation of U+0650 vowel. If a word ends in Heh (U+0647) but the Heh is not pronounced, *Yayeh Morakham* will be used instead of U+0650.
+11. There is a floating mark that is specific to Persian and is not well documented. A short description of this mark follows: When you want to add a U+0650 to the end of a word, if certain conditions are met, U+0650 vowel mark is replaced with a mark whose shape is ![](img/PersianHIG_EN_Main4_Chapter3_m357d746.png) and it is called *Yayeh Morakham* (یای مُرَخَّم) which means “shortened Yeh” and represents an added *Yeh* pronunciation to the usual pronunciation of U+0650 vowel. If a word ends in Heh (U+0647) but the Heh is not pronounced, *Yayeh Morakham* will be used instead of U+0650.
 
 A example usage of this mark in Persian is the phrase: خانۀ من (Meaning “my house”) Since writing this mark has not traditionally been well supported in typewriters and computers, it is also written with a full *Yeh* as: خانه‌ی من So, the sequence of U+200C + U+06CC appended to a word ending in U+0647 is equivalent to the presence of *Yayeh Morakham* at the end of the word.
 
 Since *Yayeh Morakham* is only used in this specific place and after this specific character it is treated more like accents and there is no separate and specific Unicode entry for it. Instead, in order to support this mark, the usage of *Arabic Hamza Above* (U+0654) is extended in Persian as follows:
 
-U+0654 is valid if it appears after U+0647 in Persian and is treated as *Yayeh Morakham*. It should be combined with the shape of base glyph in the form of an added mark above the base glyph shaped ![](PersianHIG-EN-Main43_html_m357d746.png) (A small *Yeh* whose tail swash is cut)
+U+0654 is valid if it appears after U+0647 in Persian and is treated as *Yayeh Morakham*. It should be combined with the shape of base glyph in the form of an added mark above the base glyph shaped ![](img/PersianHIG_EN_Main4_Chapter3_m357d746.png) (A small *Yeh* whose tail swash is cut)
 
 The sequences U+0647 + U+0654 and U+0647 + U+200C + U+06CC at the end of a word are equivalent and are valid if U+0647 is not pronounced. The meaning of U+0654 or U+200C + U+06CC are equivalent to U+0650 (which in this context means “of”). The text services in a Persian localized environment should correctly support this special floating mark.
 
@@ -87,15 +87,15 @@ There are important differences between Persian (including Arabic) fonts and Lat
 
 Normal Latin fonts usually contain many parallel vertical stems that reside between three well-defined parallel horizontal guide lines. In contrast, there is only one well-defined baseline recognizable in Persian font and the angle, shape and height of the stems in the Persian fonts are quite varied. The following figure shows a sample of Latin vs. Persian Fonts (Linotype Palatino vs. Linotype Lotus):
 
-![](PersianHIG-EN-Main43_html_4256dbfa.png)
+![](img/PersianHIG_EN_Main4_Chapter3_4256dbfa.png)
 
 Both fonts descend below the baseline but the amount and variation of this descend is much more in the Persian font. Extra descend and the presence of swashes, dots and floating marks in the Persian fonts causes the Persian text to require more line spacing to be easily readable.
 
 An important historical side effect of the shape of Persian font is the different effective optical size of Persian fonts with Latin fonts. The more line spacing requirement of Persian fonts means that you have to make Persian font smaller to fit a certain height which determines the point size of the font. So, a 12 point Persian font usually looks smaller and is less readable than a 12 point Latin font. This can significantly affect the readability of the text used in the user interface. The following figure illustrates this effect. In the first line, both fonts have the same size. In the second line the Persian font is enlarged to 117% to make it as readable as the Latin font:
 
-![](PersianHIG-EN-Main43_html_me45cb41.png)
+![](img/PersianHIG_EN_Main4_Chapter3_me45cb41.png)
 
-![](PersianHIG-EN-Main43_html_377fd20.png)
+![](img/PersianHIG_EN_Main4_Chapter3_377fd20.png)
 
 To get equivalent readability, the point size of the Persian fonts usually needs to be 5 to 20 percent more than the adjacent Latin font. Since selectively changing font size for the text in the user interface based on the script and language of the text is not supported now, the easiest solution is to have special Persian user interface fonts whose readability vs. size is adjusted to be equivalent to the Latin fonts.
 
@@ -123,7 +123,7 @@ There is also a general issue which limits the usefulness of this style in Persi
 
 There is another point concerning underlined text in Persian. Because of the extra descent and presence of dots below the baseline, Persian underline needs to be lower down the baseline than Latin underline. To get the correct effect, font designers should properly specify underline position for Persian fonts and application software should actually read and adhere to the underline position specified in the font instead of drawing a generic underline in a fixed position. This difference in suitable underline position creates another issue. If underlined text is a mix of Persian and Latin, the underline will be broken and will look unacceptable as shown below:
 
-![](PersianHIG-EN-Main43_html_1ed75ec.png)
+![](img/PersianHIG_EN_Main4_Chapter3_1ed75ec.png)
 
 For this reason, the underline position should be determined as the lowest line indicated by various fonts that are used on the same line. If this is not possible try to eliminate the use of underlined text in your Persian user interfaces.
 
@@ -159,7 +159,7 @@ Since the text used in the user interface potentially can contain both Persian a
 
 Font designed for use on display screens which are used for GUI text and web pages have important differences with the normal fonts designed for printed output. To improve readability these fonts usually look larger and more widely spaced with exaggerated features. For example look at the difference in on-screen rendering of the following two fonts:
 
-![](PersianHIG-EN-Main43_html_m299a078c.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m299a078c.png)
 
 The above figure shows a 10 point screen font rendered at 96dpi (first line) vs. a 10 point normal font rendered at 96dpi. The limited resolution available when rendering display fonts makes proper display of the variations in stem widths and serif sizes impossible. So, most display fonts use an almost constant stem width with thick, oversized serifs. The stem width is also usually much thicker in the boldface variation of the display font.
 
@@ -169,7 +169,7 @@ The above features are common for display fonts in any script. There are some fe
 
 Since the Persian and Latin GUI fonts are used side by side, a Persian GUI font should be compatible and in harmony with its Latin equivalent. To achieve this, it is necessary to reduce the descender of the Persian font compared to the traditional designs. This may even require using a different and higher actual baseline for the Persian character than the nominal baseline encoded in the font. This technique has been used in the old (pre-Mac OS 8) Persian and Arabic GUI fonts of Apple Macintosh as shown in the following figure:
 
-![](PersianHIG-EN-Main43_html_m400f5959.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m400f5959.png)
 
 Since the readability of the font is the primary concern in GUI fonts, a Persian GUI font needs to be made larger to improve its readability.
 
@@ -184,17 +184,17 @@ We may look at font classification from a different angle as well: Matching each
 In order to use Persian fonts in GNU/Linux, we need a minimal classification of Persian fonts to support fontconfig. The three main fontconfig font categories are:
 
 1.  Serif, such as:
-	![](PersianHIG-EN-Main43_html_229cd4d0.png)
+	![](img/PersianHIG_EN_Main4_Chapter3_229cd4d0.png)
 2.  Sans-serif, (Sans for short) such as:
-	![](PersianHIG-EN-Main43_html_53767d7.png)
+	![](img/PersianHIG_EN_Main4_Chapter3_53767d7.png)
 3.  Mono-space, (Mono for short) such as:
-	![](PersianHIG-EN-Main43_html_m2607f45a.png)
+	![](img/PersianHIG_EN_Main4_Chapter3_m2607f45a.png)
 
 Here we determine the equivalent categories in Persian fonts:
 
 A feature like the serifs in Latin fonts (as displayed below) does not exist in Persian fonts. Since the traditional Latin fonts are serif and have varied stem width, we assume that the traditional Persian fonts with varied stem widths are Serif.
 
-![](PersianHIG-EN-Main43_html_51b6fc32.png)
+![](img/PersianHIG_EN_Main4_Chapter3_51b6fc32.png)
 
 **Rule 1: Traditional Persian fonts with varied stem widths are defined to be Serif.**
 
@@ -396,13 +396,13 @@ Character Directionality: The natural directional property of the character (not
 
 Color Codes of Direction Runs: To make it easier to understand the definitions, the text in the figures is color coded as follows:
 
-![](PersianHIG-EN-Main43_html_m63a7d47d.png) Right-to-Left direction run
+![](img/PersianHIG_EN_Main4_Chapter3_m63a7d47d.png) Right-to-Left direction run
 
-![](PersianHIG-EN-Main43_html_m267faaaf.png) Left-to-Right direction run
+![](img/PersianHIG_EN_Main4_Chapter3_m267faaaf.png) Left-to-Right direction run
 
-![](PersianHIG-EN-Main43_html_4b1ff532.png) A part of the direction run that has weak direction and may get separated form the run if the context is changed
+![](img/PersianHIG_EN_Main4_Chapter3_4b1ff532.png) A part of the direction run that has weak direction and may get separated form the run if the context is changed
 
-![](PersianHIG-EN-Main43_html_m592b6ea8.png) Persian number (left-to-right) direction run
+![](img/PersianHIG_EN_Main4_Chapter3_m592b6ea8.png) Persian number (left-to-right) direction run
 
 
 #### 3.6.7. Cursor Visual Cues for Text Input/Edit
@@ -411,22 +411,22 @@ To aid in text input and editing it is recommended that the shape of text cursor
 
 -   The existing normal shape of the text cursor which is a vertical thin bar is used when the cursor is inside a direction run and the keyboard direction is the same as the run direction. It is true both while editing and entering text. This shape is also used when the keyboard direction is the same as text direction and the cursor is on the text boundary (beginning or end of line)
 -   During the entry or editing of Persian text, when the cursor is inside a number or on the boundary of a number its shape will be:
-    -   Before starting the typing action: ![](PersianHIG-EN-Main43_html_5f7c89c7.png)
-    -   During typing digits: ![](PersianHIG-EN-Main43_html_40da3d30.png) In this case, a jump marker such as ![](PersianHIG-EN-Main43_html_m3cd1a8d.png) indicates the jump target (which occurs if a right to left character is typed)
--   When one of the following conditions is met, the shape of the cursor indicates the keyboard direction. If the keyboard is right-to-left it will be ![](PersianHIG-EN-Main43_html_1a8ffc5e.png) and when keyboard is left-to-right the cursor shape will be ![](PersianHIG-EN-Main43_html_40da3d30.png)
+    -   Before starting the typing action: ![](img/PersianHIG_EN_Main4_Chapter3_5f7c89c7.png)
+    -   During typing digits: ![](img/PersianHIG_EN_Main4_Chapter3_40da3d30.png) In this case, a jump marker such as ![](img/PersianHIG_EN_Main4_Chapter3_m3cd1a8d.png) indicates the jump target (which occurs if a right to left character is typed)
+-   When one of the following conditions is met, the shape of the cursor indicates the keyboard direction. If the keyboard is right-to-left it will be ![](img/PersianHIG_EN_Main4_Chapter3_1a8ffc5e.png) and when keyboard is left-to-right the cursor shape will be ![](img/PersianHIG_EN_Main4_Chapter3_40da3d30.png)
     -   The cursor is on a direction boundary
     -   The cursor is on line boundary and the keyboard direction does not match writing direction.
     -   The cursor is inside a direction run but the direction of the keyboard does not match the text run.
 -   When entering Persian number or typing text whose direction is the opposite of current text direction, there is a potential jump point for the cursor. It is useful to mark this point, but the mark should be easily distinguishable from the actual cursor which remains adjacent to the character just typed. Examples are shown below:
 
-In the middle of typing digits: ![](PersianHIG-EN-Main43_html_m36fde222.png)
-After typing a RTL character: ![](PersianHIG-EN-Main43_html_5179590e.png)
+In the middle of typing digits: ![](img/PersianHIG_EN_Main4_Chapter3_m36fde222.png)
+After typing a RTL character: ![](img/PersianHIG_EN_Main4_Chapter3_5179590e.png)
 
 -   When the character visually adjacent to the text cursor is a Unicode control character, (U+200C to U+200F, and U+ 202B to U+ 202E) it is recommended that a visual marker appears on the same visual side as the cursor which identifies the control character.
 -   To better display the position of cursor inside a ligature it may be useful to have a slanted or even broken cursor to clearly show the position of the cursor.
 -   In Persian text, when the cursor moves on a character with floating marks using arrow keys, it will stay on the same spot as it passes the floating marks. To properly visualize the actual cursor position, a small tag should appear above and/or below the character (depending on mark) and behind the cursor to indicate the position of cursor relative to the floating marks as shown in the following example. In the following sequence of images from right to left the right to left traversal of a word is shown using left arrow key:
 
-![](PersianHIG-EN-Main43_html_1dc76c4a.png)
+![](img/PersianHIG_EN_Main4_Chapter3_1dc76c4a.png)
 
   [1]: During text editing, the cursor never jumps in the suggested behavior.
 
@@ -440,15 +440,15 @@ The following figures visualize the effect of these virtual characters. The firs
 
 The desired sentence is:
 
-![](PersianHIG-EN-Main43_html_m7b3cdf95.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m7b3cdf95.png)
 
 The existing behavior during type:
 
-![](PersianHIG-EN-Main43_html_m3e2f08a2.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m3e2f08a2.png)
 
 The suggested desired behavior during type:
 
-![](PersianHIG-EN-Main43_html_4c843acc.png)
+![](img/PersianHIG_EN_Main4_Chapter3_4c843acc.png)
 
 #### 3.6.9. Selecting Edit Location
 
@@ -478,15 +478,15 @@ Each time cursor passes the Persian/Latin boundary (A direction boundary where n
 
 **Left arrow key is pressed. As a result cursor reaches direction boundary from right to left, its shape changes from vertical bar to indicate its direction which is the same as the keyboard layout (Persian):**
 
-![](PersianHIG-EN-Main43_html_513e21db.png)
+![](img/PersianHIG_EN_Main4_Chapter3_513e21db.png)
 
 **Left arrow key is pressed again. Instead of cursor movement, keyboard layout is switched to Latin and cursor shape changes to indicate the keyboard layout direction:**
 
-![](PersianHIG-EN-Main43_html_m155cb217.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m155cb217.png)
 
 **Left arrow key is pressed again. The cursor moves to left-to-right text while keyboard is also left to right. The shape of the cursors returns to normal vertical bar which indicates that text and keyboard directions are the same:**
 
-![](PersianHIG-EN-Main43_html_m61478f9a.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m61478f9a.png)
 
 When the cursor is positioned using mouse the keyboard is synchronized with the character that is closer to the actual click location.
 
@@ -514,19 +514,19 @@ As long as the starting and ending points of selection is concerned, the previou
 
 **1. Mouse pointer is clicked on the right of c (blue arrow) and is dragged past e (red arrow):**
 
-![](PersianHIG-EN-Main43_html_4974ebd6.png)
+![](img/PersianHIG_EN_Main4_Chapter3_4974ebd6.png)
 
 **2. Mouse pointer continues to drag just to the left passing over s:**
 
-![](PersianHIG-EN-Main43_html_205ee801.png)
+![](img/PersianHIG_EN_Main4_Chapter3_205ee801.png)
 
 **3. As the mouse pointer reaches the right edge of space to the left of s, the****incorrect behavior****occurs:**
 
-![](PersianHIG-EN-Main43_html_e4c9840.png)
+![](img/PersianHIG_EN_Main4_Chapter3_e4c9840.png)
 
 **4. As the mouse pointer passes to the left edge of the space, the correct discontinuous selection is made:**
 
-![](PersianHIG-EN-Main43_html_2258007e.png)
+![](img/PersianHIG_EN_Main4_Chapter3_2258007e.png)
 
 The third step in the above selection is incorrect where the imaginary cursor position is still between s and space but instead of selecting from c to s, the selection is from o to space where both characters fall outside of the visual range from start to the end of the selection. The correct behavior in the third step would have been to continue to select like the previous step. The fourth step is acceptable since the selection visually touches both starting and ending points of the selection and a portion (the space) of the selected text is actually between the two points.
 
@@ -544,29 +544,29 @@ We will study these cases in this section. First we will start by the assumption
 
 **Environment 1: Persian keyboard layout, Right-to-Left text, cursor as shown below:**
 
-![](PersianHIG-EN-Main43_html_57d8a6e2.png)
+![](img/PersianHIG_EN_Main4_Chapter3_57d8a6e2.png)
 
 **Case 1: A Persian letter********ف********(U+0641)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_3d3db2ab.png)
+![](img/PersianHIG_EN_Main4_Chapter3_3d3db2ab.png)
 
 **Case 2: A Persian digit********۵********(U+06F5)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_417b59c8.png)
+![](img/PersianHIG_EN_Main4_Chapter3_417b59c8.png)
 
 **Case 3: A Slash********/****(U+002F)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_m401bdc54.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m401bdc54.png)
 
 **Comments on** **Cases 1 to 3**: Nothing special, the same as the existing behavior, since the result of the edit already appears where it should.
 
 **Environment 2: Latin keyboard layout, Right-to-Left text, cursor as shown below:**
 
-![](PersianHIG-EN-Main43_html_700d90eb.png)
+![](img/PersianHIG_EN_Main4_Chapter3_700d90eb.png)
 
 **Case 4: A Latin letter********E****(U+0045)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_60c4ad54.png)
+![](img/PersianHIG_EN_Main4_Chapter3_60c4ad54.png)
 
 **Comments on Case 4**: The LTR character is added to the yellow zone of the RTL run which would be re-arranged with the existing behavior. So, the following is performed instead of a straight insert:
 
@@ -578,11 +578,11 @@ We will study these cases in this section. First we will start by the assumption
 
 **Case 5: A Slash********/****(U+002F)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_33e633dc.png)
+![](img/PersianHIG_EN_Main4_Chapter3_33e633dc.png)
 
 **Case 6:****U+0028****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_31b904d.png)
+![](img/PersianHIG_EN_Main4_Chapter3_31b904d.png)
 
 **Comments on Cases 5 & 6**: The operation is the same as 4 with the added step to preserve keyboard direction in the common keyboard character:
 
@@ -590,33 +590,33 @@ We will study these cases in this section. First we will start by the assumption
 
 **Environment 3: Persian keyboard layout, Right-to-Left text, cursor as shown below:**
 
-![](PersianHIG-EN-Main43_html_m526c2342.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m526c2342.png)
 
 **Case 7: A Persian letter********ف********(U+0641)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_6908293b.png)
+![](img/PersianHIG_EN_Main4_Chapter3_6908293b.png)
 
 **Comments on Case 7**: Nothing special, the same as the existing behavior, since the result of the edit already appears where it should.
 
 **Case 8: A Persian digit********۵********(U+06F5)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_m18b646fb.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m18b646fb.png)
 
 **Comments on Case 8**: Before inserting the digits a U+200F is inserted to maintain the yellow zone visual arrangement.
 
 **Case 9: A Slash********/****(U+002F)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_2eac4665.png)
+![](img/PersianHIG_EN_Main4_Chapter3_2eac4665.png)
 
 **Comments on Case 7**: Nothing special, the same as the existing behavior, since the result of the edit already appears where it should.
 
 **Environment 4: Latin keyboard layout, Right-to-Left text, cursor as shown below:**
 
-![](PersianHIG-EN-Main43_html_m38b470e4.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m38b470e4.png)
 
 **Case 10: A Latin letter********E****(U+0045)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_4e70e273.png)
+![](img/PersianHIG_EN_Main4_Chapter3_4e70e273.png)
 
 **Comments on Case 10**: LTR character is added to the yellow zone of RTL run which would be re-arranged with the existing behavior. So, the following is performed instead of a straight insert:
 
@@ -632,11 +632,11 @@ We will study these cases in this section. First we will start by the assumption
 
 **Case 11: A Slash********/****(U+002F)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_41ba8fdd.png)
+![](img/PersianHIG_EN_Main4_Chapter3_41ba8fdd.png)
 
 **Case 12:****U+0028****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_m736b284f.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m736b284f.png)
 
 **Comments on Cases 11 & 12**: LTR keyboard is used to type a character with weak direction. Same as above with an additional step to maintain LTR direction:
 
@@ -644,11 +644,11 @@ We will study these cases in this section. First we will start by the assumption
 
 **Environment 4: Persian keyboard layout, Left-to-Right text, cursor as shown below:**
 
-![](PersianHIG-EN-Main43_html_m599cc008.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m599cc008.png)
 
 **Case 13: A Persian letter********ف********(U+0641)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_m15938d57.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m15938d57.png)
 
 **Comments on Case 13:** RTL text is added to the yellow zone of the LTR run which would be re-arranged with the existing behavior. So, the following is performed instead of a straight insert:
 
@@ -664,17 +664,17 @@ We will study these cases in this section. First we will start by the assumption
 
 **Case 14: A Persian digit********۵********(U+06F5)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_3ed64dda.png)
+![](img/PersianHIG_EN_Main4_Chapter3_3ed64dda.png)
 
 **Comments on Case 14**: Despite the LTR directionality of the Persian digit, the result should be RTL according to the keyboard and no additional adjustment is needed in this case for the digit direction. So, the operation is identical the Case 13 above.
 
 **Case 15: A Slash********/****(U+002F)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_mdca2d84.png)
+![](img/PersianHIG_EN_Main4_Chapter3_mdca2d84.png)
 
 **Case 16:****U+0028****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_100ded95.png)
+![](img/PersianHIG_EN_Main4_Chapter3_100ded95.png)
 
 **Cases 15 & 16**: Same as 13 & 14, with the following additional step to ensure keyboard directionality is enforced:
 
@@ -682,25 +682,25 @@ We will study these cases in this section. First we will start by the assumption
 
 **Environment 5: Latin keyboard layout, Left-to-Right text, cursor as shown below:**
 
-![](PersianHIG-EN-Main43_html_m17ada1e5.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m17ada1e5.png)
 
 **Case 17:****A Latin letter********E****(U+0045)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_m1fa57fd9.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m1fa57fd9.png)
 
 **Case 18:****A Slash********/****(U+002F)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_79404589.png)
+![](img/PersianHIG_EN_Main4_Chapter3_79404589.png)
 
 **Comments on Cases 17 & 18**: Nothing special, the same as the existing behavior, since the result of the edit already appears where it should.
 
 **Environment 6: Persian keyboard layout, Left-to-Right text, cursor as shown below:**
 
-![](PersianHIG-EN-Main43_html_5a890cdd.png)
+![](img/PersianHIG_EN_Main4_Chapter3_5a890cdd.png)
 
 **Case 19: A Persian letter********ف********(U+0641)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_m4ddc3e9b.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m4ddc3e9b.png)
 
 **Comments on Case 19**: RTL character is added to the yellow zone of the LTR run which would be re-arranged with the existing behavior. So, the following is performed instead of a straight insert:
 
@@ -716,15 +716,15 @@ We will study these cases in this section. First we will start by the assumption
 
 **Case 20: A Persian digit********۵********(U+06F5)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_m41595ac5.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m41595ac5.png)
 
 **Case 21: A Slash********/****(U+002F)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_2940454e.png)
+![](img/PersianHIG_EN_Main4_Chapter3_2940454e.png)
 
 **Case 22:****U+0028****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_67e84a01.png)****
+![](img/PersianHIG_EN_Main4_Chapter3_67e84a01.png)****
 
 **Comments on Cases 20 to 22**: Same as 19, with the following additional step to ensure keyboard directionality is enforced:
 
@@ -732,15 +732,15 @@ We will study these cases in this section. First we will start by the assumption
 
 **Environment 7: Latin keyboard layout, Left-to-Right text, cursor as shown below:**
 
-![](PersianHIG-EN-Main43_html_524fad06.png)
+![](img/PersianHIG_EN_Main4_Chapter3_524fad06.png)
 
 **Case 23:****A Latin letter********E****(U+0045)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_m6d76dc2.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m6d76dc2.png)
 
 **Case 24:****A Slash********/****(U+002F)****is typed, the result is:**
 
-![](PersianHIG-EN-Main43_html_m1a9bd7e9.png)
+![](img/PersianHIG_EN_Main4_Chapter3_m1a9bd7e9.png)
 
 **Comments on Cases 23 & 24**: Nothing special, the same as the existing behavior, since the result of the edit already appears where it should.
 

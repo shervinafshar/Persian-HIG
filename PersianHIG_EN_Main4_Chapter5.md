@@ -58,7 +58,7 @@ In the usual case, where there are no special placement requirements for the too
 
 Static text is not usually stand alone in the user interface. It is usually part of a larger layout that uses other blocks of static text and other widgets. The proper placement of the static text relative to the other widgets in the logical group is determined by the actual language of those elements and not the directionality of the active Persian/Iran locale. So, even in Persian/Iran locale, if a related group of widgets that include static text (and are read like text) are in English, their placement should follow left-to-right placement. For example, if the static text is a label for another widget, the relative order of text and the widget should follow the proper display order of the language of the static text block. The following picture shows a partially localized screen in right-to-left locale, where the placements of all widgets follow the locale direction instead of the actual text direction:
 
-![](PersianHIG-EN-Main45_html_768dd48b.png) **Wrong!**
+![](img/PersianHIG_EN_Main4_Chapter5_768dd48b.png) **Wrong!**
 
 The placement of the highlighted static text compared to the widgets they are labeling is incorrect.
 
@@ -174,7 +174,7 @@ The zero point and placement of the column ruler usually follows the direction o
 
 It is recommended that word processing applications that support bidirectional layout, support both types of the rulers described above and also have the ability to show both of them simultaneously. This is illustrated in the following figure:
 
-![](PersianHIG-EN-Main45_html_799d9f99.png)
+![](img/PersianHIG_EN_Main4_Chapter5_799d9f99.png)
 
 The behavior of the text on tab stops should be visual and does not follow the stream of text across the tab boundary. So, the text should be first segmented into separate fields that fall on each tab stop and the Unicode bidirectional algorithm should be applied on each segment individually. The direction of the movement of the tab character is always determined by the paragraph direction and is never resolved with Unicode bidirectional algorithm.
 
