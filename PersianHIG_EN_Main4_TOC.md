@@ -49,7 +49,7 @@ Table of Contents
  - 1.3. Audience
  - 1.4. Mandate and Authority
 
-**[Chapter 2 - Principles of Graphical User Interface Design](Persian_HIG_EN_Main4_Chapter2.md)**
+**[Chapter 2 - Principles of Graphical User Interface Design](PersianHIG_EN_Main4_Chapter2.md)**
 
  - 2.1. Common Principles of GUI Design
  - 2.2. Applying GUI Design Principles to Persian
@@ -61,7 +61,7 @@ Table of Contents
    - 2.4.4. Naming GUI Objects
  - 2.5. Dual Language User Interface
 
-**[Chapter 3 - Persian Text in the GUI 21](Persian_HIG_EN_Main4_Chapter3.md)**
+**[Chapter 3 - Persian Text in the GUI 21](PersianHIG_EN_Main4_Chapter3.md)**
 
  - 3.1. Characteristics of the Persian Text
  - 3.2. Characteristics of the Persian Fonts
@@ -89,14 +89,14 @@ Table of Contents
    - 3.6.11. Normalizing Text After Editing
  - 3.7. Text Engine Architecture
 
-**[Chapter 4 - The Visual Elements in the GUI](Persian_HIG_EN_Main4_Chapter4.md)**
+**[Chapter 4 - The Visual Elements in the GUI](PersianHIG_EN_Main4_Chapter4.md)**
 
  - 4.1. Paper Documents
  - 4.2. Icons and Images
  - 4.3. Direction and Placement of Visual Elements
  - 4.4. The Effect of Different Direction in Desktop, Software and Document
 
-**[Chapter 5 - Summary of User Interface Widgets](Persian_HIG_EN_Main4_Chapter5.md)**
+**[Chapter 5 - Summary of User Interface Widgets](PersianHIG_EN_Main4_Chapter5.md)**
 
 - 5.1. Introduction
 - 5.2. Window
@@ -127,7 +127,7 @@ Table of Contents
 - 5.27. Custom Widgets
 - 5.28. Limitations in GNOME and KDE
 
-**[Appendix](Persian_HIG_EN_Main4_Appendix.md)**
+**[Appendix](PersianHIG_EN_Main4_Appendix.md)**
 
 - Definitions
 - References
