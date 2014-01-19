@@ -1,3 +1,4 @@
+
 Chapter 4 - The Visual Elements in the GUI
 ------------------------------------------
 
