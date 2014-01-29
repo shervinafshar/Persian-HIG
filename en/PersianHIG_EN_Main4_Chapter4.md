@@ -28,7 +28,7 @@ The first point to consider is the starting point (zero point) of the measuremen
 
 The important measurements in a Persian document are paper dimensions, column width, column spacing, margins at four sides of paper, first line indent or out-dent of the paragraph, and paragraph indents within the column for quoted paragraphs. These dimensions are shown in the figure below:
 
-![](img/PersianHIG_EN_Main4_Chapter4_487d4b2d.gif)
+![](img/PersianHIG_EN_Main4_Chapter4_8b4e4f5.png =700x)
 
 There is one point that needs to be considered when naming the above dimension: As you can see left and right are never mentioned and the dimensions are expressed compare relative to natural text starting point as inner and outer margins and near and far indents. Depending on binding side and document direction, each of the inner/near or outer/far dimensions may be located at left or right.
 
