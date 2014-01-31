@@ -1,8 +1,7 @@
-
 Chapter 1: Introduction
------------------------
+=======================
 
-### 1.1 Summary and Purpose
+## 1.1 Summary and Purpose
 
 This document aims to provide some information, guidelines and rules to help create consistent and usable Persian graphical user interfaces. This document has five chapters:
 
@@ -14,7 +13,7 @@ This document aims to provide some information, guidelines and rules to help cre
 
 Appendix includes definitions, references and the document license agreement.
 
-### 1.2 Scope
+## 1.2 Scope
 
 This document applies to all of the desktop applications running on popular GNU/Linux desktop environments including GNOME and KDE that are intended to be used by Persian speaking users in the Islamic Republic of Iran. It also applies to graphical user interface (GUI) applications that are multi-platform. Such software includes Web-based and Java applications. To enable development of the above applications, it also applies to the underlying platforms, toolkits and libraries.
 
@@ -28,7 +27,7 @@ Also, this document does not cover vertical and special purpose software such as
 
 It is also important to note that this document is not a replacement for the user interface guidelines and style guides that come with desktop environments. The purpose of this document is to complement such native documentation. So, wherever this document is silent the original guidelines apply.
 
-### 1.3 Audience
+## 1.3 Audience
 
 This document is intended for the following an audience:
 
@@ -37,6 +36,6 @@ This document is intended for the following an audience:
 - Designers and developers of development tools, frameworks and libraries who intend to support development of software for Persian/Iran locale
 - People involved with localization of software for Persian/Iran locale
 
-### 1.4 Mandate and Authority
+## 1.4 Mandate and Authority
 
 Conforming to this document is highly recommended but voluntary. The GFDL license of this document also means that it is not enforceable. It is also recommended that changes to this document be evolutionary and careful.

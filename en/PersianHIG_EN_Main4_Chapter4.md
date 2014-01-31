@@ -1,12 +1,11 @@
-
 Chapter 4 - The Visual Elements in the GUI
-------------------------------------------
+==========================================
 
 This chapter discusses the visual elements in the GUI and guidelines concerning them for a Persian GUI application. The visual elements include all the images, icons, symbols, text, lines and boxes and the layout and composition of these elements to make the visual appearance of the GUI.
 
 Printed output plays an important role in many software applications and many visual elements in the GUI are modeled after printed page, some parts of the GUI deal with the printed page or visualize it. For this reason, we will first discuss the paper documents and their specifics in Iran/Persian locale.
 
-### 4.1. Paper Documents
+## 4.1. Paper Documents
 
 Printed output is varied. It could be a single sheet of paper, a continuous roll of paper, thick double sided book with hundreds of pages, a large multi-sheet CAD drawing or a giant color poster. In this discussion we will focus on sheet by sheet print of normal size, whose usage is the most common.
 
@@ -50,7 +49,7 @@ The following figure shows an example of the column and page rulers in a right-t
 
 **Guideline 1: If you show only one ruler, decide the direction of the ruler based on document or section direction and not the paragraph direction. If you display two rulers one for column and another for page, then you may flip the zero point of the column ruler according to the direction of the active paragraph.**
 
-As you can see multiple directionalities can be involved in a single document: Document direction (or the binding side), section[1][1] direction (indicating column layout direction), paragraph direction and string (text run) direction. All of the above directions should be distinctly visualized in the GUI and should be easy to specify and change. For example, putting a thicker edge on the binding side of the paper can help user realize the binding direction.
+As you can see multiple directionalities can be involved in a single document: Document direction (or the binding side), section[^1] direction (indicating column layout direction), paragraph direction and string (text run) direction. All of the above directions should be distinctly visualized in the GUI and should be easy to specify and change. For example, putting a thicker edge on the binding side of the paper can help user realize the binding direction.
 
 The default direction for all of the above directions in the Persian/Iran locale is right-to-left.
 
@@ -58,9 +57,9 @@ The default direction for all of the above directions in the Persian/Iran locale
 
 **Guideline 3: Default section (column) direction is the same as document (binding) direction and the default paragraph direction is the same as section direction.**
 
-   [1]: A section is a part of document where the layout is similar (same column setup and header/footer, etc).
+   [^1]: A section is a part of document where the layout is similar (same column setup and header/footer, etc).
 
-### 4.2. Icons and Images
+## 4.2. Icons and Images
 
 Extensive use of images, symbols and icons is one of the characteristics of graphical user interfaces. The correct use of these elements helps in making the interface easier to understand and more elegant. Some developers tend to think that images, symbols and icons are automatically international and do not need localization, but this is not always the case.
 
@@ -72,7 +71,7 @@ Avoid using the shape of items that have different shapes in different places. F
 
 This category of internationalization concern for images is not specific to Persian/Iran locale and is discussed in the general documents dealing with internationalization. For example see [KDE-i18n] or [GNOME-i18n]. So, we will continue the discussion with some bi-directional specific concerns:
 
-There is some misunderstanding as whether writing direction does or does not affect an image. Sometimes an image needs horizontal mirroring but this is not obvious. Sometimes an image seems to need mirror but it does not. An example where mirroring is needed is a side facing user icon. Since potential text should appear in front of the user instead of behind his back, the face should be kept to always look towards the inside and towards the text. This means that in most cases you will need to mirror the image to look the other way for Persian. To make such a user icon international you can change it so that it faces the user instead of looking to the side. Another example is a none-symmetric shape that does not need mirroring for right-to-left writing direction. Although a checkmark ![](img/PersianHIG_EN_Main4_Chapter4_m5a749d7d.png) is not symmetric, it does not need mirroring. A mirrored checkmark look unfamiliar and is actually left handed, instead of being right-to-left. Another example is the playback symbol![](img/PersianHIG_EN_Main4_Chapter4_48e26644.png). Although playback symbol clearly point from left-to-right, it should not be mirrored, because the mirrored symbol does not mean normal play. If anything, it means reverse play which is a different meaning.
+There is some misunderstanding as whether writing direction does or does not affect an image. Sometimes an image needs horizontal mirroring but this is not obvious. Sometimes an image seems to need mirror but it does not. An example where mirroring is needed is a side facing user icon. Since potential text should appear in front of the user instead of behind his back, the face should be kept to always look towards the inside and towards the text. This means that in most cases you will need to mirror the image to look the other way for Persian. To make such a user icon international you can change it so that it faces the user instead of looking to the side. Another example is a none-symmetric shape that does not need mirroring for right-to-left writing direction. Although a checkmark ![](img/PersianHIG_EN_Main4_Chapter4_m5a749d7d.png =15x) is not symmetric, it does not need mirroring. A mirrored checkmark look unfamiliar and is actually left handed, instead of being right-to-left. Another example is the playback symbol ![](img/PersianHIG_EN_Main4_Chapter4_48e26644.png =11x). Although playback symbol clearly point from left-to-right, it should not be mirrored, because the mirrored symbol does not mean normal play. If anything, it means reverse play which is a different meaning.
 
 There is a tricky issue when we use symbols to indicate the concept of previous and next. The most commonly used symbol for *next* is a right pointing arrow → and the symbol for *previous* is a left pointing arrow ←. These symbols can be confusing in a bi-directional environment when they are associated with text oriented content. Mirroring these symbols in a Persian localized environment is not the solution.
 
@@ -84,7 +83,7 @@ The solution would be either using vertical arrows (vertical direction of the te
 
 **Using vertical arrows and using symbols for this purpose is permitted. Also using rewind ![](img/PersianHIG_EN_Main4_Chapter4_m75837594.png) and fast forward ![](img/PersianHIG_EN_Main4_Chapter4_m1ca15d1c.png) in audio visual equipment is permitted for this purpose, provided the original ordering of the symbols is maintained.**
 
-### 4.3. Direction and Placement of Visual Elements
+## 4.3. Direction and Placement of Visual Elements
 
 The overall rules for composing the elements in the user interface are similar to the page layout rules for the paper documents. One difference is having much less white space because of the limited screen space. The same rules also apply in a right-to-left environment. The main difference in a right-to-left environment is the mirroring that occurs in the placement of text related elements as the result of writing direction. Items that are not related to writing direction may not need any change. One method to improve the layout adaptability for right-to-left environments is using a vertically symmetric design by using center aligned elements or providing some widgets at both sides of the window such as a resize handle.
 
@@ -100,15 +99,21 @@ Also, it should be noted that for the foreseeable future there will be many soft
 
 Changing the location and orientation of user interface elements that are not directly affected by text direction is generally not recommended. An example that demonstrates that a certain alignment is not mandated by text direction is the placement of window control widgets (close/minimize/maximize). As you see in the following figures, these controls are placed at the opposite sides of the window with almost mirrored layout between two dominant proprietary operating systems Windows and Mac OS:
 
-![](img/PersianHIG_EN_Main4_Chapter4_163adb16.png) Window control widgets in Microsoft Windows
 
-![](img/PersianHIG_EN_Main4_Chapter4_m1f9926d4.png) Window control widgets in Apple Mac OS X
+**In Microsoft Windows:**
+
+![Window control widgets in Microsoft Windows](img/PersianHIG_EN_Main4_Chapter4_163adb16.png "Window control widgets in Microsoft Windows") 
+
+**In Apple Mac OS X:**
+
+![Window control widgets in Apple Mac OS X](img/PersianHIG_EN_Main4_Chapter4_m1f9926d4.png "Window control widgets in Apple Mac OS X")
 
 This clearly indicates that the location of these controls is a matter of choice and design preference rather than being mandated by writing direction. A lot of other placements are also like this. If it was a few years ago, we had to urge developers to consider mirroring their layouts to better conform to our locale, but now it seems that we need to ask them to stop mirroring every single element they encounter. So, it is now recommended that you mirror elements only when there is a good reason to do so, usually based on the writing direction.
 
 We also need to point out another important consideration when changing the location of elements in a layout. Returning to the above example of window control widgets, you see that in both Mac and Windows layouts, the close box is in the corner. The corners (any of the four corners) are places that are better noticed and more easily targeted. So, the most frequently used elements are placed in such strategic places. This means that there are many special design considerations that determine the suitable place for an element. Any layout change should be made in a way that does not sabotage the design and make it harder to use.
 
 There is an important example of incorrectly changing the placement of GUI elements that can be found in GNOME 2.6 as configured by default in Fedora Core 4 distribution. The English locale shows the three menus on the top bar of the screen from left to right as Programs, Places and then Desktop. When we switch to Persian/Iran locale, these menus are still on the left side of the screen but their order is reversed. So, when Persian/Iran locale active, the menus from left to right are Desktop, Places and then Programs. This is shown in the following figures:
+
 
 ![](img/PersianHIG_EN_Main4_Chapter4_514f908b.png) **OK**
 
@@ -124,15 +129,13 @@ This bad design choice can be partially offset by using clever names to put the 
 
 **Rule 1: The localization of software should not adversely affect its usability and design features.**
 
-**Rule 2: Avoid using alphabetical ordering of the interface elements (such as menu commands) in the design of the internationalized software.**
-
-**The alphabetical ordering is only advised in list of elements that are dynamic and contain many elements.**
+**Rule 2: Avoid using alphabetical ordering of the interface elements (such as menu commands) in the design of the internationalized software. The alphabetical ordering is only advised in list of elements that are dynamic and contain many elements.**
 
 **Guideline 1: To support right-to-left (actually bidirectional) locales, avoid blindly mirroring the entire user interface. Developer tools and graphical toolkits should provide more control for developers and localizers in specifying the proper placement of user interface elements.**
 
 **Guideline 2: To reduce unexpected directionality related issues with GUI designs it is advised the vertically symmetric designs used as much as possible.**
 
-### 4.4. The Effect of Different Direction in Desktop, Software and Document
+## 4.4. The Effect of Different Direction in Desktop, Software and Document
 
 We briefly mentioned the issues of a mixed Persian/Latin environment. Since this is a common scenario, we will discuss it in more detail here. The first thing to note is the three main elements that the user is dealing with when using a computer:
 
@@ -146,23 +149,23 @@ Also, the active locale does not determine the language of the data that we will
 
 The directionality of the active GUI locale, usually takes precedence over the actual language of the user interface to maintain the consistency and stability of common GUI elements. For example, menu bar is a GUI element that is almost universally available in all applications. It also usually has similar menus in all applications, such as File and Edit menus. For this reason, and despite the fact that menu bar has a text oriented appearance which suggests adhering to the direction of the language, the direction of the menu bar should stay the same for all applications on the same desktop environment. If the active locale is Persian/Iran the menu bar will be right-to-left even for applications that are not localized to Persian. In such a case while localized Persian applications have menu bars with expected orientation, such as the following figure
 
-پرونده ویرایش نمایش جستجو … **OK**
+**OK:** <div dir="rtl">پرونده ویرایش نمایش جستجو …</div>
 
 None-localized applications will appear to have a reversed menu bar as in the following figure:
 
-File Edit View Search … **OK**
+**OK:** File Edit View Search …
 
 This behavior is the correct behavior despite looking strange in the none-localized application, because it maintains the consistency of the placement of equivalent elements. Any elements that are very common and have a consistent placement across most applications should maintain a consistent placement according to active locale. Another example in this regard is the placement of OK and Cancel buttons and other similar elements. One of the most important elements that are sometimes misplaced in this regard is the vertical scroll bar. It has been seen in some web browsers that they flip the position of the vertical scroll bar if you navigate from a page into another page that has the opposite directionality. This is definitely wrong behavior, since scroll bar is one of the most frequently used elements in the user interface and maintaining consistency and stability in its location is very important. The other point regarding scroll bar is that its placement does not really depend on writing direction. For example, in the SmallTalk environment the vertical scroll bar placed on the opposite side. So, unlike the menu bar where keeping the main locale direction makes it look strange, the scroll bar is perfectly OK wherever it is placed as long as it does not flip around.
 
 But this does not apply to the parts of the user interface that are expected to be read like text. For example, a form where there are labels and fields, the relative order of fields and their labels should follow the direction of the language they are written in, not that of the active locale. The following screen shot shows the existing incorrect behavior of GNOME:
 
-![](img/PersianHIG_EN_Main4_Chapter4_768dd48b.png) **Wrong!**
+**Wrong:**
+
+![](img/PersianHIG_EN_Main4_Chapter4_768dd48b.png)
 
 As you see in the above picture right-to-left layout is clearly incorrect when the actual language of the text in the GUI is English.
 
-**Rule 1: The placement of the common interface elements follows the direction of the active locale, even if the actual language has a different direction.**
-
-**The directionality of custom GUI elements that are read like text should adhere to the actual language of the GUI regardless of the active locale direction.**
+**Rule 1: The placement of the common interface elements follows the direction of the active locale, even if the actual language has a different direction. The directionality of custom GUI elements that are read like text should adhere to the actual language of the GUI regardless of the active locale direction.**
 
 The decision of the proper placement of the GUI elements is also affected by the fact that there is a considerable user base for the existing none-localized and left-to-right desktop environments. In order to ease the transition of the existing users, the changes in the placement and orientation of the GUI elements should be kept to the minimum that is necessary.
 
