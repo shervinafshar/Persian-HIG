@@ -1,36 +1,30 @@
-**Islamic Republic of Iran**
-
-**National Management & Planning Organization**
-
-**High Council of Informatics**
-
+**Islamic Republic of Iran**  
+**National Management & Planning Organization**  
+**High Council of Informatics**  
 **Iran National Open Source Project**
 
 Persian Graphical User Interface Specifications and Guidelines
---------------------------------------------------------------
+==============================================================
 
-**English Edition**
-
-**Public Release 1**
-
+**English Edition**  
+**Public Release 1**  
 **18 Sep 2005**
 
-
-**Author: Hooman Mehr**
-
+**Author: Hooman Mehr**  
 **Under the supervision of Dr. Mohammad Khaansaari**
 
-<div dir="rtl">
+<div style="direction: rtl; font-family: Adobe Arabic; font-weight: 900; font-size: x-large;">
+آیین‌نامۀ طرّاحی میانای کاربر گرافیکی فارسی
+<br/>
+نگارش انگلیسی
+</div>  
+  
+<div style="direction: rtl; font-family: Adobe Arabic; font-weight: 900; font-size: large;">
+کلیۀ حقوق مؤلف و ناشر محفوظ و مخصوص شورای عالی انفورماتیک جمهوری اسلامی ایران است.
+</div>
 
-<b>آیین‌نامۀ طرّاحی میانای کاربر گرافیکی فارسی</b>
-
-<b>نگارش انگلیسی</b>
-
-
-<b>کلیۀ حقوق مؤلف و ناشر محفوظ و مخصوص شورای عالی انفورماتیک جمهوری اسلامی ایران است.</b>
-
+<div style="direction: rtl; font-family: Adobe Arabic; font-weight: 500; font-size: large;">
 با رعایت شرایط اجازه‌نامۀ مستندات آزاد گنو، (ویرایش ۱٫۲ یا ویرایش‌های بعدی که توسط بنیاد نرم‌افزار آزاد منتشر می‌شود) اجازۀ تکثیر، توزیع و/یا تغییر این اثر داده می‌شود. توضیح اینکه، این اثر فاقد «بخشهای ثابت»، «متن روی جلد» و «متن پشت جلد» مذکور در اجازه‌نامۀ فوق است. نسخه‌ای از اجازه‌نامه در بخش ضمائم با عنوان «اجازه‌نامۀ مستندات آزاد گنو» (به زبان انگلیسی) پیوست گردیده است.
-
 </div>
 
 **Copyright © 2004 High Council of Informatics of the Islamic Republic of Iran**
@@ -42,7 +36,7 @@ A copy of the license is included in the section entitled “GNU Free Documentat
 Table of Contents
 -----------------
 
-**[Chapter 1 - Introduction](Persian_HIG_EN_Main4_Chapter1.md)**
+**[Chapter 1 - Introduction](PersianHIG_EN_Main4_Chapter1.md)**
 
  - 1.1. Summary and Purpose
  - 1.2. Scope
