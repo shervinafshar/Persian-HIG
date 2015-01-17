@@ -11,22 +11,22 @@ Some may be surprised to know that Persian language is an indo-European language
 
 2. Printed Latin text does not cursively connect adjacent characters and the shape of characters does not depend on their position in the word. In Persian, just like Arabic, the cursive connection of adjacent letters is required and the shape of characters depends on adjacent characters.
 
-3. In normal Latin printed writing, combining adjacent characters to form a ligature (like replacing ![](img/PersianHIG_EN_Main4_Chapter3_m23050a1.png =15x) with ![](img/PersianHIG_EN_Main4_Chapter3_m78695a6f.png =15x)) is optional and is used to improve the typographical look of the text. Some ligatures in Persian and Arabic are required for correct writing. The main example is the ligature of letter Lam (U+0644) with Alef (U+0627). For this reason, text rendering subsystem should support automatic formation of ligatures.
+3. In normal Latin printed writing, combining adjacent characters to form a ligature (like replacing ![](img/PersianHIG_EN_Main4_Chapter3_m23050a1.png) with ![](img/PersianHIG_EN_Main4_Chapter3_m78695a6f.png)) is optional and is used to improve the typographical look of the text. Some ligatures in Persian and Arabic are required for correct writing. The main example is the ligature of letter Lam (U+0644) with Alef (U+0627). For this reason, text rendering subsystem should support automatic formation of ligatures.
 
 4. In Latin text, each character has two forms: lower case and upper case. This does not apply to Persian and Arabic. They don’t have a concept similar to upper case of lower case of Latin.
 
 5.  Like Arabic the only required set of ligatures in Persian are the ligature of Lam (U+0644) with Alef-based characters (U+0627, U+0622, U+0623, etc) It is worth mentioning that mark to mark positioning by combining them into a single glyph (such as combining U+0651 with U+064E to get U+FC60) is not considered a ligature. The main difference of Persian with Arabic concerning ligatures is in the preferred optional ligatures. Here are the most common optional ligatures in Persian:
 
     -   The ligature of either U+06A9 and U+06AF with either Lam (U+0644) or Alef-based characters (U+0627, U+0622, U+0623, etc)
-    -   The ligature combining certain previous characters with the word final Yeh (U+06CC) in to morph a dandanah in the previous character to a hill in the head of Yeh, similar to this example that combines U+0633 with U+06CC: ![](img/PersianHIG_EN_Main4_Chapter3_3db6b928.png =20x)
+    -   The ligature combining certain previous characters with the word final Yeh (U+06CC) in to morph a dandanah in the previous character to a hill in the head of Yeh, similar to this example that combines U+0633 with U+06CC: ![](img/PersianHIG_EN_Main4_Chapter3_3db6b928.png)
 	-   The ligature of either of U+0633 to U+0636 with U+0631, U+0632 or U+0698. Also ligatures of medial form of some other characters (e.g. U+028, U+062A, U+062B) with U+0631, U+0632.
 
 6. The following optional Arabic ligatures are not desired in Persian. Avoid them for Persian text:
 
-	-   The ligature of Lam (U+0644) with Meem (U+0645) which looks like: ![](img/PersianHIG_EN_Main4_Chapter3_5b7a1782.png =8x)
-	-   The ligature of Meem (U+0645) with Alef (U+0627) which looks like: ![](img/PersianHIG_EN_Main4_Chapter3_60bfa87f.png =10x)
-	-   The ligature of Lam (U+0644) or Feh (U+0641) with any Yeh (U+64A or U+06CC) which look like: ![](img/PersianHIG_EN_Main4_Chapter3_18bf199f.png =27x)
-	-   The ligature of U+0628, U+062A, U+062B or U+0644 to U+0647 with U+062C to U+062E. For example U+0644 with U+062D forms this glyph in initial form: ![](img/PersianHIG_EN_Main4_Chapter3_73da820c.png =15x)
+	-   The ligature of Lam (U+0644) with Meem (U+0645) which looks like: ![](img/PersianHIG_EN_Main4_Chapter3_5b7a1782.png)
+	-   The ligature of Meem (U+0645) with Alef (U+0627) which looks like: ![](img/PersianHIG_EN_Main4_Chapter3_60bfa87f.png)
+	-   The ligature of Lam (U+0644) or Feh (U+0641) with any Yeh (U+64A or U+06CC) which look like: ![](img/PersianHIG_EN_Main4_Chapter3_18bf199f.png)
+	-   The ligature of U+0628, U+062A, U+062B or U+0644 to U+0647 with U+062C to U+062E. For example U+0644 with U+062D forms this glyph in initial form: ![](img/PersianHIG_EN_Main4_Chapter3_73da820c.png)
 	-   None of the three character Arabic optional ligatures are desired for Persian.
 
 7. Marks called accents that are added to some base characters in Latin are different from the floating marks used in Persian and Arabic. The characteristic of Latin accents is that some very specific accents are used on some very specific base characters. Those accented characters usually play a role very similar to a stand-alone character different from the base character. For this reason, it is common to use composed accented characters in Latin where a base character and an accent are combined to form a new character. In Persian and Arabic the use of floating marks is a lot more free and arbitrary. The floating marks in Persian and Arabic have stand-alone significance (many of them represent vowels, for instance) similar to an independent character. This means that in Persian and Arabic the floating marks are not composed with the base character to make new characters and remain independent and are editable independent of their base glyph.
@@ -37,13 +37,13 @@ Some may be surprised to know that Persian language is an indo-European language
 
 10. In Arabic when positioning the two floating marks U+0651 and either U+064D or U+0650 on the same base glyph, the second mark (the vowel) is placed on the first mark not on the character. So, in Arabic the combination of U+0651 and U+0650 looks like: ـِّ This is not the case in Persian and both marks are placed on the base character. For example, the combination of U+0651 and U+0650 is displayed as:ـّ‌ِ
 
-11. There is a floating mark that is specific to Persian and is not well documented. A short description of this mark follows: When you want to add a U+0650 to the end of a word, if certain conditions are met, U+0650 vowel mark is replaced with a mark whose shape is ![](img/PersianHIG_EN_Main4_Chapter3_m357d746.png =7x) and it is called *Yayeh Morakham* (یای مُرَخَّم) which means “shortened Yeh” and represents an added *Yeh* pronunciation to the usual pronunciation of U+0650 vowel. If a word ends in Heh (U+0647) but the Heh is not pronounced, *Yayeh Morakham* will be used instead of U+0650.
+11. There is a floating mark that is specific to Persian and is not well documented. A short description of this mark follows: When you want to add a U+0650 to the end of a word, if certain conditions are met, U+0650 vowel mark is replaced with a mark whose shape is ![](img/PersianHIG_EN_Main4_Chapter3_m357d746.png) and it is called *Yayeh Morakham* (یای مُرَخَّم) which means “shortened Yeh” and represents an added *Yeh* pronunciation to the usual pronunciation of U+0650 vowel. If a word ends in Heh (U+0647) but the Heh is not pronounced, *Yayeh Morakham* will be used instead of U+0650.
 
 A example usage of this mark in Persian is the phrase: خانۀ من (Meaning “my house”) Since writing this mark has not traditionally been well supported in typewriters and computers, it is also written with a full *Yeh* as: خانه‌ی من So, the sequence of U+200C + U+06CC appended to a word ending in U+0647 is equivalent to the presence of *Yayeh Morakham* at the end of the word.
 
 Since *Yayeh Morakham* is only used in this specific place and after this specific character it is treated more like accents and there is no separate and specific Unicode entry for it. Instead, in order to support this mark, the usage of *Arabic Hamza Above* (U+0654) is extended in Persian as follows:
 
-U+0654 is valid if it appears after U+0647 in Persian and is treated as *Yayeh Morakham*. It should be combined with the shape of base glyph in the form of an added mark above the base glyph shaped ![](img/PersianHIG_EN_Main4_Chapter3_m357d746.png =7x) (A small *Yeh* whose tail swash is cut)
+U+0654 is valid if it appears after U+0647 in Persian and is treated as *Yayeh Morakham*. It should be combined with the shape of base glyph in the form of an added mark above the base glyph shaped ![](img/PersianHIG_EN_Main4_Chapter3_m357d746.png) (A small *Yeh* whose tail swash is cut)
 
 The sequences U+0647 + U+0654 and U+0647 + U+200C + U+06CC at the end of a word are equivalent and are valid if U+0647 is not pronounced. The meaning of U+0654 or U+200C + U+06CC are equivalent to U+0650 (which in this context means “of”). The text services in a Persian localized environment should correctly support this special floating mark.
 
@@ -85,7 +85,7 @@ There are important differences between Persian (including Arabic) fonts and Lat
 
 Normal Latin fonts usually contain many parallel vertical stems that reside between three well-defined parallel horizontal guide lines. In contrast, there is only one well-defined baseline recognizable in Persian font and the angle, shape and height of the stems in the Persian fonts are quite varied. The following figure shows a sample of Latin vs. Persian Fonts (Linotype Palatino vs. Linotype Lotus):
 
-![](img/PersianHIG_EN_Main4_Chapter3_4256dbfa.png =600x)
+![](img/PersianHIG_EN_Main4_Chapter3_4256dbfa.png)
 
 Both fonts descend below the baseline but the amount and variation of this descend is much more in the Persian font. Extra descend and the presence of swashes, dots and floating marks in the Persian fonts causes the Persian text to require more line spacing to be easily readable.
 
@@ -120,7 +120,7 @@ There is also a general issue which limits the usefulness of this style in Persi
 
 There is another point concerning underlined text in Persian. Because of the extra descent and presence of dots below the baseline, Persian underline needs to be lower down the baseline than Latin underline. To get the correct effect, font designers should properly specify underline position for Persian fonts and application software should actually read and adhere to the underline position specified in the font instead of drawing a generic underline in a fixed position. This difference in suitable underline position creates another issue. If underlined text is a mix of Persian and Latin, the underline will be broken and will look unacceptable as shown below:
 
-![](img/PersianHIG_EN_Main4_Chapter3_1ed75ec.png =400x)
+![](img/PersianHIG_EN_Main4_Chapter3_1ed75ec.png)
 
 For this reason, the underline position should be determined as the lowest line indicated by various fonts that are used on the same line. If this is not possible try to eliminate the use of underlined text in your Persian user interfaces.
 
@@ -152,7 +152,7 @@ Since the text used in the user interface potentially can contain both Persian a
 
 Font designed for use on display screens which are used for GUI text and web pages have important differences with the normal fonts designed for printed output. To improve readability these fonts usually look larger and more widely spaced with exaggerated features. For example look at the difference in on-screen rendering of the following two fonts:
 
-![](img/PersianHIG_EN_Main4_Chapter3_m299a078c.png =450x)
+![](img/PersianHIG_EN_Main4_Chapter3_m299a078c.png)
 
 The above figure shows a 10 point screen font rendered at 96dpi (first line) vs. a 10 point normal font rendered at 96dpi. The limited resolution available when rendering display fonts makes proper display of the variations in stem widths and serif sizes impossible. So, most display fonts use an almost constant stem width with thick, oversized serifs. The stem width is also usually much thicker in the boldface variation of the display font.
 
@@ -162,7 +162,7 @@ The above features are common for display fonts in any script. There are some fe
 
 Since the Persian and Latin GUI fonts are used side by side, a Persian GUI font should be compatible and in harmony with its Latin equivalent. To achieve this, it is necessary to reduce the descender of the Persian font compared to the traditional designs. This may even require using a different and higher actual baseline for the Persian character than the nominal baseline encoded in the font. This technique has been used in the old (pre-Mac OS 8) Persian and Arabic GUI fonts of Apple Macintosh as shown in the following figure:
 
-![](img/PersianHIG_EN_Main4_Chapter3_m400f5959.png =400x)
+![](img/PersianHIG_EN_Main4_Chapter3_m400f5959.png)
 
 Since the readability of the font is the primary concern in GUI fonts, a Persian GUI font needs to be made larger to improve its readability.
 
@@ -178,21 +178,21 @@ In order to use Persian fonts in GNU/Linux, we need a minimal classification of 
 
 1.  Serif, such as:
 
-	![](img/PersianHIG_EN_Main4_Chapter3_229cd4d0.png =300x)
+	![](img/PersianHIG_EN_Main4_Chapter3_229cd4d0.png)
 
 2.  Sans-serif, (Sans for short) such as:
 
-	![](img/PersianHIG_EN_Main4_Chapter3_53767d7.png =300x)
+	![](img/PersianHIG_EN_Main4_Chapter3_53767d7.png)
 
 3.  Mono-space, (Mono for short) such as:
 
-	![](img/PersianHIG_EN_Main4_Chapter3_m2607f45a.png =300x)
+	![](img/PersianHIG_EN_Main4_Chapter3_m2607f45a.png)
 
 Here we determine the equivalent categories in Persian fonts:
 
 A feature like the serifs in Latin fonts (as displayed below) does not exist in Persian fonts. Since the traditional Latin fonts are serif and have varied stem width, we assume that the traditional Persian fonts with varied stem widths are Serif.
 
-![](img/PersianHIG_EN_Main4_Chapter3_51b6fc32.png =300x)
+![](img/PersianHIG_EN_Main4_Chapter3_51b6fc32.png)
 
 **Rule 1: Traditional Persian fonts with varied stem widths are defined to be Serif.**
 
@@ -410,7 +410,7 @@ After typing a RTL character: ![](img/PersianHIG_EN_Main4_Chapter3_5179590e.png)
 - To better display the position of cursor inside a ligature it may be useful to have a slanted or even broken cursor to clearly show the position of the cursor.
 - In Persian text, when the cursor moves on a character with floating marks using arrow keys, it will stay on the same spot as it passes the floating marks. To properly visualize the actual cursor position, a small tag should appear above and/or below the character (depending on mark) and behind the cursor to indicate the position of cursor relative to the floating marks as shown in the following example. In the following sequence of images from right to left the right to left traversal of a word is shown using left arrow key:
 
-![](img/PersianHIG_EN_Main4_Chapter3_1dc76c4a.png =600x)
+![](img/PersianHIG_EN_Main4_Chapter3_1dc76c4a.png)
 
   [^1]: During text editing, the cursor never jumps in the suggested behavior.
 
